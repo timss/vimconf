@@ -14,7 +14,7 @@ To install simply download and copy all the files to your home-folder, open an e
 
     :BundleInstall
 
-See ![Vundle](https://github.com/gmarik/vundle) for more information on how to use it.
+See [Vundle](https://github.com/gmarik/vundle) for more information on how to use it.
 
 ### Preview
 ![Preview](http://i.imgur.com/mbnEL.png "Vim screenshot")
