@@ -1,7 +1,7 @@
 vimconf
 =======
 
-My personal Vim configuration.
+My Vim configuration.
 
 Easy to install, explained .vimrc and usable for a wide array of tasks.  
 All required files to get it up and running is included. Fonts aswell. 
