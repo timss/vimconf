@@ -17,6 +17,6 @@ To install simply download and copy all the files to your home-folder, open an e
 See ![Vundle](https://github.com/gmarik/vundle) for more information on how to use it.
 
 ### Preview
-![Preview](https://raw.github.com/timss/vimconf/master/img/vim.png "Vim screenshot")
+![Preview](http://i.imgur.com/mbnEL.png "Vim screenshot")
 
 [Writing a small perl-script using Vim](http://youtu.be/DrzAuLsxgwU)
