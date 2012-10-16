@@ -1,12 +1,11 @@
-"----------------------------------------------------------"
-" Author:       Tim Sæterøy - timsateroy@gmail.com         "
-" Date:         16.10.12                                   "
-" Colorscheme:  Jellybeans                                 "
-" Plugins:      Align, AutoClose, Ctrlp, Fugitive, MRU,    "
-"               Nerdtree, Pastie, Powerline, Snipmate,     "
-"               Supertab, Surround, Vundle                 "
-" Updated:      http://vim.thevoid.no                      "
-"----------------------------------------------------------"
+"-----------------------------------------------------------"
+" Author:       Tim Sæterøy - timsateroy@gmail.com          "
+" Colorscheme:  Jellybeans                                  "
+" Plugins:      Align, AutoClose, Ctrlp, Fugitive, MRU,     "
+"               Nerdcommenter, Nerdtree, Pastie, Powerline, "
+"               Snipmate, Supertab, Surround, Vundle        "
+" Updated:      http://vim.thevoid.no                       "
+"-----------------------------------------------------------"
 
 """ Vundle plugin manager {{{
     filetype off                                    " required to init 
@@ -129,6 +128,12 @@
     " Open the plugin NERDTree
     noremap <F2> :NERDTreeToggle<CR>
 
+    " Pasting (used in insert-mode)
+    set pastetoggle=<F3>
+
+    " Yank(copy) to system clipboard
+    noremap <leader>y "+y
+
     " Snipmate remapping
     imap <tab> <C-r>=TriggerSnippet()<CR>
 
@@ -138,9 +143,6 @@
 
     " Toggle text wrapping
     nmap <silent> <leader>w :set invwrap<CR>:set wrap?<CR> 
-
-    " Yank(copy) to system clipboard
-    noremap <leader>y "+y
 
     """ Folding {{{
         nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
@@ -152,8 +154,4 @@
         vmap <C-up> [egv
         vmap <C-down> ]egv
     """ }}}
-    """ Pasting {{{
-        set pastetoggle=<F3>
-        nnoremap p ]p
-        nnoremap <C-p> p
 """ }}}

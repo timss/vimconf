@@ -3,4 +3,6 @@ vimconf
 
 My personal Vim configuration.
 
-![Preview](timss.github.com/vimconf/img/vim.png)
+![Preview](img/vim.png "Vim screenshot")
+
+[Writing a small perl-script using Vim](http://youtu.be/DrzAuLsxgwU)
