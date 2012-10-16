@@ -3,13 +3,14 @@ vimconf
 
 My personal Vim configuration.
 
-Useable for a wide array of tasks, easy to install and has an explained .vimrc.  
+Easy to install, explained .vimrc and usable for a wide array of tasks.  
 All required files to get it up and running is included. Fonts aswell. 
 
-The install process heavily relies upon the genious plugin manager Vundle, thus it is included. It doesn't matter if it's outdated, it'll update itself.
+The install process heavily relies upon the genious plugin manager Vundle, thus it is included.  
+It doesn't matter if it's outdated, it'll update itself.
 
 ### Installation
-To install simply download, copy .vim and .vimrc to your home-folder, open an empty file with Vim and run this to install (same goes for updating)
+To install simply download and copy all the files to your home-folder, open an empty file with Vim and run this to install. It's the same command for updating.  
 
     :BundleInstall
 
