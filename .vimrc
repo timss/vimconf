@@ -1,11 +1,8 @@
-"-----------------------------------------------------------"
-" Author:       Tim Sæterøy - timsateroy@gmail.com          "
-" Colorscheme:  Jellybeans                                  "
-" Plugins:      Align, AutoClose, Ctrlp, Fugitive, MRU,     "
-"               Nerdcommenter, Nerdtree, Pastie, Powerline, "
-"               Snipmate, Supertab, Surround, Vundle        "
-" Updated:      http://vim.thevoid.no                       "
-"-----------------------------------------------------------"
+"--------------------------------------------------"
+" Author:       Tim Sæterøy - timsateroy@gmail.com "
+" Source:       http://vim.thevoid.no (github)     "
+" Date:         19.10.12                           "
+"--------------------------------------------------"
 
 """ Vundle plugin manager {{{
     filetype off                                    " required to init 
@@ -15,6 +12,7 @@
         Bundle 'ervandew/supertab'
         Bundle 'gmarik/vundle'
         Bundle 'kien/ctrlp.vim'
+        Bundle 'lilydjwg/colorizer'
         Bundle 'Lokaltog/vim-powerline'
         Bundle 'msanders/snipmate.vim'
         Bundle 'nanotech/jellybeans.vim'
@@ -25,8 +23,10 @@
         Bundle 'tpope/vim-fugitive'
         Bundle 'tpope/vim-surround'
         Bundle 'tpope/vim-pastie'
+        Bundle 'trapd00r/x11colors.vim'
         Bundle 'vim-scripts/Align'
         Bundle 'vim-scripts/mru.vim'
+        Bundle 'vim-scripts/taglist.vim'
 """ }}}
 """ User interface {{{
     """ Syntax highlighting {{{
@@ -46,6 +46,7 @@
         """ }}}
     """ }}}
     """ Interface general {{{
+        set cursorline                              " hilight cursor line
         set encoding=utf-8                          " For Powerline glyphs
         set more                                    " ---more--- like less
         set noshowmode                              " hide mode in cmd-line
@@ -65,7 +66,9 @@
             set guioptions-=r                       " remove right scrollbar
         """ }}}
         """ Powerline {{{
-            let g:Powerline_symbols = 'fancy'       " glyphs, require fontpatch
+            let g:Powerline_symbols = 'fancy'       " glyphs, req. fontpatch
+            let g:Powerline_mode_n  = 'N'           " replace 'NORMAL'
+            let g:Powerline_mode_i  = 'I'           " replace 'INSERT'
         """ }}}
     """ }}}
 """ }}}
@@ -74,7 +77,7 @@
     set history=200                                 " default 20
     set iskeyword+=_,$,@,%,#                        " not word dividers
     set laststatus=2                                " always show statusline
-    set listchars=tab:>\                            " > to highlight <tab>>
+    set listchars=tab:>\                            " > to highlight <tab>
     set list                                        " displaying listchars
     set mouse=a                                     " mouse in all modes
     set nocompatible                                " don't vi-compatible
@@ -95,7 +98,7 @@
     """ }}}
     """ Matching {{{
         set matchtime=2                             " time to blink match {}
-        set showmatch                               " tmp-jump to match-bracket
+        set showmatch                               " tmpjump to match-bracket
     """ }}}
 """ }}}
 """ Files {{{
@@ -113,9 +116,10 @@
     set autoindent                                  " preserve indentation
     set backspace=indent,eol,start                  " smart backspace
     set expandtab                                   " no real tabs
+    set nrformats+=alpha                            " incr/decr letters C-a/-x
     set shiftround                                  " be clever with tabs
     set shiftwidth=4                                " default 8
-    set smartcase                                   " igncase,except w/capitals
+    set smartcase                                   " igncase,except capitals
     set smartindent                                 " see autoindent
     set smarttab                                    " tab to 0,4,8 etc.
     set softtabstop=4                               " "tab" feels like <tab>
@@ -143,6 +147,9 @@
 
     " Toggle text wrapping
     nmap <silent> <leader>w :set invwrap<CR>:set wrap?<CR> 
+
+    " Delete previous word with C-BS
+    imap <C-BS> <C-W>
 
     """ Folding {{{
         nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
