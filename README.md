@@ -32,8 +32,8 @@ Either disable this or use an appropriate font. See the docs for more informatio
 
 ### Configuration
 Use a ~/.vimrc.local for your own settings. In this way you can still easily 
-update this config without having to maintain your personal additions.  
-As for Gvim I'd still recommend using .vimrc.local since this has noexrc enabled.
+update this config without having to maintain your personal additions. As 
+for Gvim I'd still recommend using .vimrc.local since this has noexrc enabled.
 
 ### Preview
 ![Preview](http://i.imgur.com/mbnEL.png "Vim screenshot")
