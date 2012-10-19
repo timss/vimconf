@@ -49,7 +49,6 @@
         set cursorline                              " hilight cursor line
         set encoding=utf-8                          " For Powerline glyphs
         set more                                    " ---more--- like less
-        set noshowmode                              " hide mode in cmd-line
         set number                                  " line numbers
         set showcmd                                 " show cmds being typed
         set title                                   " window title
@@ -67,8 +66,20 @@
         """ }}}
         """ Powerline {{{
             let g:Powerline_symbols = 'fancy'       " glyphs, req. fontpatch
-            let g:Powerline_mode_n  = 'N'           " replace 'NORMAL'
-            let g:Powerline_mode_i  = 'I'           " replace 'INSERT'
+            let g:Powerline_symbols_override = {
+                        \ 'BRANCH': [0x2213],
+                        \ }                         " use ∓
+            """ Powerline mode names {{{
+                let g:Powerline_mode_n  = ' N '
+                let g:Powerline_mode_i  = ' I '
+                let g:Powerline_mode_R  = ' R '
+                let g:Powerline_mode_v  = ' V '
+                let g:Powerline_mode_V  = 'V·L'
+                let g:Powerline_mode_cv = 'V·B'
+                let g:Powerline_mode_s  = ' S '
+                let g:Powerline_mode_S  = 'S·L'
+                let g:Powerline_mode_cs = 'S·B'
+            """ }}}
         """ }}}
     """ }}}
 """ }}}
@@ -81,6 +92,7 @@
     set list                                        " displaying listchars
     set mouse=a                                     " mouse in all modes
     set nocompatible                                " don't vi-compatible
+    set noshowmode                                  " hide mode in cmd-line
     set noexrc                                      " don't use other .*rc(s)
     set nostartofline                               " no goto #1 char in line
     set nowrap                                      " don't wrap lines
