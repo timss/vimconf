@@ -54,6 +54,7 @@
         set encoding=utf-8                          " For Powerline glyphs
         set more                                    " ---more--- like less
         set number                                  " line numbers
+        set scrolloff=5                             " lines above/below cursor
         set showcmd                                 " show cmds being typed
         set title                                   " window title
         set visualbell                              " visual instead of beep
@@ -105,7 +106,7 @@
         set foldcolumn=0                            " hide folding column
         set foldmethod=indent                       " folds using indent
         set foldnestmax=10                          " max 10 nested folds
-        set foldlevelstart=99                       " open all folds på default
+        set foldlevelstart=99                       " folds open by default
     """ }}}
     """ Search and replace {{{
         set gdefault                                " default s//g (global)
@@ -114,7 +115,14 @@
     """ }}}
     """ Matching {{{
         set matchtime=2                             " time to blink match {}
+        set matchpairs+=<:>                         " for ci< or ci>
         set showmatch                               " tmpjump to match-bracket
+    """ }}}
+    """ Return to last edit position when opening files {{{
+        autocmd BufReadPost *
+                \ if line("'\"") > 0 && line("'\"") <= line("$") |
+                \     exe "normal! g`\"" |
+                \ endif
     """ }}}
 """ }}}
 """ Files {{{
@@ -170,16 +178,28 @@
     " Delete previous word with C-BS
     imap <C-BS> <C-W>
 
-    """ Folding using space {{{
-        nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
-        vnoremap <Space> zf
-    """ }}}
-    """ Bubbling (bracket matching) {{{
-        nmap <C-up> [e
-        nmap <C-down> ]e
-        vmap <C-up> [egv
-        vmap <C-down> ]egv
-    """ }}}
+    " Folding using space
+    nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
+    vnoremap <Space> zf
+
+    " Bubbling (bracket matching)
+    nmap <C-up> [e
+    nmap <C-down> ]e
+    vmap <C-up> [egv
+    vmap <C-down> ]egv
+
+    " Move faster
+    map <C-j> <C-d>
+    map <C-k> <C-u>
+
+    " Move a line of text using ALT-{j,k}
+    nmap <M-j> mz:m+<cr>`z
+    nmap <M-k> mz:m-2<cr>`z
+
+    " Rebind æøå (Norwegian keys)
+    noremap ø :
+    noremap å [
+    noremap æ ]
 """ }}}
 """ Use ~/.vimrc.local if exists {{{{
     if filereadable($HOME."/.vimrc.local")
