@@ -26,7 +26,7 @@
         Bundle 'vim-scripts/Align'
         Bundle 'vim-scripts/mru.vim'
 
-        " Requires flake8 or simular code checker, see docs
+        " Requires flake8 or similar code checker, see docs
         Bundle 'scrooloose/syntastic'
 
         " Requires ctags installed
