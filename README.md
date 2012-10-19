@@ -28,13 +28,14 @@ to use it.
 **Note**: This configuration uses 'fancy' glyphs for 
 [Powerline](https://github.com/Lokaltog/vim-powerline) and therefore requires 
 a patched font for it to work.  
-Either disable this or use an appropriate font. See the docs for more information.
+Either disable this or use an appropriate font. See the docs for more 
+information.
 
 ### Configuration
 Use a ~/.vimrc.local for your own settings. In this way you can still easily 
 update this config without  
-having to maintain your personal additions. It will be sourced automatically.  
-As for Gvim I'd still recommend using .vimrc.local since this noexrc is enabled.
+having to maintain your personal changes. It will be sourced automatically.  
+As for Gvim I'd still recommend using .vimrc.local since noexrc is enabled.
 
 ### Preview
 ![Preview](http://i.imgur.com/mbnEL.png "Vim screenshot")
