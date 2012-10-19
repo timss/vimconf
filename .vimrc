@@ -18,7 +18,6 @@
         Bundle 'nanotech/jellybeans.vim'
         Bundle 'scrooloose/nerdcommenter'
         Bundle 'scrooloose/nerdtree'
-        Bundle 'scrooloose/syntastic'
         Bundle 'Townk/vim-autoclose'
         Bundle 'tpope/vim-fugitive'
         Bundle 'tpope/vim-surround'
@@ -26,6 +25,11 @@
         Bundle 'trapd00r/x11colors.vim'
         Bundle 'vim-scripts/Align'
         Bundle 'vim-scripts/mru.vim'
+
+        " Requires flake8 or simular code checker, see docs
+        Bundle 'scrooloose/syntastic'
+
+        " Requires ctags installed
         Bundle 'vim-scripts/taglist.vim'
 """ }}}
 """ User interface {{{
@@ -144,8 +148,11 @@
     " Open the plugin NERDTree
     noremap <F2> :NERDTreeToggle<CR>
 
-    " Pasting (used in insert-mode)
+    " Pasting (used in insert-mode, or <ESC><F3>)
     set pastetoggle=<F3>
+
+    " Taglist-toggle
+    map <F4> <ESC>:TlistToggle<CR>
 
     " Yank(copy) to system clipboard
     noremap <leader>y "+y
