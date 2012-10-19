@@ -181,3 +181,8 @@
         vmap <C-down> ]egv
     """ }}}
 """ }}}
+""" Use ~/.vimrc.local if exists {{{{
+    if filereadable($HOME."/.vimrc.local")
+        source $HOME/.vimrc.local
+    endif
+""" }}}
