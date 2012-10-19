@@ -102,10 +102,10 @@
     set nowrap                                      " don't wrap lines
     set numberwidth=5                               " 99999 lines
     """ Folding {{{
-        set foldcolumn=1                            " 1 width folding column
+        set foldcolumn=0                            " hide folding column
         set foldmethod=indent                       " folds using indent
         set foldnestmax=10                          " max 10 nested folds
-        set nofoldenable                            " all folds open default
+        autocmd VimEnter * %foldopen!               " Open all folds by default
     """ }}}
     """ Search and replace {{{
         set gdefault                                " default s//g (global)
@@ -170,7 +170,7 @@
     " Delete previous word with C-BS
     imap <C-BS> <C-W>
 
-    """ Folding {{{
+    """ Folding using space {{{
         nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
         vnoremap <Space> zf
     """ }}}
