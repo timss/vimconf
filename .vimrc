@@ -105,7 +105,7 @@
         set foldcolumn=0                            " hide folding column
         set foldmethod=indent                       " folds using indent
         set foldnestmax=10                          " max 10 nested folds
-        autocmd VimEnter * %foldopen!               " Open all folds by default
+        set foldlevelstart=99                       " open all folds på default
     """ }}}
     """ Search and replace {{{
         set gdefault                                " default s//g (global)
