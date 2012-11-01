@@ -9,6 +9,7 @@
     set rtp+=~/.vim/bundle/vundle/                  " include vundle
     call vundle#rc()                                " init vundle
     """ github repos {{{
+        Bundle 'chrisbra/SudoEdit.vim'
         Bundle 'ervandew/supertab'
         Bundle 'gmarik/vundle'
         Bundle 'kien/ctrlp.vim'
