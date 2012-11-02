@@ -31,7 +31,8 @@ a patched font for it to work.
 Either disable this or use an appropriate font. See the docs for more 
 information.  
 If you're having problems with displaying the glyphs, check that you're using 
-UTF8 as encoding. You could also force encoding, but this will affect files 
+UTF8 as encoding.  
+You could also force encoding, but this will affect files 
 edited.
 
 ### Configuration
