@@ -30,6 +30,9 @@ to use it.
 a patched font for it to work.  
 Either disable this or use an appropriate font. See the docs for more 
 information.
+If you're having problems with displaying the glyphs, check that you're using 
+UTF8 as encoding. You could also force encoding, but this will affect files 
+edited.
 
 ### Configuration
 Use a ~/.vimrc.local for your own settings. In this way you can still easily 
