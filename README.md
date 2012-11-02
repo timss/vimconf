@@ -29,7 +29,7 @@ to use it.
 [Powerline](https://github.com/Lokaltog/vim-powerline) and therefore requires 
 a patched font for it to work.  
 Either disable this or use an appropriate font. See the docs for more 
-information.
+information.  
 If you're having problems with displaying the glyphs, check that you're using 
 UTF8 as encoding. You could also force encoding, but this will affect files 
 edited.
