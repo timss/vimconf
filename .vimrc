@@ -52,7 +52,6 @@
     """ }}}
     """ Interface general {{{
         set cursorline                              " hilight cursor line
-        set encoding=utf-8                          " For Powerline glyphs
         set more                                    " ---more--- like less
         set number                                  " line numbers
         set scrolloff=5                             " lines above/below cursor
@@ -64,6 +63,13 @@
                        \.avi,.mkv,.so
         set wildmenu                                " better cmd-completion
         set wildmode=list:longest                   " wildmode huge list
+        """ Encoding {{{
+            " If you're having problems with Powerline glyphs you can force
+            " UTF-8 if your locale is something else. 
+            " WARNING: this will affect encoding used when editing files!
+            "
+            " set encoding=utf-8                    " For Powerline glyphs
+        """ }}}
         """ Gvim {{{
             set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 8
             set guioptions-=m                       " remove menubar
