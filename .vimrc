@@ -141,7 +141,15 @@
     set confirm                                     " confirm changed files
     set noautowrite                                 " never autowrite
     set updatecount=50                              " update swp after 50chars
-    set undolevels=1000                             " max undo's
+    """ Undo {{{
+        if exists("&undodir")
+            set undodir=~/.vim/undo/,/tmp           " where to store undofiles
+        endif
+
+        set undofile                                " enable undofile
+        set undolevels=500                          " max undos stored
+        set undoreload=10000                        " buffer stored undos
+    """ }}}
 """ }}}
 """ Text formatting {{{
     set autoindent                                  " preserve indentation
