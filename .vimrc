@@ -1,7 +1,7 @@
 "----------------------------------------------"
 " Author:       timsateroy@gmail.com           "
 " Source:       http://vim.thevoid.no (github) "
-" Date:         30.10.12                       "
+" Date:         20.11.12                       "
 "----------------------------------------------"
 
 """ Vundle plugin manager {{{
@@ -15,6 +15,7 @@
         Bundle 'kien/ctrlp.vim'
         Bundle 'lilydjwg/colorizer'
         Bundle 'Lokaltog/vim-powerline'
+        Bundle 'Lokaltog/vim-easymotion'
         Bundle 'msanders/snipmate.vim'
         Bundle 'nanotech/jellybeans.vim'
         Bundle 'scrooloose/nerdcommenter'
