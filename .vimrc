@@ -1,14 +1,14 @@
 "----------------------------------------------"
 " Author:       timsateroy@gmail.com           "
 " Source:       http://vim.thevoid.no (github) "
-" Date:         20.11.12                       "
+" Date:         22.11.12                       "
 "----------------------------------------------"
 
 """ Vundle plugin manager {{{
     filetype off                                    " required to init 
     set rtp+=~/.vim/bundle/vundle/                  " include vundle
     call vundle#rc()                                " init vundle
-    """ github repos {{{
+    """ github repos, uncomment to disable a plugin {{{
         Bundle 'chrisbra/SudoEdit.vim'
         Bundle 'ervandew/supertab'
         Bundle 'gmarik/vundle'
@@ -44,12 +44,6 @@
         highlight Normal ctermbg=NONE               " use terminal background
         highlight nonText ctermbg=NONE              " use terminal background
         au BufRead,BufNewFile *.txt set ft=sh       " opens .txt w/highlight
-        """ Highlight characters past 80 {{{
-            augroup vimrc_autocmds
-                autocmd BufEnter * highlight OverLength ctermbg=black guibg=#212121
-                autocmd BufEnter * match OverLength /\%80v.*/
-            augroup END
-        """ }}}
     """ }}}
     """ Interface general {{{
         set cursorline                              " hilight cursor line
@@ -166,56 +160,76 @@
     set tabstop=4                                   " replace <TAB> w/4 spaces
 """ }}}
 """ Keybindings {{{
-    " Remap <leader>
-    let mapleader=","
+    """ General {{{
+        " Remap <leader>
+        let mapleader=","
 
-    " Open the plugin NERDTree
-    noremap <F2> :NERDTreeToggle<CR>
+        " Quickly edit/source .vimrc
+        noremap <leader>ve :edit ~/.vimrc<CR>
+        noremap <leader>vs :source ~/.vimrc<CR>
 
-    " Pasting (used in insert-mode, or <ESC><F3>)
-    set pastetoggle=<F3>
+        " Yank(copy) to system clipboard
+        noremap <leader>y "+y
 
-    " Taglist-toggle
-    map <F4> <ESC>:TlistToggle<CR>
+        " Toggle text wrapping
+        nmap <silent> <leader>w :set invwrap<CR>:set wrap?<CR> 
 
-    " Yank(copy) to system clipboard
-    noremap <leader>y "+y
+        " Toggle folding
+        nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
+        vnoremap <Space> zf
 
-    " Snipmate remapping
-    imap <tab> <C-r>=TriggerSnippet()<CR>
+        " Delete previous word with C-BS, doesn't work in all terminals
+        imap <C-BS> <C-W>
 
-    " Quickly edit/source .vimrc
-    noremap <leader>ve :edit ~/.vimrc<CR>
-    noremap <leader>vs :source ~/.vimrc<CR>
+        " Bubbling (bracket matching)
+        nmap <C-up> [e
+        nmap <C-down> ]e
+        vmap <C-up> [egv
+        vmap <C-down> ]egv
 
-    " Toggle text wrapping
-    nmap <silent> <leader>w :set invwrap<CR>:set wrap?<CR> 
+        " Move faster
+        map <C-j> <C-d>
+        map <C-k> <C-u>
 
-    " Delete previous word with C-BS
-    imap <C-BS> <C-W>
+        " Move a line of text using ALT-{j,k}
+        nmap <M-j> mz:m+<cr>`z
+        nmap <M-k> mz:m-2<cr>`z
 
-    " Folding using space
-    nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
-    vnoremap <Space> zf
+        " Rebind æøå (Norwegian keys)
+        noremap ø :
+        noremap å [
+        noremap æ ]
+    """ }}}
+    """ Plugins {{{
+        " Snipmate remapping
+        imap <tab> <C-r>=TriggerSnippet()<CR>
 
-    " Bubbling (bracket matching)
-    nmap <C-up> [e
-    nmap <C-down> ]e
-    vmap <C-up> [egv
-    vmap <C-down> ]egv
+        " Toggle the NERDTree file browser
+        noremap <F2> :NERDTreeToggle<CR>
 
-    " Move faster
-    map <C-j> <C-d>
-    map <C-k> <C-u>
+        " Toggle pastemode, doesn't indent
+        set pastetoggle=<F3>
 
-    " Move a line of text using ALT-{j,k}
-    nmap <M-j> mz:m+<cr>`z
-    nmap <M-k> mz:m-2<cr>`z
+        " Toggle taglist (definitions, functions etc.)
+        map <F4> <ESC>:TlistToggle<CR>
+    """ }}}
+    """ Highlight characters past 80, toggle with <leader>h {{{
+        nnoremap <Leader>h :call ToggleOverLengthHighlight()<CR>
+        let g:overlength_enabled = 0
+        highlight OverLength ctermbg=black guibg=#212121
 
-    " Rebind æøå (Norwegian keys)
-    noremap ø :
-    noremap å [
-    noremap æ ]
+        function! ToggleOverLengthHighlight()
+            if g:overlength_enabled == 0
+                match OverLength /\%80v.*/
+                let g:overlength_enabled = 1
+                echo 'OverLength highlighting turned on'
+            else
+                match
+                let g:overlength_enabled = 0
+                echo 'OverLength highlighting turned off'
+            endif
+        endfunction
+    """ }}}
 """ }}}
 """ Use ~/.vimrc.local if exists {{{{
     if filereadable($HOME."/.vimrc.local")
