@@ -2,9 +2,10 @@ vimconf
 =======
 
 My Vim configuration.
-
-Easy to install, explained .vimrc and usable for a wide array of tasks.  
-All required files to get it up and running is included. Fonts aswell. 
+* Easy to install
+* Every setting is explained
+* Powerful
+* All required files included
 
 The install process heavily relies upon the genius plugin manager Vundle, 
 thus it is included.  
