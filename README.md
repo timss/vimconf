@@ -43,6 +43,6 @@ having to maintain your personal changes. It will be sourced automatically.
 As for Gvim I'd still recommend using .vimrc.local since noexrc is enabled.
 
 ### Preview
-![Preview](http://i.imgur.com/mbnEL.png "Vim screenshot")
+![Preview](http://i.imgur.com/rdTew.png "Vim screenshot")
 
 [Writing a small perl-script using Vim](http://youtu.be/DrzAuLsxgwU)
