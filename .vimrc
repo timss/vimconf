@@ -202,6 +202,10 @@
         noremap ø :
         noremap å [
         noremap æ ]
+
+        " Split and switch to new pane
+        nnoremap <leader>d <C-w>v<C-w>l             " vertical
+        nnoremap <leader>s <C-w>s<C-w>l             " horizontal
     """ }}}
     """ Plugins {{{
         " Snipmate remapping
