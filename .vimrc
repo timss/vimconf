@@ -32,7 +32,7 @@
         Bundle 'scrooloose/syntastic'
 
         " Requires ctags installed
-        Bundle 'vim-scripts/taglist.vim'
+        Bundle 'majutsushi/tagbar'
 """ }}}
 """ User interface {{{
     """ Syntax highlighting {{{
@@ -206,10 +206,18 @@
         " Split and switch to new pane
         nnoremap <leader>d <C-w>v<C-w>l             " vertical
         nnoremap <leader>s <C-w>s<C-w>l             " horizontal
+
+        " We don't need any help!
+        inoremap <F1> <ESC>
+        nnoremap <F1> <ESC>
+        vnoremap <F1> <ESC>
+        
+        " Toggle syntax highlight
+        map <F7> :if exists("syntax_on")<Bar>syntax off<Bar>else<Bar>syntax enable<Bar>endif<CR>
     """ }}}
     """ Plugins {{{
-        " Snipmate remapping
-        imap <tab> <C-r>=TriggerSnippet()<CR>
+        " Toggle tagbar (definitions, functions etc.)
+        map <F1> :TagbarToggle<CR>
 
         " Toggle the NERDTree file browser
         noremap <F2> :NERDTreeToggle<CR>
@@ -217,13 +225,8 @@
         " Toggle pastemode, doesn't indent
         set pastetoggle=<F3>
 
-        " Toggle taglist (definitions, functions etc.)
-        map <F4> <ESC>:TlistToggle<CR>
-
-        " Stop CtrlP from recalculating on files on start
-        let g:ctrlp_clear_cache_on_exit = 0
-        let g:ctrlp_working_path_mode = 'ra'
-        let g:ctrlp_root_markers = ['.root', 'Makefile', '.git' ]
+        " Snipmate remapping
+        imap <tab> <C-r>=TriggerSnippet()<CR>
     """ }}}
     """ Highlight characters past 80, toggle with <leader>h {{{
         nnoremap <Leader>h :call ToggleOverLengthHighlight()<CR>
@@ -242,6 +245,21 @@
             endif
         endfunction
     """ }}}
+""" }}}
+""" Misc plugin settings {{{
+    " Open NERDTree on the right
+    let g:NERDTreeWinPos = "right"
+    let g:NERDTreeHijackNetrw=1
+
+    " TagBar
+    let g:tagbar_left = 1
+    let g:tagbar_width = 30
+    set tags=tags;/
+
+    " Stop CtrlP from recalculating on files on start
+    let g:ctrlp_clear_cache_on_exit = 0
+    let g:ctrlp_working_path_mode = 'ra'
+    let g:ctrlp_root_markers = ['.root', 'Makefile', '.git' ]
 """ }}}
 """ Use ~/.vimrc.local if exists {{{{
     if filereadable($HOME."/.vimrc.local")
