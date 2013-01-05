@@ -52,7 +52,7 @@
         set scrolloff=5                             " lines above/below cursor
         set showcmd                                 " show cmds being typed
         set title                                   " window title
-        set visualbell                              " visual instead of beep
+        set vb t_vb=                                " disable beep and flashing
         set wildignore=.bak,.pyc,.o,.ojb,.,a,       " ignore said files
                        \.pdf,.jpg,.gif,.png,
                        \.avi,.mkv,.so
