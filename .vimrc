@@ -1,7 +1,7 @@
 "----------------------------------------------"
 " Author:       timsateroy@gmail.com           "
 " Source:       http://vim.thevoid.no (github) "
-" Date:         22.11.12                       "
+" Date:         05.01.13                       "
 "----------------------------------------------"
 
 """ Vundle plugin manager {{{
@@ -131,19 +131,18 @@
     set autochdir                                   " always use curr. dir.
     set autoread                                    " refresh if changed
     set backup                                      " backup curr file
-    set backupdir=~/.vim/backup,/tmp                " backup director{y,ies}
+    set backupdir=~/.vim/backup                     " backup director{y,ies}
     set backupext=~                                 " append ~ to backups
     set confirm                                     " confirm changed files
     set noautowrite                                 " never autowrite
     set updatecount=50                              " update swp after 50chars
-    """ Undo {{{
-        if exists("&undodir")
-            set undodir=~/.vim/undo/,/tmp           " where to store undofiles
+    """ Persistent undo, saved when exiting a buffer. Vim 7.3 {{{
+        if has('persistent_undo') && exists("&undodir")
+            set undodir=~/.vim/undo/                " where to store undofiles
+            set undofile                            " enable undofile
+            set undolevels=500                      " max undos stored
+            set undoreload=10000                    " buffer stored undos
         endif
-
-        set undofile                                " enable undofile
-        set undolevels=500                          " max undos stored
-        set undoreload=10000                        " buffer stored undos
     """ }}}
 """ }}}
 """ Text formatting {{{
