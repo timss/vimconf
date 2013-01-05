@@ -4,7 +4,6 @@ vimconf
 My Vim configuration.
 * Easy to install
 * Every setting is explained
-* Powerful
 * All required files included
 
 The install process heavily relies upon the genius plugin manager Vundle, 
