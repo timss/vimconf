@@ -122,9 +122,9 @@
     """ }}}
     """ Return to last edit position when opening files {{{
         autocmd BufReadPost *
-                \ if line("'\"") > 0 && line("'\"") <= line("$") |
-                \     exe "normal! g`\"" |
-                \ endif
+            \ if line("'\"") > 0 && line("'\"") <= line("$") |
+            \     exe "normal! g`\"" |
+            \ endif
     """ }}}
 """ }}}
 """ Files {{{
@@ -136,7 +136,7 @@
     set confirm                                     " confirm changed files
     set noautowrite                                 " never autowrite
     set updatecount=50                              " update swp after 50chars
-    """ Persistent undo, saved when exiting a buffer. Vim 7.3 {{{
+    """ Persistent undo. Requires Vim 7.3 {{{
         if has('persistent_undo') && exists("&undodir")
             set undodir=~/.vim/undo/                " where to store undofiles
             set undofile                            " enable undofile
@@ -190,6 +190,10 @@
         map <C-j> <C-d>
         map <C-k> <C-u>
 
+        " Treat wrapped lines as normal lines
+        nnoremap j gj
+        nnoremap k gk
+
         " Move a line of text using ALT-{j,k}
         nmap <M-j> mz:m+<cr>`z
         nmap <M-k> mz:m-2<cr>`z
@@ -211,6 +215,11 @@
 
         " Toggle taglist (definitions, functions etc.)
         map <F4> <ESC>:TlistToggle<CR>
+
+        " Stop CtrlP from recalculating on files on start
+        let g:ctrlp_clear_cache_on_exit = 0
+        let g:ctrlp_working_path_mode = 'ra'
+        let g:ctrlp_root_markers = ['.root', 'Makefile', '.git' ]
     """ }}}
     """ Highlight characters past 80, toggle with <leader>h {{{
         nnoremap <Leader>h :call ToggleOverLengthHighlight()<CR>
