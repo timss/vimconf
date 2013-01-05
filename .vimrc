@@ -220,10 +220,14 @@
         map <F1> :TagbarToggle<CR>
 
         " Toggle the NERDTree file browser
-        noremap <F2> :NERDTreeToggle<CR>
+        map <F2> :NERDTreeToggle<CR>
 
         " Toggle pastemode, doesn't indent
         set pastetoggle=<F3>
+
+        " Toggle Syntastic error list. Probably should be toggleable.
+        noremap <silent><leader>lo :Errors<CR>
+        noremap <silent><leader>lc :lcl<CR>
 
         " Snipmate remapping
         imap <tab> <C-r>=TriggerSnippet()<CR>
@@ -260,6 +264,12 @@
     let g:ctrlp_clear_cache_on_exit = 0
     let g:ctrlp_working_path_mode = 'ra'
     let g:ctrlp_root_markers = ['.root', 'Makefile', '.git' ]
+
+    " Syntastic. Add active filetypes when needed.
+    let g:syntastic_mode_map = { 
+        \ 'mode': 'passive',
+        \ 'active_filetypes': 
+            \ ['c', 'cpp', 'javascript', 'perl', 'python', 'sh'] }
 """ }}}
 """ Use ~/.vimrc.local if exists {{{{
     if filereadable($HOME."/.vimrc.local")
