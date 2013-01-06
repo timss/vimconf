@@ -1,7 +1,7 @@
 "----------------------------------------------"
 " Author:       timsateroy@gmail.com           "
 " Source:       http://vim.thevoid.no (github) "
-" Date:         05.01.13                       "
+" Date:         06.01.13                       "
 "----------------------------------------------"
 
 """ Vundle plugin manager {{{
@@ -195,8 +195,8 @@
         nnoremap k gk
 
         " Move a line of text using ALT-{j,k}
-        nmap <M-j> mz:m+<cr>`z
-        nmap <M-k> mz:m-2<cr>`z
+        nmap <M-j> mz:m+<CR>`z
+        nmap <M-k> mz:m-2<CR>`z
 
         " Rebind æøå (Norwegian keys)
         noremap ø :
@@ -233,7 +233,7 @@
         imap <tab> <C-r>=TriggerSnippet()<CR>
     """ }}}
     """ Highlight characters past 80, toggle with <leader>h {{{
-        nnoremap <Leader>h :call ToggleOverLengthHighlight()<CR>
+        nnoremap <leader>h :call ToggleOverLengthHighlight()<CR>
         let g:overlength_enabled = 0
         highlight OverLength ctermbg=black guibg=#212121
 
@@ -246,6 +246,17 @@
                 match
                 let g:overlength_enabled = 0
                 echo 'OverLength highlighting turned off'
+            endif
+        endfunction
+    """ }}}
+    """ Toggle relativenumber using <leader>r {{{
+        nnoremap <leader>r :call NumberToggle()<CR>
+
+        function! NumberToggle()
+            if(&relativenumber == 1)
+                set number
+            else
+                set relativenumber
             endif
         endfunction
     """ }}}
