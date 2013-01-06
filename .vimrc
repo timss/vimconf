@@ -262,12 +262,12 @@
     """ }}}
 """ }}}
 """ Misc plugin settings {{{
-    " Open NERDTree on the right
-    let g:NERDTreeWinPos = "right"
+    " NERDTree
+    let g:NERDTreeWinPos = "left"
     let g:NERDTreeHijackNetrw=1
 
     " TagBar
-    let g:tagbar_left = 1
+    let g:tagbar_left = 0
     let g:tagbar_width = 30
     set tags=tags;/
 
