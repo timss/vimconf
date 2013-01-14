@@ -1,7 +1,7 @@
 "----------------------------------------------"
 " Author:       timsateroy@gmail.com           "
 " Source:       http://vim.thevoid.no (github) "
-" Date:         06.01.13                       "
+" Date:         14.01.13                       "
 "----------------------------------------------"
 
 """ Vundle plugin manager {{{
@@ -18,6 +18,7 @@
         Bundle 'Lokaltog/vim-easymotion'
         Bundle 'msanders/snipmate.vim'
         Bundle 'nanotech/jellybeans.vim'
+        Bundle 'Rip-Rip/clang_complete'
         Bundle 'scrooloose/nerdcommenter'
         Bundle 'scrooloose/nerdtree'
         Bundle 'Townk/vim-autoclose'
@@ -157,6 +158,9 @@
     set smarttab                                    " tab to 0,4,8 etc.
     set softtabstop=4                               " "tab" feels like <tab>
     set tabstop=4                                   " replace <TAB> w/4 spaces
+    """ Only auto-comment newline for block comments {{{
+        au FileType c,cpp setlocal comments -=:// comments +=f://
+    """ }}}
 """ }}}
 """ Keybindings {{{
     """ General {{{
@@ -281,6 +285,10 @@
         \ 'mode': 'passive',
         \ 'active_filetypes': 
             \ ['c', 'cpp', 'javascript', 'perl', 'python', 'sh'] }
+    
+    " Automatically remove preview window after autocomplete (clang_complete)
+    autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+    autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 """ }}}
 """ Use ~/.vimrc.local if exists {{{{
     if filereadable($HOME."/.vimrc.local")
