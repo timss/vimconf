@@ -45,3 +45,6 @@ As for Gvim I'd still recommend using .vimrc.local since noexrc is enabled.
 ![Preview](http://i.imgur.com/rdTew.png "Vim screenshot")
 
 [Writing a small perl-script using Vim](http://youtu.be/DrzAuLsxgwU)
+
+### Todo
+* Better plugins and binds for Python and C/C++
