@@ -57,8 +57,8 @@
         set wildignore=.bak,.pyc,.o,.ojb,.,a,       " ignore said files
                        \.pdf,.jpg,.gif,.png,
                        \.avi,.mkv,.so
-        set wildmenu                                " better cmd-completion
-        set wildmode=list:longest                   " wildmode huge list
+        set wildmenu                                " better auto complete
+        set wildmode=longest,list                   " bash-like auto complete
         """ Encoding {{{
             " If you're having problems with Powerline glyphs you can force
             " UTF-8 if your locale is something else. 
