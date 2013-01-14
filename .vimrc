@@ -28,6 +28,7 @@
         Bundle 'trapd00r/x11colors.vim'
         Bundle 'vim-scripts/Align'
         Bundle 'vim-scripts/mru.vim'
+        Bundle 'xuhdev/SingleCompile'
 
         " Requires flake8 or similar code checker, see docs
         Bundle 'scrooloose/syntastic'
@@ -228,6 +229,10 @@
 
         " Toggle pastemode, doesn't indent
         set pastetoggle=<F3>
+
+        " SingleCompile
+        nmap <F9> :SCCompile<CR>
+        nmap <F10> :SCCompileRun<CR>
 
         " Toggle Syntastic error list. Probably should be toggleable.
         noremap <silent><leader>lo :Errors<CR>
