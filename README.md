@@ -35,10 +35,6 @@ for it to work. A patched version of DejaVu Sans Mono is included in .fonts
 Either disable  or use an appropriate font. See the 
 [docs](https://github.com/Lokaltog/vim-powerline#troubleshooting) for more 
 information.  
-If you're having problems with displaying the glyphs, check that you're using 
-UTF8 as encoding.  
-You could also force encoding, but this will affect files 
-edited.
 
 ### Configuration
 Use a ~/.vimrc.local for your own settings. In this way you can still easily 
