@@ -4,11 +4,13 @@ vimconf
 My Vim configuration.
 * Easy to install
 * Every setting is explained
-* All required files included
+* All required files included \*
 
 The install process heavily relies upon the genius plugin manager Vundle, 
 thus it is included.  
-It doesn't matter if it's outdated, it'll update itself.
+
+\* Plugin required packages: clang, ruby, ctags, flake8 or similar (optional)
+See .vimrc for more info. 
 
 ### Installation
 To install clone and copy all the files to your home-folder,   
