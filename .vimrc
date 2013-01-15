@@ -18,10 +18,8 @@
         Bundle 'Lokaltog/vim-easymotion'
         Bundle 'msanders/snipmate.vim'
         Bundle 'nanotech/jellybeans.vim'
-        Bundle 'Rip-Rip/clang_complete'
         Bundle 'scrooloose/nerdcommenter'
         Bundle 'scrooloose/nerdtree'
-        Bundle 'simmel/vim-pastie'
         Bundle 'Townk/vim-autoclose'
         Bundle 'tpope/vim-fugitive'
         Bundle 'tpope/vim-surround'
@@ -35,6 +33,12 @@
 
         " Requires ctags installed
         Bundle 'majutsushi/tagbar'
+
+        " Requires a working Ruby-install (but not vim compiled with ruby)
+        Bundle 'simmel/vim-pastie'
+
+        " Requires the clang compilator
+        Bundle 'Rip-Rip/clang_complete'
 """ }}}
 """ User interface {{{
     """ Syntax highlighting {{{
