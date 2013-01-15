@@ -27,7 +27,8 @@ to use it.
 
 **Note**: This configuration uses 'fancy' glyphs for 
 [Powerline](https://github.com/Lokaltog/vim-powerline) and therefore requires 
-a patched font for it to work.  
+a [patched font](https://github.com/Lokaltog/vim-powerline/wiki/Patched-fonts) 
+for it to work.  
 Either disable this or use an appropriate font. See the docs for more 
 information.  
 If you're having problems with displaying the glyphs, check that you're using 
@@ -47,5 +48,7 @@ As for Gvim I'd still recommend using .vimrc.local since noexrc is enabled.
 [Writing a small perl-script using Vim](http://youtu.be/DrzAuLsxgwU)
 
 ### Todo
-* Better plugins and binds for Python and C/C++ (feel free to give me 
+* Better plugins and binds for Python (feel free to give me 
 suggestions)
+* Replace vim-powerline with the new 
+[powerline](https://github.com/Lokaltog/powerline) when it's ready
