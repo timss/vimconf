@@ -12,6 +12,9 @@ It doesn't matter if it's outdated, it'll update itself.
 
 ### Installation
 To install clone and copy all the files to your home-folder,   
+
+    cp -r vimconf/.vim ~
+
 alternatively symlink your ~/.vimrc to your git clone so in order to update
 only a git pull is needed.  
 
