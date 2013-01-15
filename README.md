@@ -31,8 +31,9 @@ to use it.
 **Note**: This configuration uses 'fancy' glyphs for 
 [Powerline](https://github.com/Lokaltog/vim-powerline) and therefore requires 
 a [patched font](https://github.com/Lokaltog/vim-powerline/wiki/Patched-fonts) 
-for it to work.  
-Either disable this or use an appropriate font. See the docs for more 
+for it to work. A patched version of DejaVu Sans Mono is included in .fonts 
+Either disable  or use an appropriate font. See the 
+[docs](https://github.com/Lokaltog/vim-powerline#troubleshooting) for more 
 information.  
 If you're having problems with displaying the glyphs, check that you're using 
 UTF8 as encoding.  
