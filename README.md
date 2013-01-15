@@ -9,7 +9,7 @@ My Vim configuration.
 The install process heavily relies upon the genius plugin manager Vundle, 
 thus it is included.  
 
-\* Packages required by plugins: clang, ruby, ctags   
+\* **Packages required by plugins:** clang, ruby, ctags   
 See .vimrc for more info. 
 
 ### Installation
