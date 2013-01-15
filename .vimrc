@@ -21,10 +21,10 @@
         Bundle 'Rip-Rip/clang_complete'
         Bundle 'scrooloose/nerdcommenter'
         Bundle 'scrooloose/nerdtree'
+        Bundle 'simmel/vim-pastie'
         Bundle 'Townk/vim-autoclose'
         Bundle 'tpope/vim-fugitive'
         Bundle 'tpope/vim-surround'
-        Bundle 'tpope/vim-pastie'
         Bundle 'trapd00r/x11colors.vim'
         Bundle 'vim-scripts/Align'
         Bundle 'vim-scripts/mru.vim'
@@ -294,6 +294,9 @@
     " Automatically remove preview window after autocomplete (clang_complete)
     autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
     autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+
+    " Private pastie (simmel's fork of tpope's vim-pastie with help from garno)
+    let g:pastie_private = 1
 """ }}}
 """ Use ~/.vimrc.local if exists {{{{
     if filereadable($HOME."/.vimrc.local")
