@@ -15,7 +15,7 @@ To install clone and copy all the files to your home-folder,
 alternatively symlink your ~/.vimrc to your git clone so in order to update
 only a git pull is needed.  
 
-    ln -s /dir/vimconf/.vimrc ~/.vimrc
+    ln -s vimconf/.vimrc ~/.vimrc
 
 Then open an empty file with Vim and run this to install the plugins.  
 It's the same command for updating.  
