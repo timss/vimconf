@@ -1,7 +1,7 @@
 "----------------------------------------------"
 " Author:       timsateroy@gmail.com           "
 " Source:       http://vim.thevoid.no (github) "
-" Date:         15.01.13                       "
+" Date:         20.01.13                       "
 "----------------------------------------------"
 
 """ Vundle plugin manager {{{
@@ -28,7 +28,7 @@
         Bundle 'vim-scripts/mru.vim'
         Bundle 'xuhdev/SingleCompile'
 
-        " Requires flake8 or similar code checker, see docs
+        " Requires a compiler or syntax/code checker, see :h Syntastic
         Bundle 'scrooloose/syntastic'
 
         " Requires ctags installed
