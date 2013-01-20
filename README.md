@@ -17,13 +17,13 @@ To install clone and copy all the files to your home-folder,
 
     cp -r vimconf/.vim ~
 
-alternatively symlink your ~/.vimrc to your git clone so in order to update
+**or** symlink your ~/.vimrc to your git clone so in order to update
 only a git pull is needed.  
 
     ln -s vimconf/.vimrc ~/.vimrc
 
 Then open an empty file with Vim and run this to install the plugins.  
-It's the same command for updating.  
+It's the same command for updating, but with an appended !   
 
     :BundleInstall
 
