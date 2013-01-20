@@ -39,7 +39,7 @@ Either disable  or use an appropriate font. See the
 information.  
 
 ### Configuration
-Use a ~/.vimrc.local for your own settings. In this way you can still easily 
+Use a ~/.vimrc.local for your own settings. This way you can still easily 
 update this config without  
 having to maintain your personal changes. It will be sourced automatically.  
 As for Gvim I'd still recommend using .vimrc.local since noexrc is enabled.
