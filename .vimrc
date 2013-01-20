@@ -289,7 +289,9 @@
     let g:ctrlp_working_path_mode = 'ra'
     let g:ctrlp_root_markers = ['.root', 'Makefile', '.git' ]
 
-    " Syntastic. Add active filetypes when needed.
+    " Syntastic
+    let g:syntastic_cpp_check_header = 1
+    let g:syntastic_cpp_compiler_options = ' -std=c++0x'
     let g:syntastic_mode_map = { 
         \ 'mode': 'passive',
         \ 'active_filetypes': 
