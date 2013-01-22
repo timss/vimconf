@@ -53,4 +53,5 @@ As for Gvim I'd still recommend using .vimrc.local since noexrc is enabled.
 * Better plugins and binds for Python (feel free to give me 
 suggestions)
 * Replace vim-powerline with the new 
-[powerline](https://github.com/Lokaltog/powerline) when it's ready
+[powerline](https://github.com/Lokaltog/powerline).   
+Will require new fonts (.ttf for windows) and easy install using Vundle.
