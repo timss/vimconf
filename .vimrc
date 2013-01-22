@@ -15,6 +15,7 @@
         Bundle 'kien/ctrlp.vim'
         Bundle 'lilydjwg/colorizer'
         Bundle 'Lokaltog/vim-powerline'
+        "Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
         Bundle 'Lokaltog/vim-easymotion'
         Bundle 'msanders/snipmate.vim'
         Bundle 'nanotech/jellybeans.vim'
@@ -222,7 +223,8 @@
         vnoremap <F1> <ESC>
         
         " Toggle syntax highlight
-        map <F7> :if exists("syntax_on")<Bar>syntax off<Bar>else<Bar>syntax enable<Bar>endif<CR>
+        map <F7> :if exists("syntax_on")
+            \<Bar>syntax off<Bar>else<Bar>syntax enable<Bar>endif<CR>
     """ }}}
     """ Plugins {{{
         " Toggle tagbar (definitions, functions etc.)
@@ -237,6 +239,11 @@
         " SingleCompile
         nmap <F9> :SCCompile<CR>
         nmap <F10> :SCCompileRun<CR>
+        call SingleCompile#SetCompilerTemplate('cpp', 'gcc', 'GNU C Compiler',
+            \'g++', '-Wall -Wextra -pedantic -O3 -std=c++0x -o $(FILE_TITLE)$',
+            \'./$(FILE_TITLE)$')
+        call SingleCompile#SetOutfile('cpp', 'gcc', '$(FILE_TITLE)$')
+        call SingleCompile#ChooseCompiler('cpp', 'gcc')
 
         " Toggle Syntastic error list. Probably should be toggleable.
         noremap <silent><leader>lo :Errors<CR>
