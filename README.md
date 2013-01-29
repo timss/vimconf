@@ -17,8 +17,8 @@ To install clone and copy all the files to your home-folder,
 
     cp -r vimconf/.vim ~
 
-**or** symlink your ~/.vimrc to your git clone so in order to update
-only a git pull is needed.  
+Symlink your ~/.vimrc to your git clone so in order to update
+only a git pull is needed.   
 
     ln -s vimconf/.vimrc ~/.vimrc
 
