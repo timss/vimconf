@@ -55,3 +55,5 @@ suggestions)
 * Replace vim-powerline with the new 
 [powerline](https://github.com/Lokaltog/powerline).   
 Will require new fonts (.ttf for windows) and easy install using Vundle.
+* Conditional expressions for testing whether or not plugin X is enabled,   
+and if so; enable plugin settings (Syntastic etc).
