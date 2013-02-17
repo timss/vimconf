@@ -1,6 +1,9 @@
 vimconf
 =======
 
+\*\*\* ### Powerline is not yet updated to the new branch, 
+and will not work! \*\*\*
+
 My Vim configuration.
 * Easy to install
 * Every setting is explained
