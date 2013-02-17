@@ -1,7 +1,7 @@
 "----------------------------------------------"
 " Author:       timsateroy@gmail.com           "
 " Source:       http://vim.thevoid.no (github) "
-" Date:         22.01.13                       "
+" Date:         14.02.13                       "
 "----------------------------------------------"
 
 """ Vundle plugin manager {{{
@@ -40,6 +40,10 @@
 
         " Requires the clang compilator
         Bundle 'Rip-Rip/clang_complete'
+
+        " Requires the python package 'jedi' (also if you're in a
+        " no-site-packages virtenv)
+        Bundle 'davidhalter/jedi-vim'
 """ }}}
 """ User interface {{{
     """ Syntax highlighting {{{
