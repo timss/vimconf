@@ -31,7 +31,9 @@ Don't mind all the errors that pop up after the install is finished.
 See [Vundle](https://github.com/gmarik/vundle) for more information on how 
 to use it.
 
-**Note**: This configuration uses 'fancy' glyphs for 
+### Fonts and Powerline
+
+This configuration uses 'fancy' glyphs for 
 [Powerline](https://github.com/Lokaltog/vim-powerline) and therefore requires 
 a [patched font](https://github.com/Lokaltog/vim-powerline/wiki/Patched-fonts) 
 for it to work.   
@@ -54,6 +56,8 @@ Use a ~/.vimrc.local for your own settings. This way you can still easily
 update this config without   
 having to maintain your personal changes. It will be sourced automatically.  
 As for Gvim I'd still recommend using .vimrc.local since noexrc is enabled.
+
+Other than that it's just to hack away. Everything is neatly explained.
 
 ### Preview
 ![Preview](http://i.imgur.com/rdTew.png "Vim screenshot")
