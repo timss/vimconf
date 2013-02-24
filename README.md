@@ -34,14 +34,20 @@ to use it.
 **Note**: This configuration uses 'fancy' glyphs for 
 [Powerline](https://github.com/Lokaltog/vim-powerline) and therefore requires 
 a [patched font](https://github.com/Lokaltog/vim-powerline/wiki/Patched-fonts) 
-for it to work. A patched version of DejaVu Sans Mono is included in .fonts 
+for it to work.   
+A patched version of DejaVu Sans Mono is included in .fonts
 See the [docs](https://github.com/Lokaltog/vim-powerline#troubleshooting) for more 
 information.   
+
 If you want to use the included DejaVu Sans Mono fonts, do the following:   
 
     mkdir -p ~/.fonts
     cp vimconf/.vim/.fonts/* ~/.fonts/
     fc-cache -vf
+
+To disable this feature, change the powerline symbols setting to 'compatible' or 'unicode'   
+
+    let g:Powerline_symbols = 'compatible'
 
 ### Configuration
 Use a ~/.vimrc.local for your own settings. This way you can still easily 
