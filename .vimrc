@@ -1,7 +1,7 @@
 "----------------------------------------------"
 " Author:       timsateroy@gmail.com           "
 " Source:       http://vim.thevoid.no (github) "
-" Date:         24.02.13                       "
+" Date:         03.03.13                       "
 "----------------------------------------------"
 
 """ Vundle plugin manager {{{
