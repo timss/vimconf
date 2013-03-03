@@ -111,6 +111,7 @@
     set nostartofline                               " no goto #1 char in line
     set nowrap                                      " don't wrap lines
     set numberwidth=5                               " 99999 lines
+    set ttymouse=xterm2                             " Currently being tested
     """ Folding {{{
         set foldcolumn=0                            " hide folding column
         set foldmethod=indent                       " folds using indent
@@ -295,6 +296,9 @@
     let g:ctrlp_clear_cache_on_exit = 0
     let g:ctrlp_working_path_mode = 'ra'
     let g:ctrlp_root_markers = ['.root', 'Makefile', '.git' ]
+
+    " clang_complete - C++11
+    let g:clang_user_options="-std=c++0x"
 
     " Syntastic
     let g:syntastic_cpp_check_header = 1
