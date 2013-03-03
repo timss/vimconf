@@ -1,7 +1,7 @@
 "----------------------------------------------"
 " Author:       timsateroy@gmail.com           "
 " Source:       http://vim.thevoid.no (github) "
-" Date:         22.01.13                       "
+" Date:         24.02.13                       "
 "----------------------------------------------"
 
 """ Vundle plugin manager {{{
@@ -15,7 +15,6 @@
         Bundle 'kien/ctrlp.vim'
         Bundle 'lilydjwg/colorizer'
         Bundle 'Lokaltog/vim-powerline'
-        "Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
         Bundle 'Lokaltog/vim-easymotion'
         Bundle 'msanders/snipmate.vim'
         Bundle 'nanotech/jellybeans.vim'
@@ -40,6 +39,10 @@
 
         " Requires the clang compilator
         Bundle 'Rip-Rip/clang_complete'
+
+        " Requires the python package 'jedi' (also if you're in a
+        " no-site-packages virtenv)
+        Bundle 'davidhalter/jedi-vim'
 """ }}}
 """ User interface {{{
     """ Syntax highlighting {{{
