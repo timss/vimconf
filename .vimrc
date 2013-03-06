@@ -1,14 +1,14 @@
 "----------------------------------------------"
 " Author:       timsateroy@gmail.com           "
 " Source:       http://vim.thevoid.no (github) "
-" Date:         03.03.13                       "
+" Date:         06.03.13 (rougly)              "
 "----------------------------------------------"
 
 """ Vundle plugin manager {{{
     filetype off                                    " required to init 
     set rtp+=~/.vim/bundle/vundle/                  " include vundle
     call vundle#rc()                                " init vundle
-    """ github repos, uncomment to disable a plugin {{{
+    """ Github repos, uncomment to disable a plugin {{{
         Bundle 'chrisbra/SudoEdit.vim'
         Bundle 'ervandew/supertab'
         Bundle 'gmarik/vundle'
@@ -73,7 +73,7 @@
             " UTF-8 if your locale is something else. 
             " WARNING: this will affect encoding used when editing files!
             "
-            " set encoding=utf-8                    " For Powerline glyphs
+            " set encoding=utf-8                    " for Powerline glyphs
         """ }}}
         """ Gvim {{{
             set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 8
@@ -114,7 +114,7 @@
     set nostartofline                               " no goto #1 char in line
     set nowrap                                      " don't wrap lines
     set numberwidth=5                               " 99999 lines
-    set ttymouse=xterm2                             " Currently being tested
+    set ttymouse=xterm2                             " experimental
     """ Folding {{{
         set foldcolumn=0                            " hide folding column
         set foldmethod=indent                       " folds using indent
