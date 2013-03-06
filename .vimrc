@@ -243,27 +243,22 @@
         " SingleCompile
         nmap <F9> :SCCompile<CR>
         nmap <F10> :SCCompileRun<CR>
-        call SingleCompile#SetCompilerTemplate('cpp', 'gcc', 'GNU C Compiler',
-            \'g++', '-Wall -Wextra -pedantic -O3 -std=c++0x -o $(FILE_TITLE)$',
-            \'./$(FILE_TITLE)$')
-        call SingleCompile#SetOutfile('cpp', 'gcc', '$(FILE_TITLE)$')
-        call SingleCompile#ChooseCompiler('cpp', 'gcc')
 
-        " Toggle Syntastic error list. Probably should be toggleable.
+        " Syntastic - toggle error list. Probably should be toggleable.
         noremap <silent><leader>lo :Errors<CR>
         noremap <silent><leader>lc :lcl<CR>
 
         " Snipmate remapping
         imap <tab> <C-r>=TriggerSnippet()<CR>
     """ }}}
-    """ Highlight characters past 80, toggle with <leader>h {{{
+    """ Highlight characters past 79, toggle with <leader>h {{{
         nnoremap <leader>h :call ToggleOverLengthHighlight()<CR>
         let g:overlength_enabled = 0
         highlight OverLength ctermbg=black guibg=#212121
 
         function! ToggleOverLengthHighlight()
             if g:overlength_enabled == 0
-                match OverLength /\%80v.*/
+                match OverLength /\%79v.*/
                 let g:overlength_enabled = 1
                 echo 'OverLength highlighting turned on'
             else
@@ -286,24 +281,34 @@
     """ }}}
 """ }}}
 """ Misc plugin settings {{{
+    " clang_complete - C++11
+    let g:clang_user_options="-std=c++0x"
+
+    " CtrlP - don't recalculate files on start (slow)
+    let g:ctrlp_clear_cache_on_exit = 0
+    let g:ctrlp_working_path_mode = 'ra'
+    let g:ctrlp_root_markers = ['.root', 'Makefile', '.git' ]
+
     " NERDTree
     let g:NERDTreeWinPos = "left"
-    let g:NERDTreeHijackNetrw=1
+    let g:NERDTreeHijackNetrw = 1
 
     " TagBar
     let g:tagbar_left = 0
     let g:tagbar_width = 30
     set tags=tags;/
 
-    " Stop CtrlP from recalculating on files on start
-    let g:ctrlp_clear_cache_on_exit = 0
-    let g:ctrlp_working_path_mode = 'ra'
-    let g:ctrlp_root_markers = ['.root', 'Makefile', '.git' ]
+    " Pastie - private (simmel's fork of tpope's vim-pastie with help from garno)
+    let g:pastie_private = 1
 
-    " clang_complete - C++11
-    let g:clang_user_options="-std=c++0x"
+    " SingleCompile
+    call SingleCompile#SetCompilerTemplate('cpp', 'gcc', 'GNU C Compiler',
+        \'g++', '-Wall -Wextra -pedantic -O3 -std=c++0x -o $(FILE_TITLE)$',
+        \'./$(FILE_TITLE)$')
+    call SingleCompile#SetOutfile('cpp', 'gcc', '$(FILE_TITLE)$')
+    call SingleCompile#ChooseCompiler('cpp', 'gcc')
 
-    " Syntastic
+    " Syntastic - C++11 and relevant files
     let g:syntastic_cpp_check_header = 1
     let g:syntastic_cpp_compiler_options = ' -std=c++0x'
     let g:syntastic_mode_map = { 
@@ -311,12 +316,9 @@
         \ 'active_filetypes': 
             \ ['c', 'cpp', 'javascript', 'perl', 'python', 'sh'] }
     
-    " Automatically remove preview window after autocomplete (clang_complete)
+    " Automatically remove preview window after autocomplete (mainly for clang_complete)
     autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
     autocmd InsertLeave * if pumvisible() == 0|pclose|endif
-
-    " Private pastie (simmel's fork of tpope's vim-pastie with help from garno)
-    let g:pastie_private = 1
 """ }}}
 """ Use ~/.vimrc.local if exists {{{{
     if filereadable($HOME."/.vimrc.local")
