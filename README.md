@@ -65,6 +65,10 @@ Other than that it's just to hack away. Everything is neatly explained.
 [Writing a small perl-script using Vim](http://youtu.be/DrzAuLsxgwU)
 
 ### Todo
+* Potentially add [YouCompleteMe](https://github.com/Valloric/YouCompleteMe),
+which would replace [clang_complete](https://github.com/Rip-Rip/clang_complete), 
+[supertab](https://github.com/ervandew/supertab) and maybe even 
+[jedi-vim](https://github.com/davidhalter/jedi-vim)
 * Better/more plugins and binds for Python (feel free to give me 
 suggestions).
 * Maybe replace vim-powerline with the new 
