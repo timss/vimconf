@@ -125,6 +125,7 @@
         set gdefault                                " default s//g (global)
         set incsearch                               " "live"-search
         set ignorecase                              " case insensitive search
+        set nowrapscan                              " don't "loop"-search file
     """ }}}
     """ Matching {{{
         set matchtime=2                             " time to blink match {}
