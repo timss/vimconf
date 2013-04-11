@@ -1,6 +1,5 @@
 vimconf
 =======
-
 * Autocomplete, syntax checker, plugin manager and much more!
 * Easy to install
 * Everything in vimrc is explained!
@@ -10,7 +9,6 @@ See .vimrc for more info.
 
 Installation
 ------------
-
 To install clone and copy the .vim-folder to your home-folder.   
 Symlink your ~/.vimrc to your git clone so in order to update
 only a git pull is needed:   
@@ -22,7 +20,6 @@ Run vim and it'll download and install all plugins for you!
 
 Configuration
 -------------
-
 Use a ~/.vimrc.local for your own settings. This way you can still easily 
 update this config without   
 having to maintain your personal changes. It will be sourced automatically.   
@@ -31,14 +28,12 @@ As for Gvim I'd still recommend using .vimrc.local since noexrc is enabled.
 
 Preview
 -------
-
 ![Preview](http://i.imgur.com/rdTew.png "Vim screenshot")
 
 [Writing a small perl-script using Vim](http://youtu.be/DrzAuLsxgwU)
 
 Optional: fancier powerline
 ---------------------------
-
 If you want to use fancy powerline you need a 
 [patched font](https://github.com/Lokaltog/vim-powerline/wiki/Patched-fonts)   
 A patched version of DejaVu Sans Mono is included in .fonts
@@ -57,9 +52,8 @@ And enable it in .vimrc
 
 Todo
 ----
-
 * Potentially add [YouCompleteMe](https://github.com/Valloric/YouCompleteMe),
-which would replace [clang_complete](https://github.com/Rip-Rip/clang_complete), 
+which would replace [clang\_complete](https://github.com/Rip-Rip/clang_complete), 
 [supertab](https://github.com/ervandew/supertab) and maybe even 
 [jedi-vim](https://github.com/davidhalter/jedi-vim)
 * Better/more plugins and binds for Python (feel free to give me 
