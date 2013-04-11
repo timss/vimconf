@@ -139,7 +139,7 @@ set nocompatible
             set guioptions-=r                       " remove right scrollbar
         """ }}}
         """ Powerline {{{
-            let g:Powerline_symbols = 'fancy'       " glyphs, req. fontpatch
+            let g:Powerline_symbols = 'compatible'  " see :h Powerline_symbols
             let g:Powerline_symbols_override = {
                         \ 'BRANCH': [0x2213],
                         \ }                         " use ∓
