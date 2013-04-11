@@ -28,6 +28,12 @@ set nocompatible
     " Recursive vundle, omg!
     Bundle 'gmarik/vundle'
 
+    """ Local bundles (and only bundles in this file!) {{{{
+        if filereadable($HOME."/.vimrc.bundles")
+            source $HOME/.vimrc.bundles
+        endif
+    """ }}}
+
     " Edit files using sudo/su
     Bundle 'chrisbra/SudoEdit.vim'
 
@@ -100,6 +106,12 @@ set nocompatible
             :BundleInstall
         endif
     """ }}}
+""" }}}
+""" Local beginning config, only use for prerequisites as it will be
+""" overwritten by anything below {{{{
+    if filereadable($HOME."/.vimrc.first")
+        source $HOME/.vimrc.first
+    endif
 """ }}}
 """ User interface {{{
     """ Syntax highlighting {{{
@@ -376,8 +388,8 @@ set nocompatible
     autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
     autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 """ }}}
-""" Use ~/.vimrc.local if exists {{{{
-    if filereadable($HOME."/.vimrc.local")
-        source $HOME/.vimrc.local
+""" Local ending config, will overwrite anything above. Generally use this. {{{{
+    if filereadable($HOME."/.vimrc.last")
+        source $HOME/.vimrc.last
     endif
 """ }}}

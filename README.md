@@ -49,6 +49,11 @@ And enable it in .vimrc
 
     let g:Powerline_symbols = 'fancy'
 
+Optional: local additions
+-------------------------
+Add .vimrc.{bundles,first,last} to $HOME if you want to customize but don't Git it.   
+Bundles can be added as usual, with `Bundle 'user/repo'`
+
 Todo
 ----
 * Potentially add [YouCompleteMe](https://github.com/Valloric/YouCompleteMe),
@@ -63,4 +68,3 @@ For now just using the old one. Don't see any reason to upgrade.
 Will require new fonts (.ttf for windows) and easy install using Vundle.
 * Conditional expressions for testing whether or not plugin X is enabled,   
 and if so; enable plugin settings (Syntastic etc).
-* Change from .vimrc.local to .vimrc.{first,last}
