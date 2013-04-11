@@ -1,27 +1,34 @@
 "----------------------------------------------"
 " Author:       timsateroy@gmail.com           "
 " Source:       http://vim.thevoid.no (github) "
-" Date:         11.04.13 (rougly)              "
+" Date:         12.04.13 (rougly)              "
 "----------------------------------------------"
 
 " vimconf is not vi-compatible
 set nocompatible
 
+""" Automatically make needed files and folders on first run {{{
+    exec 'silent !mkdir -p $HOME/.vim'
+    exec 'silent !mkdir -p $HOME/.vim/{backup,plugin,undo}'
+    if !filereadable("$HOME/.vimrc.bundles") | exec 'silent !touch "$HOME/.vimrc.bundles"' | endif
+    if !filereadable("$HOME/.vimrc.first") | exec 'silent !touch "$HOME/.vimrc.first"' | endif
+    if !filereadable("$HOME/.vimrc.last") | exec 'silent !touch "$HOME/.vimrc.last"' | endif
+""" }}}
 """ Vundle plugin manager {{{
     """ Setting up Vundle - from https://github.com/fisadev/fisa-vim-config {{{
         let has_vundle=1
-        let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
+        let vundle_readme=expand('$HOME/.vim/bundle/vundle/README.md')
         if !filereadable(vundle_readme)
             echo "Installing Vundle..."
             echo ""
-            silent !mkdir -p ~/.vim/bundle
-            silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
+            silent !mkdir -p $HOME/.vim/bundle
+            silent !git clone https://github.com/gmarik/vundle $HOME/.vim/bundle/vundle
             let has_vundle=0
         endif
     """ }}}
     """ Initialize Vundle {{{
         filetype off                                " required to init
-        set rtp+=~/.vim/bundle/vundle/              " include vundle
+        set rtp+=$HOME/.vim/bundle/vundle/          " include vundle
         call vundle#rc()                            " init vundle
     """ }}}
     """ Github repos, uncomment to disable a plugin {{{
@@ -29,7 +36,7 @@ set nocompatible
     Bundle 'gmarik/vundle'
 
     """ Local bundles (and only bundles in this file!) {{{{
-        if filereadable($HOME."/.vimrc.bundles")
+        if filereadable("$HOME/.vimrc.bundles")
             source $HOME/.vimrc.bundles
         endif
     """ }}}
@@ -210,14 +217,14 @@ set nocompatible
     set autochdir                                   " always use curr. dir.
     set autoread                                    " refresh if changed
     set backup                                      " backup curr file
-    set backupdir=~/.vim/backup                     " backup director{y,ies}
+    set backupdir=$HOME/.vim/backup                 " backup director{y,ies}
     set backupext=~                                 " append ~ to backups
     set confirm                                     " confirm changed files
     set noautowrite                                 " never autowrite
     set updatecount=50                              " update swp after 50chars
     """ Persistent undo. Requires Vim 7.3 {{{
         if has('persistent_undo') && exists("&undodir")
-            set undodir=~/.vim/undo/                " where to store undofiles
+            set undodir=$HOME/.vim/undo/            " where to store undofiles
             set undofile                            " enable undofile
             set undolevels=500                      " max undos stored
             set undoreload=10000                    " buffer stored undos
@@ -246,8 +253,8 @@ set nocompatible
         let mapleader=","
 
         " Quickly edit/source .vimrc
-        noremap <leader>ve :edit ~/.vimrc<CR>
-        noremap <leader>vs :source ~/.vimrc<CR>
+        noremap <leader>ve :edit $HOME/.vimrc<CR>
+        noremap <leader>vs :source $HOME/.vimrc<CR>
 
         " Yank(copy) to system clipboard
         noremap <leader>y "+y

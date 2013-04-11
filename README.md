@@ -1,8 +1,8 @@
 vimconf
 =======
-* Autocomplete, syntax checker, plugin manager and much more!
-* Easy to install
-* Everything in vimrc is explained!
+* Super easy to install
+* Everything in vimrc is explained
+* Autocomplete, syntax checker, plugin manager and much more
 
 \* **Packages required by plugins:** clang, ruby, ctags, jedi (python-package)   
 See .vimrc for more info.   
@@ -11,19 +11,18 @@ Installation
 ------------
 
     git clone https://github.com/timss/vimconf.git
-    cp -r vimconf/.vim ~
     ln -s vimconf/.vimrc ~/.vimrc
 
-Symlink your ~/.vimrc so in order to update only a git pull is needed!   
 Run vim and it'll download and install all plugins for you!
 
 Configuration
 -------------
-Use a ~/.vimrc.local for your own settings. This way you can still easily 
-update this config without   
-having to maintain your personal changes. It will be sourced automatically.   
+If you choose to symlink your `~/.vimrc` you can easily maintain an updated
+version of this vim configuration by using the local additions.
 
-As for Gvim I'd still recommend using .vimrc.{first,last} since noexrc is enabled.
+`~/.vimrc.bundles`  Add your personal bundles here.
+`~/.vimrc.first`    Prerequisites only, as it will be overwritten by whatever below.
+`~/.vimrc.last`     Overrides everything. Generally use this.
 
 Preview
 -------
@@ -48,11 +47,6 @@ If you want to use the included DejaVu Sans Mono fonts, do the following:
 And enable it in .vimrc.last (overrides .vimrc)
 
     let g:Powerline_symbols = 'fancy'
-
-Optional: local additions
--------------------------
-Add .vimrc.{bundles,first,last} to $HOME if you want to customize but don't Git it.   
-Bundles can be added as usual, with `Bundle 'user/repo'`
 
 Todo
 ----
