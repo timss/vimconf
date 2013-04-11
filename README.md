@@ -8,7 +8,9 @@ vimconf
 \* **Packages required by plugins:** clang, ruby, ctags, jedi (python-package)   
 See .vimrc for more info.   
 
-### Installation
+Installation
+------------
+
 To install clone and copy the .vim-folder to your home-folder.   
 Symlink your ~/.vimrc to your git clone so in order to update
 only a git pull is needed:   
@@ -18,19 +20,25 @@ only a git pull is needed:
 
 Run vim and it'll download and install all plugins for you!
 
-### Configuration
+Configuration
+-------------
+
 Use a ~/.vimrc.local for your own settings. This way you can still easily 
 update this config without   
 having to maintain your personal changes. It will be sourced automatically.   
 
 As for Gvim I'd still recommend using .vimrc.local since noexrc is enabled.
 
-### Preview
+Preview
+-------
+
 ![Preview](http://i.imgur.com/rdTew.png "Vim screenshot")
 
 [Writing a small perl-script using Vim](http://youtu.be/DrzAuLsxgwU)
 
-### Optional: fancier powerline
+Optional: fancier powerline
+---------------------------
+
 If you want to use fancy powerline you need a 
 [patched font](https://github.com/Lokaltog/vim-powerline/wiki/Patched-fonts)   
 A patched version of DejaVu Sans Mono is included in .fonts
@@ -47,7 +55,9 @@ And enable it in .vimrc
 
     let g:Powerline_symbols = 'fancy'
 
-### Todo
+Todo
+----
+
 * Potentially add [YouCompleteMe](https://github.com/Valloric/YouCompleteMe),
 which would replace [clang_complete](https://github.com/Rip-Rip/clang_complete), 
 [supertab](https://github.com/ervandew/supertab) and maybe even 
