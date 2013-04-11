@@ -23,7 +23,7 @@ Use a ~/.vimrc.local for your own settings. This way you can still easily
 update this config without   
 having to maintain your personal changes. It will be sourced automatically.   
 
-As for Gvim I'd still recommend using .vimrc.local since noexrc is enabled.
+As for Gvim I'd still recommend using .vimrc.{first,last} since noexrc is enabled.
 
 Preview
 -------
