@@ -3,40 +3,36 @@ vimconf
 
 * Autocomplete, syntax checker, plugin manager and much more!
 * Easy to install
-* Every setting is explained
-* All required files included \*
-
-The install process heavily relies upon the genius plugin manager Vundle, 
-thus it is included.  
+* Everything in vimrc is explained!
 
 \* **Packages required by plugins:** clang, ruby, ctags, jedi (python-package)   
 See .vimrc for more info.   
 
 ### Installation
 To install clone and copy the .vim-folder to your home-folder.   
-
-    cp -r vimconf/.vim ~
-
 Symlink your ~/.vimrc to your git clone so in order to update
 only a git pull is needed:   
 
+    cp -r vimconf/.vim ~
     ln -s vimconf/.vimrc ~/.vimrc
 
-Then open an empty file with Vim and run this to install the plugins.  
-It's the same command for updating, but with an appended !   
-Don't mind all the errors that pop up after the install is finished.   
+Run vim and it'll download and install all plugins for you!
 
-    :BundleInstall
+### Configuration
+Use a ~/.vimrc.local for your own settings. This way you can still easily 
+update this config without   
+having to maintain your personal changes. It will be sourced automatically.   
 
-See [Vundle](https://github.com/gmarik/vundle) for more information on how 
-to use it.
+As for Gvim I'd still recommend using .vimrc.local since noexrc is enabled.
 
-### Fonts and Powerline
+### Preview
+![Preview](http://i.imgur.com/rdTew.png "Vim screenshot")
 
-This configuration uses 'fancy' glyphs for 
-[Powerline](https://github.com/Lokaltog/vim-powerline) and therefore requires 
-a [patched font](https://github.com/Lokaltog/vim-powerline/wiki/Patched-fonts) 
-for it to work.   
+[Writing a small perl-script using Vim](http://youtu.be/DrzAuLsxgwU)
+
+### Optional: fancier powerline
+If you want to use fancy powerline you need a 
+[patched font](https://github.com/Lokaltog/vim-powerline/wiki/Patched-fonts)   
 A patched version of DejaVu Sans Mono is included in .fonts
 See the [docs](https://github.com/Lokaltog/vim-powerline#troubleshooting) for more 
 information.   
@@ -47,22 +43,9 @@ If you want to use the included DejaVu Sans Mono fonts, do the following:
     cp vimconf/.vim/.fonts/* ~/.fonts/
     fc-cache -vf
 
-To disable this feature, change the powerline symbols setting to 'compatible' or 'unicode'   
+And enable it in .vimrc
 
-    let g:Powerline_symbols = 'compatible'
-
-### Configuration
-Use a ~/.vimrc.local for your own settings. This way you can still easily 
-update this config without   
-having to maintain your personal changes. It will be sourced automatically.  
-As for Gvim I'd still recommend using .vimrc.local since noexrc is enabled.
-
-Other than that it's just to hack away. Everything is neatly explained.
-
-### Preview
-![Preview](http://i.imgur.com/rdTew.png "Vim screenshot")
-
-[Writing a small perl-script using Vim](http://youtu.be/DrzAuLsxgwU)
+    let g:Powerline_symbols = 'fancy'
 
 ### Todo
 * Potentially add [YouCompleteMe](https://github.com/Valloric/YouCompleteMe),
