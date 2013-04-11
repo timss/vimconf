@@ -45,7 +45,7 @@ If you want to use the included DejaVu Sans Mono fonts, do the following:
     cp vimconf/.vim/.fonts/* ~/.fonts/
     fc-cache -vf
 
-And enable it in .vimrc
+And enable it in .vimrc.last (overrides .vimrc)
 
     let g:Powerline_symbols = 'fancy'
 
