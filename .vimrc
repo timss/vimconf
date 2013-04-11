@@ -1,48 +1,105 @@
 "----------------------------------------------"
 " Author:       timsateroy@gmail.com           "
 " Source:       http://vim.thevoid.no (github) "
-" Date:         06.03.13 (rougly)              "
+" Date:         11.04.13 (rougly)              "
 "----------------------------------------------"
 
+" vimconf is not vi-compatible
+set nocompatible
+
 """ Vundle plugin manager {{{
-    filetype off                                    " required to init 
-    set rtp+=~/.vim/bundle/vundle/                  " include vundle
-    call vundle#rc()                                " init vundle
+    """ Setting up Vundle - from https://github.com/fisadev/fisa-vim-config {{{
+        let has_vundle=1
+        let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
+        if !filereadable(vundle_readme)
+            echo "Installing Vundle..."
+            echo ""
+            silent !mkdir -p ~/.vim/bundle
+            silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
+            let has_vundle=0
+        endif
+    """ }}}
+    """ Initialize Vundle {{{
+        filetype off                                " required to init
+        set rtp+=~/.vim/bundle/vundle/              " include vundle
+        call vundle#rc()                            " init vundle
+    """ }}}
     """ Github repos, uncomment to disable a plugin {{{
-        Bundle 'chrisbra/SudoEdit.vim'
-        Bundle 'ervandew/supertab'
+    " Recursive vundle, omg!
         Bundle 'gmarik/vundle'
+
+    " Edit files using sudo/su
+        Bundle 'chrisbra/SudoEdit.vim'
+
+    " <Tab> everything!
+        Bundle 'ervandew/supertab'
+
+    " Fuzzy finder (files, mru, etc)
         Bundle 'kien/ctrlp.vim'
-        Bundle 'lilydjwg/colorizer'
+
+    " A much better statusline
         Bundle 'Lokaltog/vim-powerline'
+
+    " Easy... motions... yeah.
         Bundle 'Lokaltog/vim-easymotion'
+
+    " Snippets like textmate
         Bundle 'msanders/snipmate.vim'
+
+    " Glorious colorscheme
         Bundle 'nanotech/jellybeans.vim'
+
+    " Super easy commenting, toggle comments etc
         Bundle 'scrooloose/nerdcommenter'
+
+    " A file tree explorer
         Bundle 'scrooloose/nerdtree'
+
+    " RGB, hex, colornames
+        Bundle 'skammer/vim-css-color'
+
+    " Autoclose (, " etc
         Bundle 'Townk/vim-autoclose'
+
+    " Git wrapper inside Vim
         Bundle 'tpope/vim-fugitive'
+
+    " Handle surround chars like ''
         Bundle 'tpope/vim-surround'
-        Bundle 'trapd00r/x11colors.vim'
+
+    " Align your = etc.
         Bundle 'vim-scripts/Align'
-        Bundle 'vim-scripts/mru.vim'
+
+    " Simple compile/run binds
         Bundle 'xuhdev/SingleCompile'
 
-        " Requires a compiler or syntax/code checker, see :h Syntastic
+    " Awesome syntax checker.
+    " REQUIREMENTS: See :h Syntastic
         Bundle 'scrooloose/syntastic'
 
-        " Requires ctags installed
+    " Functions, class data etc.
+    " REQUIREMENTS: ctags
         Bundle 'majutsushi/tagbar'
 
-        " Requires a working Ruby-install (but not vim compiled with ruby)
+    " http://pastie.org
+    " REQUIREMENTS: ruby in $PATH (not vim compiled with +ruby)
         Bundle 'simmel/vim-pastie'
 
-        " Requires the clang compilator
+    " C/C++ autocomplete
+    " REUIREMENTS: clang compiler
         Bundle 'Rip-Rip/clang_complete'
 
-        " Requires the python package 'jedi' (also if you're in a
-        " no-site-packages virtenv)
+    " Python autocomplete
+    " REQUIREMENTS: python package 'jedi', also in virtenvs
         Bundle 'davidhalter/jedi-vim'
+    """ }}}
+    """ Installing plguins the first time {{{
+        if has_vundle == 0
+            echo "Installing Bundles, please ignore key map error messages"
+            echo ""
+            :BundleInstall
+        endif
+    """ }}}
 """ }}}
 """ User interface {{{
     """ Syntax highlighting {{{
@@ -107,8 +164,7 @@
     set laststatus=2                                " always show statusline
     set listchars=tab:>\                            " > to highlight <tab>
     set list                                        " displaying listchars
-    set mouse=a                                     " mouse in all modes
-    set nocompatible                                " don't vi-compatible
+    set mouse=                                      " disable mouse
     set noshowmode                                  " hide mode in cmd-line
     set noexrc                                      " don't use other .*rc(s)
     set nostartofline                               " no goto #1 char in line
