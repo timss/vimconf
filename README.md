@@ -9,13 +9,12 @@ See .vimrc for more info.
 
 Installation
 ------------
-To install clone and copy the .vim-folder to your home-folder.   
-Symlink your ~/.vimrc to your git clone so in order to update
-only a git pull is needed:   
 
+    git clone https://github.com/timss/vimconf.git
     cp -r vimconf/.vim ~
     ln -s vimconf/.vimrc ~/.vimrc
 
+Symlink your ~/.vimrc so in order to update only a git pull is needed!   
 Run vim and it'll download and install all plugins for you!
 
 Configuration
