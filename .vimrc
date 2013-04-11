@@ -26,72 +26,72 @@ set nocompatible
     """ }}}
     """ Github repos, uncomment to disable a plugin {{{
     " Recursive vundle, omg!
-        Bundle 'gmarik/vundle'
+    Bundle 'gmarik/vundle'
 
     " Edit files using sudo/su
-        Bundle 'chrisbra/SudoEdit.vim'
+    Bundle 'chrisbra/SudoEdit.vim'
 
     " <Tab> everything!
-        Bundle 'ervandew/supertab'
+    Bundle 'ervandew/supertab'
 
     " Fuzzy finder (files, mru, etc)
-        Bundle 'kien/ctrlp.vim'
+    Bundle 'kien/ctrlp.vim'
 
     " A much better statusline
-        Bundle 'Lokaltog/vim-powerline'
+    Bundle 'Lokaltog/vim-powerline'
 
     " Easy... motions... yeah.
-        Bundle 'Lokaltog/vim-easymotion'
+    Bundle 'Lokaltog/vim-easymotion'
 
     " Snippets like textmate
-        Bundle 'msanders/snipmate.vim'
+    Bundle 'msanders/snipmate.vim'
 
     " Glorious colorscheme
-        Bundle 'nanotech/jellybeans.vim'
+    Bundle 'nanotech/jellybeans.vim'
 
     " Super easy commenting, toggle comments etc
-        Bundle 'scrooloose/nerdcommenter'
+    Bundle 'scrooloose/nerdcommenter'
 
     " A file tree explorer
-        Bundle 'scrooloose/nerdtree'
+    Bundle 'scrooloose/nerdtree'
 
-    " RGB, hex, colornames
-        Bundle 'skammer/vim-css-color'
+    " Color text based on RGB, hex, colornames
+    Bundle 'ap/vim-css-color'
 
     " Autoclose (, " etc
-        Bundle 'Townk/vim-autoclose'
+    Bundle 'Townk/vim-autoclose'
 
     " Git wrapper inside Vim
-        Bundle 'tpope/vim-fugitive'
+    Bundle 'tpope/vim-fugitive'
 
     " Handle surround chars like ''
-        Bundle 'tpope/vim-surround'
+    Bundle 'tpope/vim-surround'
 
     " Align your = etc.
-        Bundle 'vim-scripts/Align'
+    Bundle 'vim-scripts/Align'
 
     " Simple compile/run binds
-        Bundle 'xuhdev/SingleCompile'
+    Bundle 'xuhdev/SingleCompile'
 
     " Awesome syntax checker.
     " REQUIREMENTS: See :h Syntastic
-        Bundle 'scrooloose/syntastic'
+    Bundle 'scrooloose/syntastic'
 
     " Functions, class data etc.
     " REQUIREMENTS: ctags
-        Bundle 'majutsushi/tagbar'
+    Bundle 'majutsushi/tagbar'
 
     " http://pastie.org
     " REQUIREMENTS: ruby in $PATH (not vim compiled with +ruby)
-        Bundle 'simmel/vim-pastie'
+    Bundle 'simmel/vim-pastie'
 
     " C/C++ autocomplete
     " REUIREMENTS: clang compiler
-        Bundle 'Rip-Rip/clang_complete'
+    Bundle 'Rip-Rip/clang_complete'
 
     " Python autocomplete
     " REQUIREMENTS: python package 'jedi', also in virtenvs
-        Bundle 'davidhalter/jedi-vim'
+    Bundle 'davidhalter/jedi-vim'
     """ }}}
     """ Installing plguins the first time {{{
         if has_vundle == 0
