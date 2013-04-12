@@ -8,7 +8,6 @@
 set nocompatible
 
 """ Automatically make needed files and folders on first run {{{
-    exec 'silent !mkdir -p $HOME/.vim'
     exec 'silent !mkdir -p $HOME/.vim/{backup,plugin,undo}'
     if !filereadable("$HOME/.vimrc.bundles") | exec 'silent !touch "$HOME/.vimrc.bundles"' | endif
     if !filereadable("$HOME/.vimrc.first") | exec 'silent !touch "$HOME/.vimrc.first"' | endif
