@@ -1,17 +1,18 @@
 "----------------------------------------------"
 " Author:       timsateroy@gmail.com           "
 " Source:       http://vim.thevoid.no (github) "
-" Date:         12.04.13 (rougly)              "
+" Date:         13.04.13 (rougly)              "
 "----------------------------------------------"
 
 " vimconf is not vi-compatible
 set nocompatible
 
-""" Automatically make needed files and folders on first run {{{
-    exec 'silent !mkdir -p $HOME/.vim/{backup,plugin,undo}'
-    if !filereadable("$HOME/.vimrc.bundles") | exec 'silent !touch "$HOME/.vimrc.bundles"' | endif
-    if !filereadable("$HOME/.vimrc.first") | exec 'silent !touch "$HOME/.vimrc.first"' | endif
-    if !filereadable("$HOME/.vimrc.last") | exec 'silent !touch "$HOME/.vimrc.last"' | endif
+""" Automatically make needed files and folders on first run
+""" If you don't run *nix you're on your own (as in remove this) {{{
+    call system("mkdir -p $HOME/.vim/{backup,plugin,undo}")
+    if !filereadable($HOME . "/.vimrc.bundles") | call system("touch $HOME/.vimrc.bundles") | endif
+    if !filereadable($HOME . "/.vimrc.first") | call system("touch $HOME/.vimrc.first") | endif
+    if !filereadable($HOME . "/.vimrc.last") | call system("touch $HOME/.vimrc.last") | endif
 """ }}}
 """ Vundle plugin manager {{{
     """ Setting up Vundle - from https://github.com/fisadev/fisa-vim-config {{{
