@@ -17,8 +17,7 @@ set nocompatible
 """ Vundle plugin manager {{{
     """ Setting up Vundle - from https://github.com/fisadev/fisa-vim-config {{{
         let has_vundle=1
-        let vundle_readme=expand('$HOME/.vim/bundle/vundle/README.md')
-        if !filereadable(vundle_readme)
+        if !filereadable($HOME."/.vim/bundle/vundle/README.md")
             echo "Installing Vundle..."
             echo ""
             silent !mkdir -p $HOME/.vim/bundle
@@ -36,7 +35,7 @@ set nocompatible
     Bundle 'gmarik/vundle'
 
     """ Local bundles (and only bundles in this file!) {{{{
-        if filereadable("$HOME/.vimrc.bundles")
+        if filereadable($HOME."/.vimrc.bundles")
             source $HOME/.vimrc.bundles
         endif
     """ }}}
