@@ -291,9 +291,9 @@ set nocompatible
         noremap å [
         noremap æ ]
 
-        " Split and switch to new pane
-        nnoremap <leader>d <C-w>v<C-w>l             " vertical
-        nnoremap <leader>s <C-w>s<C-w>l             " horizontal
+        " Split and switch to new pane, vertical/horizontal
+        nnoremap <leader>d <C-w>v<C-w>l
+        nnoremap <leader>s <C-w>s<C-w>l
 
         " We don't need any help!
         inoremap <F1> <ESC>
