@@ -299,6 +299,9 @@ set nocompatible
         inoremap <F1> <ESC>
         nnoremap <F1> <ESC>
         vnoremap <F1> <ESC>
+
+        " Working ci(, works for both breaklined, inline and multiple ()
+        nnoremap ci( %ci(
         
         " Toggle syntax highlight
         map <F7> :if exists("syntax_on")
