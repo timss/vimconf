@@ -318,8 +318,8 @@ set nocompatible
         set pastetoggle=<F3>
 
         " SingleCompile
-        nmap <F9> :SCCompile<CR>
-        nmap <F10> :SCCompileRun<CR>
+        nmap <F5> :SCCompile<CR>
+        nmap <F6> :SCCompileRun<CR>
 
         " Syntastic - toggle error list. Probably should be toggleable.
         noremap <silent><leader>lo :Errors<CR>
