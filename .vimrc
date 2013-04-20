@@ -177,7 +177,7 @@ set nocompatible
 """ }}}
 """ General settings {{{
     set hidden                                      " buffer change, more undo
-    set history=200                                 " default 20
+    set history=1000                                " default 20
     set iskeyword+=_,$,@,%,#                        " not word dividers
     set laststatus=2                                " always show statusline
     set listchars=tab:>\                            " > to highlight <tab>
