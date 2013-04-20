@@ -261,12 +261,13 @@ set nocompatible
         " Toggle text wrapping
         nmap <silent> <leader>w :set invwrap<CR>:set wrap?<CR> 
 
+        " Split and switch to new pane, vertical/horizontal
+        nnoremap <leader>d <C-w>v<C-w>l
+        nnoremap <leader>s <C-w>s<C-w>l
+
         " Toggle folding
         nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
         vnoremap <Space> zf
-
-        " Delete previous word with C-BS, doesn't work in all terminals
-        imap <C-BS> <C-W>
 
         " Bubbling (bracket matching)
         nmap <C-up> [e
@@ -291,21 +292,47 @@ set nocompatible
         noremap å [
         noremap æ ]
 
-        " Split and switch to new pane, vertical/horizontal
-        nnoremap <leader>d <C-w>v<C-w>l
-        nnoremap <leader>s <C-w>s<C-w>l
+        " Working ci(, works for both breaklined, inline and multiple ()
+        nnoremap ci( %ci(
 
         " We don't need any help!
         inoremap <F1> <ESC>
         nnoremap <F1> <ESC>
         vnoremap <F1> <ESC>
+    """ }}}
+    """ Functions or fancy binds {{{{
+        """ Highlight characters past 79, toggle with <leader>h {{{
+            nnoremap <leader>h :call ToggleOverLengthHighlight()<CR>
+            let g:overlength_enabled = 0
+            highlight OverLength ctermbg=black guibg=#212121
 
-        " Working ci(, works for both breaklined, inline and multiple ()
-        nnoremap ci( %ci(
-        
-        " Toggle syntax highlight
-        map <F7> :if exists("syntax_on")
-            \<Bar>syntax off<Bar>else<Bar>syntax enable<Bar>endif<CR>
+            function! ToggleOverLengthHighlight()
+                if g:overlength_enabled == 0
+                    match OverLength /\%79v.*/
+                    let g:overlength_enabled = 1
+                    echo 'OverLength highlighting turned on'
+                else
+                    match
+                    let g:overlength_enabled = 0
+                    echo 'OverLength highlighting turned off'
+                endif
+            endfunction
+        """ }}}
+        """ Toggle relativenumber using <leader>r {{{
+            nnoremap <leader>r :call NumberToggle()<CR>
+
+            function! NumberToggle()
+                if(&relativenumber == 1)
+                    set number
+                else
+                    set relativenumber
+                endif
+            endfunction
+        """ }}}
+        """ Toggle syntax highlighting {{{
+            map <F4> :if exists("syntax_on")
+                \<Bar>syntax off<Bar>else<Bar>syntax enable<Bar>endif<CR>
+        """ }}}
     """ }}}
     """ Plugins {{{
         " Toggle tagbar (definitions, functions etc.)
@@ -327,34 +354,6 @@ set nocompatible
 
         " Snipmate remapping
         imap <tab> <C-r>=TriggerSnippet()<CR>
-    """ }}}
-    """ Highlight characters past 79, toggle with <leader>h {{{
-        nnoremap <leader>h :call ToggleOverLengthHighlight()<CR>
-        let g:overlength_enabled = 0
-        highlight OverLength ctermbg=black guibg=#212121
-
-        function! ToggleOverLengthHighlight()
-            if g:overlength_enabled == 0
-                match OverLength /\%79v.*/
-                let g:overlength_enabled = 1
-                echo 'OverLength highlighting turned on'
-            else
-                match
-                let g:overlength_enabled = 0
-                echo 'OverLength highlighting turned off'
-            endif
-        endfunction
-    """ }}}
-    """ Toggle relativenumber using <leader>r {{{
-        nnoremap <leader>r :call NumberToggle()<CR>
-
-        function! NumberToggle()
-            if(&relativenumber == 1)
-                set number
-            else
-                set relativenumber
-            endif
-        endfunction
     """ }}}
 """ }}}
 """ Misc plugin settings {{{
