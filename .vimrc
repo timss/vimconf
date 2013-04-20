@@ -145,7 +145,7 @@ set nocompatible
         set wildmode=longest,list                   " bash-like auto complete
         """ Encoding {{{
             " If you're having problems with Powerline glyphs you can force
-            " UTF-8 if your locale is something else. 
+            " UTF-8 if your locale is something else.
             " WARNING: this will affect encoding used when editing files!
             "
             " set encoding=utf-8                    " for Powerline glyphs
@@ -259,7 +259,7 @@ set nocompatible
         noremap <leader>y "+y
 
         " Toggle text wrapping
-        nmap <silent> <leader>w :set invwrap<CR>:set wrap?<CR> 
+        nmap <silent> <leader>w :set invwrap<CR>:set wrap?<CR>
 
         " Split and switch to new pane, vertical/horizontal
         nnoremap <leader>d <C-w>v<C-w>l
@@ -387,11 +387,11 @@ set nocompatible
     " Syntastic - C++11 and relevant files
     let g:syntastic_cpp_check_header = 1
     let g:syntastic_cpp_compiler_options = ' -std=c++0x'
-    let g:syntastic_mode_map = { 
+    let g:syntastic_mode_map = {
         \ 'mode': 'passive',
-        \ 'active_filetypes': 
+        \ 'active_filetypes':
             \ ['c', 'cpp', 'javascript', 'perl', 'python', 'sh'] }
-    
+
     " Automatically remove preview window after autocomplete (mainly for clang_complete)
     autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
     autocmd InsertLeave * if pumvisible() == 0|pclose|endif
