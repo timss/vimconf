@@ -333,6 +333,17 @@ set nocompatible
             map <F4> :if exists("syntax_on")
                 \<Bar>syntax off<Bar>else<Bar>syntax enable<Bar>endif<CR>
         """ }}}
+        """ Strip trailing whitespace, return to cursors at save {{{
+            function! <SID>StripTrailingWhitespace()
+                let l = line(".")
+                let c = col(".")
+                %s/\s\+$//e
+                call cursor(l, c)
+            endfunction
+
+            autocmd FileType c,cpp,python,sh autocmd 
+                        \BufWritePre <buffer> :call <SID>StripTrailingWhitespace()
+        """ }}}
     """ }}}
     """ Plugins {{{
         " Toggle tagbar (definitions, functions etc.)
