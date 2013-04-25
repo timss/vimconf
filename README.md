@@ -62,3 +62,5 @@ For now just using the old one. Don't see any reason to upgrade.
 Will require new fonts (.ttf for windows) and easy install using Vundle.
 * Conditional expressions for testing whether or not plugin X is enabled,   
 and if so; enable plugin settings (Syntastic etc).
+    * Split out Bundles into `.vimrc.bundles` when this is done, making it
+    easier to use custom plugins. Possibly have seperate personal bundles file.
