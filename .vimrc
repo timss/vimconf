@@ -129,6 +129,12 @@ set nocompatible
         highlight Normal ctermbg=NONE               " use terminal background
         highlight nonText ctermbg=NONE              " use terminal background
         au BufRead,BufNewFile *.txt set ft=sh       " opens .txt w/highlight
+        """ Tab colors {{{
+            hi TabLineFill ctermfg=NONE ctermbg=233
+            hi TabLine ctermfg=241 ctermbg=233
+            hi TabLineSel ctermfg=250 ctermbg=233
+            hi Title ctermfg=233 ctermbg=NONE
+        """ }}}
     """ }}}
     """ Interface general {{{
         set cursorline                              " hilight cursor line
