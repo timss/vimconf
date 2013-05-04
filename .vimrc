@@ -133,7 +133,6 @@ set nocompatible
             hi TabLineFill ctermfg=NONE ctermbg=233
             hi TabLine ctermfg=241 ctermbg=233
             hi TabLineSel ctermfg=250 ctermbg=233
-            hi Title ctermfg=233 ctermbg=NONE
         """ }}}
     """ }}}
     """ Interface general {{{
