@@ -396,12 +396,13 @@ set nocompatible
     " Pastie - private (simmel's fork of tpope's vim-pastie with help from garno)
     let g:pastie_private = 1
 
-    " SingleCompile
-    call SingleCompile#SetCompilerTemplate('cpp', 'gcc', 'GNU C Compiler',
-        \'g++', '-Wall -Wextra -pedantic -O3 -std=c++0x -o $(FILE_TITLE)$',
-        \'./$(FILE_TITLE)$')
-    call SingleCompile#SetOutfile('cpp', 'gcc', '$(FILE_TITLE)$')
-    call SingleCompile#ChooseCompiler('cpp', 'gcc')
+    " SingleCompile - check if installed before doing call
+    autocmd VimEnter * if exists('g:loaded_SingleCompile')
+        call SingleCompile#SetCompilerTemplate('cpp', 'gcc', 'GNU C Compiler',
+            \'g++', '-Wall -Wextra -pedantic -O3 -std=c++0x -o $(FILE_TITLE)$',
+            \'./$(FILE_TITLE)$')
+        call SingleCompile#SetOutfile('cpp', 'gcc', '$(FILE_TITLE)$')
+        call SingleCompile#ChooseCompiler('cpp', 'gcc')
 
     " Syntastic - C++11 and relevant files
     let g:syntastic_cpp_check_header = 1
