@@ -55,9 +55,6 @@ set nocompatible
     " Easy... motions... yeah.
     Bundle 'Lokaltog/vim-easymotion'
 
-    " Snippets like textmate
-    Bundle 'msanders/snipmate.vim'
-
     " Glorious colorscheme
     Bundle 'nanotech/jellybeans.vim'
 
@@ -84,6 +81,13 @@ set nocompatible
 
     " Simple compile/run binds
     Bundle 'xuhdev/SingleCompile'
+
+    " Snippets like textmate
+    " REQUIREMENTS: vim-addon-mw-utils, tlib_vim, vim-snippets
+    Bundle 'MarcWeber/vim-addon-mw-utils'
+    Bundle 'tomtom/tlib_vim'
+    Bundle 'honza/vim-snippets'
+    Bundle 'garbas/vim-snipmate'
 
     " Awesome syntax checker.
     " REQUIREMENTS: See :h Syntastic
