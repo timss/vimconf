@@ -143,7 +143,7 @@ set nocompatible
         set cursorline                              " hilight cursor line
         set more                                    " ---more--- like less
         set number                                  " line numbers
-        set scrolloff=5                             " lines above/below cursor
+        set scrolloff=3                             " lines above/below cursor
         set showcmd                                 " show cmds being typed
         set title                                   " window title
         set vb t_vb=                                " disable beep and flashing
