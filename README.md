@@ -48,14 +48,18 @@ And enable it in .vimrc.last (overrides .vimrc)
 
     let g:Powerline_symbols = 'fancy'
 
+Suggestions and questions
+-------------------------
+Feel free to give me suggestions, ask questions or point out things that needs
+to be fixed by adding an [issue](https://github.com/timss/vimconf/issues).
+
 Todo
 ----
 * Potentially add [YouCompleteMe](https://github.com/Valloric/YouCompleteMe),
 which would replace [clang\_complete](https://github.com/Rip-Rip/clang_complete), 
 [supertab](https://github.com/ervandew/supertab) and maybe even 
 [jedi-vim](https://github.com/davidhalter/jedi-vim)
-* Better/more plugins and binds for Python (feel free to give me 
-suggestions).
+* Better/more plugins and binds for Python
 * Maybe replace vim-powerline with the new 
 [powerline](https://github.com/Lokaltog/powerline).   
 For now just using the old one. Don't see any reason to upgrade.   
