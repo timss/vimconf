@@ -359,6 +359,19 @@ set nocompatible
                 g/^\_$\n\_^$/d
             endfunction
         """ }}}
+        """ Split to relative header/source {{{
+            nnoremap <leader>le :call SplitRelSrc()<CR>
+            function! SplitRelSrc()
+                let s:fname = expand("%:t:r")
+
+                if expand("%:e") == "h"
+                    exe "vsplit" fnameescape(s:fname . ".cpp")
+                elseif expand("%:e") == "cpp"
+                    set splitright
+                    exe "vsplit" fnameescape(s:fname . ".h")
+                endif
+            endfunction
+        """ }}}
     """ }}}
     """ Plugins {{{
         " Toggle tagbar (definitions, functions etc.)
