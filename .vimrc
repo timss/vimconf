@@ -353,6 +353,12 @@ set nocompatible
             autocmd FileType c,cpp,css,html,perl,python,sh autocmd 
                         \BufWritePre <buffer> :call <SID>StripTrailingWhitespace()
         """ }}}
+        """ Remove multiple empty lines {{{
+            nnoremap <leader>ld :call DeleteMultipleEmptyLines()<CR>
+            function! DeleteMultipleEmptyLines()
+                g/^\_$\n\_^$/d
+            endfunction
+        """ }}}
     """ }}}
     """ Plugins {{{
         " Toggle tagbar (definitions, functions etc.)
