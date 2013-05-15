@@ -371,9 +371,6 @@ set nocompatible
         " Syntastic - toggle error list. Probably should be toggleable.
         noremap <silent><leader>lo :Errors<CR>
         noremap <silent><leader>lc :lcl<CR>
-
-        " Snipmate remapping
-        imap <tab> <C-r>=TriggerSnippet()<CR>
     """ }}}
 """ }}}
 """ Misc plugin settings {{{
