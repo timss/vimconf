@@ -413,7 +413,7 @@ set nocompatible
     " Pastie - private (simmel's fork of tpope's vim-pastie with help from garno)
     let g:pastie_private = 1
 
-    " SingleCompile - check if installed before doing call
+    " SingleCompile - check if installed since this gives warnings if not
     autocmd VimEnter * if exists('g:loaded_SingleCompile')
         call SingleCompile#SetCompilerTemplate('cpp', 'gcc', 'GNU C Compiler',
             \'g++', '-Wall -Wextra -pedantic -O3 -std=c++0x -o $(FILE_TITLE)$',
