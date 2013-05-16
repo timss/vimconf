@@ -209,7 +209,6 @@ set nocompatible
     """ Search and replace {{{
         set gdefault                                " default s//g (global)
         set incsearch                               " "live"-search
-        set ignorecase                              " case insensitive search
     """ }}}
     """ Matching {{{
         set matchtime=2                             " time to blink match {}
