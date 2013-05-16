@@ -189,14 +189,16 @@ set nocompatible
     set history=1000                                " default 20
     set iskeyword+=_,$,@,%,#                        " not word dividers
     set laststatus=2                                " always show statusline
+    set linebreak                                   " don't cut words on wrap
     set listchars=tab:>\                            " > to highlight <tab>
     set list                                        " displaying listchars
     set mouse=                                      " disable mouse
-    set noshowmode                                  " hide mode in cmd-line
+    set noshowmode                                  " hide mode, got powerline
     set noexrc                                      " don't use other .*rc(s)
     set nostartofline                               " no goto #1 char in line
     set nowrap                                      " don't wrap lines
     set numberwidth=5                               " 99999 lines
+    set shortmess+=I                                " disable startup message
     set splitbelow                                  " splits go below w/focus
     set splitright                                  " vsplits go right w/focus
     set ttymouse=xterm2                             " experimental
@@ -302,9 +304,9 @@ set nocompatible
         nnoremap ci( %ci(
 
         " We don't need any help!
-        inoremap <F1> <ESC>
-        nnoremap <F1> <ESC>
-        vnoremap <F1> <ESC>
+        inoremap <F1> <nop>
+        nnoremap <F1> <nop>
+        vnoremap <F1> <nop>
     """ }}}
     """ Functions or fancy binds {{{{
         """ Toggle syntax highlighting {{{
