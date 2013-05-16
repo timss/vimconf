@@ -308,6 +308,10 @@ set nocompatible
         vnoremap <F1> <ESC>
     """ }}}
     """ Functions or fancy binds {{{{
+        """ Toggle syntax highlighting {{{
+            map <F4> :if exists("syntax_on")
+                \<Bar>syntax off<Bar>else<Bar>syntax enable<Bar>endif<CR>
+        """ }}}
         """ Highlight characters past 79, toggle with <leader>h {{{
             nnoremap <leader>h :call ToggleOverLengthHighlight()<CR>
             let g:overlength_enabled = 0
@@ -336,29 +340,16 @@ set nocompatible
                 endif
             endfunction
         """ }}}
-        """ Toggle syntax highlighting {{{
-            map <F4> :if exists("syntax_on")
-                \<Bar>syntax off<Bar>else<Bar>syntax enable<Bar>endif<CR>
-        """ }}}
-        """ Strip trailing whitespace, return to cursors at save {{{
-            function! <SID>StripTrailingWhitespace()
-                let l = line(".")
-                let c = col(".")
-                %s/\s\+$//e
-                call cursor(l, c)
-            endfunction
-
-            autocmd FileType c,cpp,css,html,perl,python,sh autocmd 
-                        \BufWritePre <buffer> :call <SID>StripTrailingWhitespace()
-        """ }}}
         """ Remove multiple empty lines {{{
             nnoremap <leader>ld :call DeleteMultipleEmptyLines()<CR>
+
             function! DeleteMultipleEmptyLines()
                 g/^\_$\n\_^$/d
             endfunction
         """ }}}
         """ Split to relative header/source {{{
             nnoremap <leader>le :call SplitRelSrc()<CR>
+
             function! SplitRelSrc()
                 let s:fname = expand("%:t:r")
 
@@ -370,6 +361,17 @@ set nocompatible
                     exe "vsplit" fnameescape(s:fname . ".h")
                 endif
             endfunction
+        """ }}}
+        """ Strip trailing whitespace, return to cursors at save {{{
+            function! <SID>StripTrailingWhitespace()
+                let l = line(".")
+                let c = col(".")
+                %s/\s\+$//e
+                call cursor(l, c)
+            endfunction
+
+            autocmd FileType c,cpp,css,html,perl,python,sh autocmd 
+                        \BufWritePre <buffer> :call <SID>StripTrailingWhitespace()
         """ }}}
     """ }}}
     """ Plugins {{{
