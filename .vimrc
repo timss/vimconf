@@ -197,6 +197,8 @@ set nocompatible
     set nostartofline                               " no goto #1 char in line
     set nowrap                                      " don't wrap lines
     set numberwidth=5                               " 99999 lines
+    set splitbelow                                  " splits go below w/focus
+    set splitright                                  " vsplits go right w/focus
     set ttymouse=xterm2                             " experimental
     """ Folding {{{
         set foldcolumn=0                            " hide folding column
@@ -269,10 +271,6 @@ set nocompatible
 
         " Toggle text wrapping
         nmap <silent> <leader>w :set invwrap<CR>:set wrap?<CR>
-
-        " Split and switch to new pane, vertical/horizontal
-        nnoremap <leader>d <C-w>v<C-w>l
-        nnoremap <leader>s <C-w>s<C-w>l
 
         " Toggle folding
         nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
@@ -365,9 +363,10 @@ set nocompatible
                 let s:fname = expand("%:t:r")
 
                 if expand("%:e") == "h"
+                    set nosplitright
                     exe "vsplit" fnameescape(s:fname . ".cpp")
-                elseif expand("%:e") == "cpp"
                     set splitright
+                elseif expand("%:e") == "cpp"
                     exe "vsplit" fnameescape(s:fname . ".h")
                 endif
             endfunction
