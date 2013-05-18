@@ -422,13 +422,14 @@ set nocompatible
         call SingleCompile#SetOutfile('cpp', 'gcc', '$(FILE_TITLE)$')
         call SingleCompile#ChooseCompiler('cpp', 'gcc')
 
-    " Syntastic - C++11 and relevant files
+    " Syntastic - This is largely up to your own usage, and override these
+    "             changes if be needed. This is merely an exemplification.
     let g:syntastic_cpp_check_header = 1
     let g:syntastic_cpp_compiler_options = ' -std=c++0x'
     let g:syntastic_mode_map = {
         \ 'mode': 'passive',
         \ 'active_filetypes':
-            \ ['c', 'cpp', 'javascript', 'perl', 'python', 'sh'] }
+            \ ['c', 'cpp', 'perl', 'python'] }
 
     " Automatically remove preview window after autocomplete (mainly for clang_complete)
     autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
