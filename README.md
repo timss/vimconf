@@ -26,9 +26,9 @@ version of this vim configuration by using the local additions.
 
 Preview
 -------
-![Preview](http://i.imgur.com/rdTew.png "Vim screenshot")
+![Preview](http://i.imgur.com/L0axH7e.png "Vim screenshot, C++ autocomplete")
 
-[Writing a small perl-script using Vim](http://youtu.be/DrzAuLsxgwU)
+[Writing a small perl-script using Vim](http://youtu.be/DrzAuLsxgwU) \(pretty outdated\)
 
 Optional: fancier powerline
 ---------------------------
