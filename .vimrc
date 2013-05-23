@@ -15,7 +15,8 @@ set nocompatible
     if !filereadable($HOME . "/.vimrc.last") | call system("touch $HOME/.vimrc.last") | endif
 """ }}}
 """ Vundle plugin manager {{{
-    """ Setting up Vundle - from https://github.com/fisadev/fisa-vim-config {{{
+    """ Automatically setting up Vundle, taken from
+    """ http://www.erikzaadi.com/2012/03/19/auto-installing-vundle-from-your-vimrc/ {{{
         let has_vundle=1
         if !filereadable($HOME."/.vim/bundle/vundle/README.md")
             echo "Installing Vundle..."
