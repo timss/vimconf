@@ -196,7 +196,7 @@ set nocompatible
     set mouse=                                      " disable mouse
     set noshowmode                                  " hide mode, got powerline
     set noexrc                                      " don't use other .*rc(s)
-    set nostartofline                               " no goto #1 char in line
+    set nostartofline                               " keep cursor column pos
     set nowrap                                      " don't wrap lines
     set numberwidth=5                               " 99999 lines
     set shortmess+=I                                " disable startup message
