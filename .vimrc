@@ -248,10 +248,11 @@ set nocompatible
     set backspace=indent,eol,start                  " smart backspace
     set cinkeys-=0#                                 " don't force # indentation
     set expandtab                                   " no real tabs
+    set ignorecase                                  " by default ignore case
     set nrformats+=alpha                            " incr/decr letters C-a/-x
     set shiftround                                  " be clever with tabs
     set shiftwidth=4                                " default 8
-    set smartcase                                   " igncase,except capitals
+    set smartcase                                   " sensitive with uppercase
     set smarttab                                    " tab to 0,4,8 etc.
     set softtabstop=4                               " "tab" feels like <tab>
     set tabstop=4                                   " replace <TAB> w/4 spaces
