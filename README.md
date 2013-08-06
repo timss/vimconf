@@ -6,14 +6,12 @@ vimconf
 
 Installation
 ------------
+**Required packages:** clang, ctags, jedi, ruby
 
     git clone https://github.com/timss/vimconf.git
     ln -s vimconf/.vimrc ~/.vimrc
 
 Run vim and it'll download and install all plugins for you!
-
-**Packages required by plugins (see `.vimrc` for more info):**    
-- clang, ruby, ctags, jedi
 
 Configuration
 -------------
