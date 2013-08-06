@@ -74,3 +74,4 @@ which would replace [clang\_complete](https://github.com/Rip-Rip/clang_complete)
 [powerline](https://github.com/Lokaltog/powerline).   
 For now just using the old one. Don't see any reason to upgrade.   
 Will require new fonts (.ttf for windows) and easy install using Vundle.
+    * Instead use [vim-airline](https://github.com/bling/vim-airline)?
