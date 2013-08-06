@@ -4,9 +4,6 @@ vimconf
 * Everything in vimrc is explained
 * Autocomplete, syntax checker, plugin manager and much more
 
-\* **Packages required by plugins:** clang, ruby, ctags, jedi (python-package)   
-See .vimrc for more info.   
-
 Installation
 ------------
 
@@ -14,6 +11,9 @@ Installation
     ln -s vimconf/.vimrc ~/.vimrc
 
 Run vim and it'll download and install all plugins for you!
+
+**Packages required by plugins (see `.vimrc` for more info):**    
+- clang, ruby, ctags, jedi
 
 Configuration
 -------------
