@@ -24,6 +24,16 @@ version of this vim configuration by using the local additions.
 `~/.vimrc.first`    Prerequisites only, as it will be overwritten by whatever below.   
 `~/.vimrc.last`     Overrides everything. Generally use this.   
 
+Even if this configuration can be used out of the box or tweaked using
+the local files, I urge you to build your own if you have the time and
+energy to do so. Only then will you be able to properly understand the
+reasoning behind each setting and tailor it to your personal workflow.
+
+However I still believe my Vim setup will help you get a basis configuration
+for your own, introducing core ideas such as a plugin manager and
+`.vimrc` structure. Use this configuration well, but do not blindly trust it to
+suit you perfectly. It's intended to be played with!
+
 Preview
 -------
 ![Preview](http://i.imgur.com/L0axH7e.png "Vim screenshot, C++ autocomplete")
