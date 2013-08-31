@@ -80,9 +80,6 @@ set nocompatible
     " Align your = etc.
     Bundle 'vim-scripts/Align'
 
-    " Simple compile/run binds
-    Bundle 'xuhdev/SingleCompile'
-
     " Snippets like textmate
     " REQUIREMENTS: vim-addon-mw-utils, tlib_vim, vim-snippets
     Bundle 'MarcWeber/vim-addon-mw-utils'
@@ -387,10 +384,6 @@ set nocompatible
         " Toggle pastemode, doesn't indent
         set pastetoggle=<F3>
 
-        " SingleCompile
-        nmap <F5> :SCCompile<CR>
-        nmap <F6> :SCCompileRun<CR>
-
         " Syntastic - toggle error list. Probably should be toggleable.
         noremap <silent><leader>lo :Errors<CR>
         noremap <silent><leader>lc :lcl<CR>
@@ -415,14 +408,6 @@ set nocompatible
 
     " Pastie - private (simmel's fork of tpope's vim-pastie with help from garno)
     let g:pastie_private = 1
-
-    " SingleCompile - check if installed since this gives warnings if not
-    autocmd VimEnter * if exists('g:loaded_SingleCompile')
-        call SingleCompile#SetCompilerTemplate('cpp', 'gcc', 'GNU C Compiler',
-            \'g++', '-Wall -Wextra -pedantic -O3 -std=c++0x -o $(FILE_TITLE)$',
-            \'./$(FILE_TITLE)$')
-        call SingleCompile#SetOutfile('cpp', 'gcc', '$(FILE_TITLE)$')
-        call SingleCompile#ChooseCompiler('cpp', 'gcc')
 
     " Syntastic - This is largely up to your own usage, and override these
     "             changes if be needed. This is merely an exemplification.
