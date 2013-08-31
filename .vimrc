@@ -95,10 +95,6 @@ set nocompatible
     " REQUIREMENTS: ctags
     Bundle 'majutsushi/tagbar'
 
-    " http://pastie.org
-    " REQUIREMENTS: ruby in $PATH (not vim compiled with +ruby)
-    Bundle 'simmel/vim-pastie'
-
     " C/C++ autocomplete
     " REUIREMENTS: clang compiler
     Bundle 'Rip-Rip/clang_complete'
@@ -405,9 +401,6 @@ set nocompatible
     let g:tagbar_left = 0
     let g:tagbar_width = 30
     set tags=tags;/
-
-    " Pastie - private (simmel's fork of tpope's vim-pastie with help from garno)
-    let g:pastie_private = 1
 
     " Syntastic - This is largely up to your own usage, and override these
     "             changes if be needed. This is merely an exemplification.
