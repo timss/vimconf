@@ -194,6 +194,7 @@ set nocompatible
     set shortmess+=I                                " disable startup message
     set splitbelow                                  " splits go below w/focus
     set splitright                                  " vsplits go right w/focus
+    set ttyfast                                     " for faster redraws etc
     set ttymouse=xterm2                             " experimental
     """ Folding {{{
         set foldcolumn=0                            " hide folding column
@@ -285,10 +286,6 @@ set nocompatible
         nnoremap j gj
         nnoremap k gk
 
-        " Move a line of text using ALT-{j,k}
-        nmap <M-j> mz:m+<CR>`z
-        nmap <M-k> mz:m-2<CR>`z
-
         " Rebind æøå (Norwegian keys)
         noremap ø :
         noremap å [
@@ -301,6 +298,19 @@ set nocompatible
         inoremap <F1> <nop>
         nnoremap <F1> <nop>
         vnoremap <F1> <nop>
+
+        " Disable annoying ex mode (Q)
+        map Q <nop>
+
+        " Buffers, preferred over tabs now with bufferline
+        nnoremap gn :bn<CR>
+        nnoremap gN :bn<CR>
+        nnoremap gd :bn<CR>
+
+        " Extra 'clipboard' register
+        nnoremap <leader>d "_d
+        vnoremap <leader>d "_d
+        vnoremap <leader>p "_dP
     """ }}}
     """ Functions or fancy binds {{{{
         """ Toggle syntax highlighting {{{
@@ -410,6 +420,8 @@ set nocompatible
         \ 'mode': 'passive',
         \ 'active_filetypes':
             \ ['c', 'cpp', 'perl', 'python'] }
+    let g:syntastic_error_symbol = '✗'
+    let g:syntastic_warning_symbol = '⚠'
 
     " Automatically remove preview window after autocomplete (mainly for clang_complete)
     autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
