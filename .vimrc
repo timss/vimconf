@@ -81,7 +81,6 @@ set nocompatible
     Bundle 'vim-scripts/Align'
 
     " Snippets like textmate
-    " REQUIREMENTS: vim-addon-mw-utils, tlib_vim, vim-snippets
     Bundle 'MarcWeber/vim-addon-mw-utils'
     Bundle 'tomtom/tlib_vim'
     Bundle 'honza/vim-snippets'
@@ -92,7 +91,7 @@ set nocompatible
     Bundle 'scrooloose/syntastic'
 
     " Functions, class data etc.
-    " REQUIREMENTS: ctags
+    " REQUIREMENTS: (exuberant)-ctags
     Bundle 'majutsushi/tagbar'
 
     " C/C++ autocomplete
@@ -111,7 +110,7 @@ set nocompatible
         endif
     """ }}}
 """ }}}
-""" Local beginning config, only use for prerequisites as it will be
+""" Local leading config, only use for prerequisites as it will be
 """ overwritten by anything below {{{{
     if filereadable($HOME."/.vimrc.first")
         source $HOME/.vimrc.first
@@ -309,7 +308,6 @@ set nocompatible
                 \<Bar>syntax off<Bar>else<Bar>syntax enable<Bar>endif<CR>
         """ }}}
         """ Highlight characters past 79, toggle with <leader>h {{{
-            nnoremap <leader>h :call ToggleOverLengthHighlight()<CR>
             let g:overlength_enabled = 0
             highlight OverLength ctermbg=black guibg=#212121
 
@@ -324,6 +322,8 @@ set nocompatible
                     echo 'OverLength highlighting turned off'
                 endif
             endfunction
+
+            nnoremap <leader>h :call ToggleOverLengthHighlight()<CR>
         """ }}}
         """ Toggle relativenumber using <leader>r {{{
             nnoremap <leader>r :call NumberToggle()<CR>
@@ -337,15 +337,13 @@ set nocompatible
             endfunction
         """ }}}
         """ Remove multiple empty lines {{{
-            nnoremap <leader>ld :call DeleteMultipleEmptyLines()<CR>
-
             function! DeleteMultipleEmptyLines()
                 g/^\_$\n\_^$/d
             endfunction
+
+            nnoremap <leader>ld :call DeleteMultipleEmptyLines()<CR>
         """ }}}
         """ Split to relative header/source {{{
-            nnoremap <leader>le :call SplitRelSrc()<CR>
-
             function! SplitRelSrc()
                 let s:fname = expand("%:t:r")
 
@@ -357,6 +355,8 @@ set nocompatible
                     exe "vsplit" fnameescape(s:fname . ".h")
                 endif
             endfunction
+
+            nnoremap <leader>le :call SplitRelSrc()<CR>
         """ }}}
         """ Strip trailing whitespace, return to cursors at save {{{
             function! <SID>StripTrailingWhitespace()
