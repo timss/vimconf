@@ -50,8 +50,9 @@ set nocompatible
     " Fuzzy finder (files, mru, etc)
     Bundle 'kien/ctrlp.vim'
 
-    " A much better statusline
-    Bundle 'Lokaltog/vim-powerline'
+    " A pretty statusline, bufferline integration
+    Bundle 'bling/vim-airline'
+    Bundle 'bling/vim-bufferline'
 
     " Easy... motions... yeah.
     Bundle 'Lokaltog/vim-easymotion'
@@ -146,34 +147,17 @@ set nocompatible
         set wildmenu                                " better auto complete
         set wildmode=longest,list                   " bash-like auto complete
         """ Encoding {{{
-            " If you're having problems with Powerline glyphs you can force
+            " If you're having problems with some characters you can force
             " UTF-8 if your locale is something else.
             " WARNING: this will affect encoding used when editing files!
             "
-            " set encoding=utf-8                    " for Powerline glyphs
+            " set encoding=utf-8                    " for character glyphs
         """ }}}
         """ Gvim {{{
-            set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 8
+            set guifont=DejaVu\ Sans\ 9
             set guioptions-=m                       " remove menubar
             set guioptions-=T                       " remove toolbar
             set guioptions-=r                       " remove right scrollbar
-        """ }}}
-        """ Powerline {{{
-            let g:Powerline_symbols = 'compatible'  " see :h Powerline_symbols
-            let g:Powerline_symbols_override = {
-                        \ 'BRANCH': [0x2213],
-                        \ }                         " use ∓
-            """ Powerline mode names {{{
-                let g:Powerline_mode_n  = ' N '
-                let g:Powerline_mode_i  = ' I '
-                let g:Powerline_mode_R  = ' R '
-                let g:Powerline_mode_v  = ' V '
-                let g:Powerline_mode_V  = 'V·L'
-                let g:Powerline_mode_cv = 'V·B'
-                let g:Powerline_mode_s  = ' S '
-                let g:Powerline_mode_S  = 'S·L'
-                let g:Powerline_mode_cs = 'S·B'
-            """ }}}
         """ }}}
     """ }}}
 """ }}}
@@ -186,7 +170,7 @@ set nocompatible
     set listchars=tab:>\                            " > to highlight <tab>
     set list                                        " displaying listchars
     set mouse=                                      " disable mouse
-    set noshowmode                                  " hide mode, got powerline
+    set noshowmode                                  " hide mode, got airline
     set noexrc                                      " don't use other .*rc(s)
     set nostartofline                               " keep cursor column pos
     set nowrap                                      " don't wrap lines
@@ -395,7 +379,35 @@ set nocompatible
         noremap <silent><leader>lc :lcl<CR>
     """ }}}
 """ }}}
-""" Misc plugin settings {{{
+""" Plugin settings {{{
+    " Airline
+    let g:airline#extensions#whitespace#enabled = 0
+    let g:airline_symbols = {}                      " enable custom symbols
+    let g:airline_symbols.branch = '∓'
+    let g:airline_symbols.paste = '+'
+    let g:airline_symbols.readonly = '⭤'
+    let g:airline_symbols.linenr = '⭡'
+    let g:airline_left_sep = '⮀'
+    let g:airline_left_alt_sep = '⮁'
+    let g:airline_right_sep = '⮂'
+    let g:airline_right_alt_sep = '⮃'
+    let g:airline_detect_paste=1
+    let g:airline_theme="powerlineish"
+    let g:airline_powerline_fonts=0
+    let g:airline_mode_map = {
+        \ '__' : ' - ',
+        \ 'n'  : ' N ',
+        \ 'i'  : ' I ',
+        \ 'R'  : ' R ',
+        \ 'c'  : ' C ',
+        \ 'v'  : ' V ',
+        \ 'V'  : 'V-L',
+        \ '' : 'V-B',
+        \ 's'  : ' S ',
+        \ 'S'  : 'S-L',
+        \ '' : 'S-B',
+        \ }
+
     " clang_complete - C++11
     let g:clang_user_options="-std=c++0x"
 

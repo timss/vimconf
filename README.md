@@ -38,24 +38,6 @@ Preview
 
 [Writing a small perl-script using Vim](http://youtu.be/DrzAuLsxgwU) \(pretty outdated\)
 
-Optional: fancier powerline
----------------------------
-If you want to use fancy powerline you need a 
-[patched font](https://github.com/Lokaltog/vim-powerline/wiki/Patched-fonts)   
-A patched version of DejaVu Sans Mono is included in .fonts
-See the [docs](https://github.com/Lokaltog/vim-powerline#troubleshooting) for more 
-information.   
-
-If you want to use the included DejaVu Sans Mono fonts, do the following:   
-
-    mkdir -p ~/.fonts
-    cp vimconf/.vim/.fonts/* ~/.fonts/
-    fc-cache -vf
-
-And enable it in .vimrc.last (overrides .vimrc)
-
-    let g:Powerline_symbols = 'fancy'
-
 Suggestions and questions
 -------------------------
 Feel free to give me suggestions, ask questions or point out things that needs
@@ -68,8 +50,4 @@ which would replace [clang\_complete](https://github.com/Rip-Rip/clang_complete)
 [supertab](https://github.com/ervandew/supertab) and maybe even 
 [jedi-vim](https://github.com/davidhalter/jedi-vim)
 * Better/more plugins and binds for Python
-* Maybe replace vim-powerline with the new 
-[powerline](https://github.com/Lokaltog/powerline).   
-For now just using the old one. Don't see any reason to upgrade.   
-Will require new fonts (.ttf for windows) and easy install using Vundle.
-    * Instead use [vim-airline](https://github.com/bling/vim-airline)?
+* Make a minimalistic/dark/gray Airline theme?
