@@ -1,8 +1,9 @@
-"----------------------------------------------"
-" Author:       timsateroy@gmail.com           "
-" Source:       http://vim.thevoid.no (github) "
-" Date:         06.05.13 (rougly)              "
-"----------------------------------------------"
+"-----------------------------------------------"
+" Author:       timsateroy@gmail.com            "
+" Homepage:     http://www.thevoid.no           "
+" Source:       http://github.com/timss/vimconf "
+" Date:         31.08.13 (rougly)               "
+"-----------------------------------------------"
 
 " vimconf is not vi-compatible
 set nocompatible
