@@ -10,7 +10,7 @@ set nocompatible
 
 """ Automatically make needed files and folders on first run
 """ If you don't run *nix you're on your own (as in remove this) {{{
-    call system("mkdir -p $HOME/.vim/{backup,plugin,undo}")
+    call system("mkdir -p $HOME/.vim/{plugin,undo}")
     if !filereadable($HOME . "/.vimrc.bundles") | call system("touch $HOME/.vimrc.bundles") | endif
     if !filereadable($HOME . "/.vimrc.first") | call system("touch $HOME/.vimrc.first") | endif
     if !filereadable($HOME . "/.vimrc.last") | call system("touch $HOME/.vimrc.last") | endif
@@ -206,11 +206,9 @@ set nocompatible
 """ Files {{{
     set autochdir                                   " always use curr. dir.
     set autoread                                    " refresh if changed
-    set backup                                      " backup curr file
-    set backupdir=$HOME/.vim/backup                 " backup director{y,ies}
-    set backupext=~                                 " append ~ to backups
     set confirm                                     " confirm changed files
     set noautowrite                                 " never autowrite
+    set nobackup                                    " disable backups
     set updatecount=50                              " update swp after 50chars
     """ Persistent undo. Requires Vim 7.3 {{{
         if has('persistent_undo') && exists("&undodir")
