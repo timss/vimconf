@@ -285,10 +285,11 @@ set nocompatible
         " Disable annoying ex mode (Q)
         map Q <nop>
 
-        " Buffers, preferred over tabs now with bufferline
-        nnoremap gn :bn<CR>
-        nnoremap gN :bn<CR>
-        nnoremap gd :bn<CR>
+        " Buffers, preferred over tabs now with bufferline. Buggy?
+        nnoremap gn :bNext<CR>
+        nnoremap gN :bprevious<CR>
+        nnoremap gd :bdelete<CR>
+        nnoremap gf <C-^>
 
         " Extra 'clipboard' register
         nnoremap <leader>d "_d
