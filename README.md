@@ -50,4 +50,8 @@ which would replace [clang\_complete](https://github.com/Rip-Rip/clang_complete)
 [supertab](https://github.com/ervandew/supertab) and maybe even 
 [jedi-vim](https://github.com/davidhalter/jedi-vim)
 * Better/more plugins and binds for Python
-* Make a minimalistic/dark/gray Airline theme?
+* Airline:
+    * Doesn't feel as tight as the old powerline, really worth the switch
+      from the old Powerline?
+    * Doesn't work too well with Syntastic (background color gets borked)
+    * Make a minimalistic/dark/gray Airline theme (defaults are kind of ugly)
