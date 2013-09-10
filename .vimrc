@@ -392,7 +392,7 @@ set nocompatible
     let g:airline_right_sep = '⮂'
     let g:airline_right_alt_sep = '⮃'
     let g:airline_detect_paste=1
-    let g:airline_theme="powerlineish"
+    let g:airline_theme="badwolf"
     let g:airline_powerline_fonts=0
     let g:airline_mode_map = {
         \ '__' : ' - ',
