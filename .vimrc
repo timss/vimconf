@@ -127,6 +127,9 @@ set nocompatible
         colors jellybeans                           " select colorscheme
         highlight Normal ctermbg=NONE               " use terminal background
         highlight nonText ctermbg=NONE              " use terminal background
+        highlight LineNr ctermbg=NONE               " use terminal background
+        highlight SignColumn ctermbg=NONE           " use terminal background
+        highlight CursorLine ctermbg=235            " a slightly lighter line
         au BufRead,BufNewFile *.txt set ft=sh       " opens .txt w/highlight
         """ Tab colors {{{
             hi TabLineFill ctermfg=NONE ctermbg=233
