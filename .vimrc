@@ -51,7 +51,7 @@ set nocompatible
     Bundle 'kien/ctrlp.vim'
 
     " A pretty statusline, bufferline integration
-    Bundle 'bling/vim-airline'
+    Bundle 'itchyny/lightline.vim'
     Bundle 'bling/vim-bufferline'
 
     " Easy... motions... yeah.
@@ -124,10 +124,10 @@ set nocompatible
         highlight SignColumn ctermbg=NONE           " use terminal background
         highlight CursorLine ctermbg=235            " a slightly lighter line
         au BufRead,BufNewFile *.txt set ft=sh       " opens .txt w/highlight
-        """ Tab colors {{{
-            hi TabLineFill ctermfg=NONE ctermbg=233
-            hi TabLine ctermfg=241 ctermbg=233
-            hi TabLineSel ctermfg=250 ctermbg=233
+        """ Tab colors, overwritten by lightline(?) {{{
+            "hi TabLineFill ctermfg=NONE ctermbg=233
+            "hi TabLine ctermfg=241 ctermbg=233
+            "hi TabLineSel ctermfg=250 ctermbg=233
         """ }}}
     """ }}}
     """ Interface general {{{
@@ -167,8 +167,8 @@ set nocompatible
     set listchars=tab:>\                            " > to highlight <tab>
     set list                                        " displaying listchars
     set mouse=                                      " disable mouse
-    set noshowmode                                  " hide mode, got airline
     set nolist                                      " wraps to whole words
+    set noshowmode                                  " hide mode cmd line
     set noexrc                                      " don't use other .*rc(s)
     set nostartofline                               " keep cursor column pos
     set nowrap                                      " don't wrap lines
@@ -374,33 +374,134 @@ set nocompatible
     """ }}}
 """ }}}
 """ Plugin settings {{{
-    " Airline
-    let g:airline#extensions#whitespace#enabled = 0
-    let g:airline_symbols = {}                      " enable custom symbols
-    let g:airline_symbols.branch = '∓'
-    let g:airline_symbols.paste = '+'
-    let g:airline_symbols.readonly = '⭤'
-    let g:airline_symbols.linenr = '⭡'
-    let g:airline_left_sep = '⮀'
-    let g:airline_left_alt_sep = '⮁'
-    let g:airline_right_sep = '⮂'
-    let g:airline_right_alt_sep = '⮃'
-    let g:airline_detect_paste=1
-    let g:airline_theme="badwolf"
-    let g:airline_powerline_fonts=0
-    let g:airline_mode_map = {
-        \ '__' : ' - ',
-        \ 'n'  : ' N ',
-        \ 'i'  : ' I ',
-        \ 'R'  : ' R ',
-        \ 'c'  : ' C ',
-        \ 'v'  : ' V ',
-        \ 'V'  : 'V-L',
-        \ '' : 'V-B',
-        \ 's'  : ' S ',
-        \ 'S'  : 'S-L',
-        \ '' : 'S-B',
-        \ }
+    " Only show current file in bufferline when <70
+    " Hide fugitive/syntastic when <60-70 ?
+    """ Lightline {{{
+        let g:lightline = {
+            \ 'colorscheme': 'jellybeans',
+            \ 'active': {
+            \     'left': [
+            \         ['mode', 'paste'],
+            \         ['fugitive'],
+            \         ['ctrlpmark', 'bufferline']
+            \     ],
+            \     'right': [
+            \         ['lineinfo'],
+            \         ['percent'],
+            \         ['fileformat', 'fileencoding', 'filetype', 'syntastic']
+            \     ]
+            \ },
+            \ 'component': {
+            \     'paste': '%{&paste?"!":""}',
+            \     'bufferline': '%{bufferline#refresh_status()}%{g:bufferline_status_info.before . g:bufferline_status_info.current . g:bufferline_status_info.after}' 
+            \ },
+            \ 'component_function': {
+            \     'filename'     : 'MyFilename',
+            \     'fileformat'   : 'MyFileformat',
+            \     'filetype'     : 'MyFiletype',
+            \     'fileencoding' : 'MyFileencoding',
+            \     'mode'         : 'MyMode',
+            \     'fugitive'     : 'MyFugitive',
+            \     'ctrlpmark'    : 'CtrlPMark'
+            \ },
+            \ 'component_expand': {
+            \     'syntastic': 'SyntasticStatuslineFlag',
+            \ },
+            \ 'component_type': {
+            \     'syntastic': 'middle',
+            \ },
+            \ 'subseparator': {
+            \     'left': '|', 'right': '|'
+            \ }
+            \ }
+
+        let g:lightline.mode_map = {
+            \ 'n'      : ' N ',
+            \ 'i'      : ' I ',
+            \ 'R'      : ' R ',
+            \ 'v'      : ' V ',
+            \ 'V'      : 'V-L',
+            \ 'c'      : ' C ',
+            \ "\<C-v>" : 'V-B',
+            \ 's'      : ' S ',
+            \ 'S'      : 'S-L',
+            \ "\<C-s>" : 'S-B',
+            \ '?'      : '      ' }
+
+        function! MyFileformat()
+            return winwidth('.') > 80 ? &fileformat : ''
+        endfunction
+
+        function! MyFiletype()
+            return winwidth('.') > 80 ? (strlen(&filetype) ? &filetype : 'no ft') : ''
+        endfunction
+
+        function! MyFileencoding()
+            return winwidth('.') > 80 ? (strlen(&fenc) ? &fenc : &enc) : ''
+        endfunction
+
+        function! MyMode()
+            let fname = expand('%:t')
+            return fname == '__Tagbar__' ? 'Tagbar' :
+                    \ fname == 'ControlP' ? 'CtrlP' :
+                    \ winwidth('.') > 60 ? lightline#mode() : ''
+        endfunction
+
+        function! MyFugitive()
+            try
+                if expand('%:t') !~? 'Tagbar' && exists('*fugitive#head')
+                    let mark = '∓ '
+                    let _ = fugitive#head()
+                    return strlen(_) ? mark._ : ''
+                endif
+            catch
+            endtry
+            return ''
+        endfunction
+
+        function! CtrlPMark()
+            if expand('%:t') =~ 'ControlP'
+                call lightline#link('iR'[g:lightline.ctrlp_regex])
+                return lightline#concatenate([g:lightline.ctrlp_prev, g:lightline.ctrlp_item
+                    \ , g:lightline.ctrlp_next], 0)
+            else
+                return ''
+            endif
+        endfunction
+
+        let g:ctrlp_status_func = {
+            \ 'main': 'CtrlPStatusFunc_1',
+            \ 'prog': 'CtrlPStatusFunc_2',
+            \ }
+
+        function! CtrlPStatusFunc_1(focus, byfname, regex, prev, item, next, marked)
+            let g:lightline.ctrlp_regex = a:regex
+            let g:lightline.ctrlp_prev = a:prev
+            let g:lightline.ctrlp_item = a:item
+            let g:lightline.ctrlp_next = a:next
+            return lightline#statusline(0)
+        endfunction
+
+        function! CtrlPStatusFunc_2(str)
+            return lightline#statusline(0)
+        endfunction
+
+        let g:tagbar_status_func = 'TagbarStatusFunc'
+
+        function! TagbarStatusFunc(current, sort, fname, ...) abort
+            let g:lightline.fname = a:fname
+            return lightline#statusline(0)
+        endfunction
+
+        augroup AutoSyntastic
+            autocmd!
+            autocmd BufWritePost *.c,*.cpp,*.perl,*py call s:syntastic()
+        augroup END
+        function! s:syntastic()
+            SyntasticCheck
+            call lightline#update()
+        endfunction
+    """ }}}
 
     " clang_complete - C++11
     let g:clang_user_options="-std=c++0x"

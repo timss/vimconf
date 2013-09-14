@@ -50,8 +50,13 @@ which would replace [clang\_complete](https://github.com/Rip-Rip/clang_complete)
 [supertab](https://github.com/ervandew/supertab) and maybe even 
 [jedi-vim](https://github.com/davidhalter/jedi-vim)
 * Better/more plugins and binds for Python
-* Airline:
-    * Doesn't feel as tight as the old powerline, really worth the switch
-      from the old Powerline?
-    * Doesn't work too well with Syntastic (background color gets borked)
-    * Make a minimalistic/dark/gray Airline theme (defaults are kind of ugly)
+* Statusline:
+    * Previously used vim-powerline, then airline and now lightline.
+    * Lightline is much easier to configure, but missing some functionality
+      out of the box.
+    * Proper solution with filename/bufferline (colors, modified, readonly...)
+    * Collapse groups when window is too small, currently looks borked when
+      having git and/or 2-3 buffers at only ~80-90 characters.
+      Only show current buffer when <Xchar, and if even smaller hide more.
+    * Interact with tagbar (etc)?
+    * Override tabline changes?
