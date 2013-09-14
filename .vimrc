@@ -377,8 +377,6 @@ set nocompatible
     """ }}}
 """ }}}
 """ Plugin settings {{{
-    " Only show current file in bufferline when <70
-    " Hide fugitive/syntastic when <60-70 ?
     """ Lightline {{{
         let g:lightline = {
             \ 'colorscheme': 'jellybeans',
