@@ -1,6 +1,6 @@
 "-----------------------------------------------"
 " Author:       timsateroy@gmail.com            "
-" Homepage:     http://www.thevoid.no           "
+" Homepage:     http://thevoid.no               "
 " Source:       http://github.com/timss/vimconf "
 "-----------------------------------------------"
 
@@ -80,6 +80,9 @@ set nocompatible
     Bundle 'tomtom/tlib_vim'
     Bundle 'honza/vim-snippets'
     Bundle 'garbas/vim-snipmate'
+
+    " A fancy start screen, shows MRU etc.
+    Bundle 'mhinz/vim-startify'
 
     " Awesome syntax checker.
     " REQUIREMENTS: See :h Syntastic
@@ -502,6 +505,14 @@ set nocompatible
             call lightline#update()
         endfunction
     """ }}}
+
+    " Startify, the fancy start page
+    let g:startify_custom_header = [
+        \ '   Author:      timsateroy@gmail.com ',
+        \ '   Homepage:    http://thevoid.no',
+        \ '   Source:      http://github.com/timss/vimconf',
+        \ ''
+        \ ]
 
     " clang_complete - C++11
     let g:clang_user_options="-std=c++0x"
