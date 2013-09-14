@@ -63,12 +63,6 @@ set nocompatible
     " Super easy commenting, toggle comments etc
     Bundle 'scrooloose/nerdcommenter'
 
-    " A file tree explorer
-    Bundle 'scrooloose/nerdtree'
-
-    " Color text based on RGB, hex, colornames
-    Bundle 'ap/vim-css-color'
-
     " Autoclose (, " etc
     Bundle 'Townk/vim-autoclose'
 
@@ -371,9 +365,6 @@ set nocompatible
         " Toggle tagbar (definitions, functions etc.)
         map <F1> :TagbarToggle<CR>
 
-        " Toggle the NERDTree file browser
-        map <F2> :NERDTreeToggle<CR>
-
         " Toggle pastemode, doesn't indent
         set pastetoggle=<F3>
 
@@ -417,10 +408,6 @@ set nocompatible
     " CtrlP - don't recalculate files on start (slow)
     let g:ctrlp_clear_cache_on_exit = 0
     let g:ctrlp_working_path_mode = 'ra'
-
-    " NERDTree
-    let g:NERDTreeWinPos = "left"
-    let g:NERDTreeHijackNetrw = 1
 
     " TagBar
     let g:tagbar_left = 0
