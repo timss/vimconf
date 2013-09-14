@@ -2,7 +2,6 @@
 " Author:       timsateroy@gmail.com            "
 " Homepage:     http://www.thevoid.no           "
 " Source:       http://github.com/timss/vimconf "
-" Date:         31.08.13 (rougly)               "
 "-----------------------------------------------"
 
 " vimconf is not vi-compatible
