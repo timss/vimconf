@@ -175,6 +175,7 @@ set nocompatible
     set list                                        " displaying listchars
     set mouse=                                      " disable mouse
     set noshowmode                                  " hide mode, got airline
+    set nolist                                      " wraps to whole words
     set noexrc                                      " don't use other .*rc(s)
     set nostartofline                               " keep cursor column pos
     set nowrap                                      " don't wrap lines
