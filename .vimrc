@@ -1,5 +1,5 @@
 "-----------------------------------------------"
-" Author:       timsateroy@gmail.com            "
+" Author:       Tim Sæterøy                     "
 " Homepage:     http://thevoid.no               "
 " Source:       http://github.com/timss/vimconf "
 "-----------------------------------------------"
@@ -506,7 +506,7 @@ set nocompatible
 
     " Startify, the fancy start page
     let g:startify_custom_header = [
-        \ '   Author:      timsateroy@gmail.com ',
+        \ '   Author:      Tim Sæterøy',
         \ '   Homepage:    http://thevoid.no',
         \ '   Source:      http://github.com/timss/vimconf',
         \ ''
