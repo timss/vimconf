@@ -34,9 +34,12 @@ suit you perfectly. It's intended to be played with!
 
 Preview
 -------
+
+\(somewhat outdated, different statusline, ...)   
 ![Preview](http://i.imgur.com/L0axH7e.png "Vim screenshot, C++ autocomplete")
 
-[Writing a small perl-script using Vim](http://youtu.be/DrzAuLsxgwU) \(pretty outdated\)
+\(pretty outdated...\)    
+[Writing a small perl-script using Vim](http://youtu.be/DrzAuLsxgwU)
 
 Suggestions and questions
 -------------------------
