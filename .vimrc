@@ -301,11 +301,14 @@ set nocompatible
             map <F4> :if exists("syntax_on")
                 \<Bar>syntax off<Bar>else<Bar>syntax enable<Bar>endif<CR>
         """ }}}
-        """ Highlight characters past 79, toggle with <leader>h {{{
+        """ Highlight characters past 79, toggle with <leader>h
+        """ You might want to override this function and its variables with
+        """ your own in .vimrc.last which might set for example colorcolumn or
+        """ even the textwidth. See https://github.com/timss/vimconf/pull/4 {{{
             let g:overlength_enabled = 0
             highlight OverLength ctermbg=238 guibg=#444444
 
-            function! ToggleOverLengthHighlight()
+            function! ToggleOverLength()
                 if g:overlength_enabled == 0
                     match OverLength /\%79v.*/
                     let g:overlength_enabled = 1
@@ -317,7 +320,7 @@ set nocompatible
                 endif
             endfunction
 
-            nnoremap <leader>h :call ToggleOverLengthHighlight()<CR>
+            nnoremap <leader>h :call ToggleOverLength()<CR>
         """ }}}
         """ Toggle relativenumber using <leader>r {{{
             nnoremap <leader>r :call NumberToggle()<CR>
