@@ -316,6 +316,11 @@ set nocompatible
                     echo 'OverLength highlighting turned off'
                 endif
             endfunction
+            
+        """ Highlight automatically, no toggle, uncomment to enable {{{
+            " autocmd BufEnter * highlight OverLength ctermbg=DarkRed ctermfg=white guibg=#cf0000
+            " autocmd BufEnter * match OverLength /\%79v.*/
+        """ }}}
 
             nnoremap <leader>h :call ToggleOverLengthHighlight()<CR>
         """ }}}
