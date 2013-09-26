@@ -303,7 +303,7 @@ set nocompatible
         """ }}}
         """ Highlight characters past 79, toggle with <leader>h {{{
             let g:overlength_enabled = 0
-            highlight OverLength ctermbg=black guibg=#212121
+            highlight OverLength ctermbg=238 guibg=#444444
 
             function! ToggleOverLengthHighlight()
                 if g:overlength_enabled == 0
