@@ -121,6 +121,7 @@ set nocompatible
         set t_Co=256                                " 256-colors
         set background=dark                         " we're using a dark bg
         colors jellybeans                           " select colorscheme
+        " set cc=80                                    " colorcolumn at 80 characters
         highlight Normal ctermbg=NONE               " use terminal background
         highlight nonText ctermbg=NONE              " use terminal background
         highlight LineNr ctermbg=NONE               " use terminal background
