@@ -504,6 +504,10 @@ set nocompatible
     """ }}}
 
     " Startify, the fancy start page
+    let g:startify_bookmarks = [
+        \ $HOME . "/.vimrc", $HOME . "/.vimrc.first",
+        \ $HOME . "/.vimrc.last", $HOME . "/.vimrc.bundles"
+        \ ]
     let g:startify_custom_header = [
         \ '   Author:      Tim Sæterøy',
         \ '   Homepage:    http://thevoid.no',
