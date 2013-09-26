@@ -397,7 +397,6 @@ set nocompatible
             \     'bufferline': '%{bufferline#refresh_status()}%{g:bufferline_status_info.before . g:bufferline_status_info.current . g:bufferline_status_info.after}' 
             \ },
             \ 'component_function': {
-            \     'filename'     : 'MyFilename',
             \     'fileformat'   : 'MyFileformat',
             \     'filetype'     : 'MyFiletype',
             \     'fileencoding' : 'MyFileencoding',
