@@ -507,6 +507,7 @@ set nocompatible
     """ }}}
 
     " Startify, the fancy start page
+    let g:ctrlp_reuse_window = 'startify' " don't split in startify
     let g:startify_bookmarks = [
         \ $HOME . "/.vimrc", $HOME . "/.vimrc.first",
         \ $HOME . "/.vimrc.last", $HOME . "/.vimrc.bundles"
