@@ -386,7 +386,7 @@ set nocompatible
             \ 'active': {
             \     'left': [
             \         ['mode', 'paste'],
-            \         ['fugitive'],
+            \         ['fugitive', 'readonly'],
             \         ['ctrlpmark', 'bufferline']
             \     ],
             \     'right': [
@@ -396,16 +396,17 @@ set nocompatible
             \     ]
             \ },
             \ 'component': {
-            \     'paste': '%{&paste?"!":""}',
-            \     'bufferline': '%{bufferline#refresh_status()}%{g:bufferline_status_info.before . g:bufferline_status_info.current . g:bufferline_status_info.after}' 
+            \     'paste': '%{&paste?"!":""}'
             \ },
             \ 'component_function': {
-            \     'fileformat'   : 'MyFileformat',
-            \     'filetype'     : 'MyFiletype',
-            \     'fileencoding' : 'MyFileencoding',
             \     'mode'         : 'MyMode',
             \     'fugitive'     : 'MyFugitive',
-            \     'ctrlpmark'    : 'CtrlPMark'
+            \     'readonly'     : 'MyReadonly',
+            \     'ctrlpmark'    : 'CtrlPMark',
+            \     'bufferline'   : 'MyBufferline',
+            \     'fileformat'   : 'MyFileformat',
+            \     'fileencoding' : 'MyFileencoding',
+            \     'filetype'     : 'MyFiletype'
             \ },
             \ 'component_expand': {
             \     'syntastic': 'SyntasticStatuslineFlag',
@@ -431,18 +432,6 @@ set nocompatible
             \ "\<C-s>" : 'S-B',
             \ '?'      : '      ' }
 
-        function! MyFileformat()
-            return winwidth('.') > 80 ? &fileformat : ''
-        endfunction
-
-        function! MyFiletype()
-            return winwidth('.') > 80 ? (strlen(&filetype) ? &filetype : 'no ft') : ''
-        endfunction
-
-        function! MyFileencoding()
-            return winwidth('.') > 80 ? (strlen(&fenc) ? &fenc : &enc) : ''
-        endfunction
-
         function! MyMode()
             let fname = expand('%:t')
             return fname == '__Tagbar__' ? 'Tagbar' :
@@ -462,6 +451,10 @@ set nocompatible
             return ''
         endfunction
 
+        function! MyReadonly()
+            return &ft !~? 'help' && &readonly ? '⭤' : ''
+        endfunction
+
         function! CtrlPMark()
             if expand('%:t') =~ 'ControlP'
                 call lightline#link('iR'[g:lightline.ctrlp_regex])
@@ -470,6 +463,37 @@ set nocompatible
             else
                 return ''
             endif
+        endfunction
+
+        function! MyBufferline()
+            call bufferline#refresh_status()
+            let b = g:bufferline_status_info.before
+            let c = g:bufferline_status_info.current
+            let a = g:bufferline_status_info.after
+            let alen = strlen(a)
+            let blen = strlen(b)
+            let clen = strlen(c)
+            let w = winwidth(0) * 4 / 11
+            if w < alen+blen+clen
+                let whalf = (w - strlen(c)) / 2
+                let aa = alen > whalf && blen > whalf ? a[:whalf] : alen + blen < w - clen || alen < whalf ? a : a[:(w - clen - blen)]
+                let bb = alen > whalf && blen > whalf ? b[-(whalf):] : alen + blen < w - clen || blen < whalf ? b : b[-(w - clen - alen):]
+                return (strlen(bb) < strlen(b) ? '...' : '') . bb . c . aa . (strlen(aa) < strlen(a) ? '...' : '')
+            else
+                return b . c . a
+            endif
+        endfunction
+
+        function! MyFileformat()
+            return winwidth('.') > 90 ? &fileformat : ''
+        endfunction
+
+        function! MyFileencoding()
+            return winwidth('.') > 80 ? (strlen(&fenc) ? &fenc : &enc) : ''
+        endfunction
+
+        function! MyFiletype()
+            return winwidth('.') > 70 ? (strlen(&filetype) ? &filetype : 'no ft') : ''
         endfunction
 
         let g:ctrlp_status_func = {
