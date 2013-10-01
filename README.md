@@ -57,9 +57,5 @@ which would replace [clang\_complete](https://github.com/Rip-Rip/clang_complete)
     * Previously used vim-powerline, then airline and now lightline.
     * Lightline is much easier to configure, but missing some functionality
       out of the box.
-    * Proper solution with filename/bufferline (colors, modified, readonly...)
-    * Collapse groups when window is too small, currently looks borked when
-      having git and/or 2-3 buffers at only ~80-90 characters.
-      Only show current buffer when <Xchar, and if even smaller hide more.
     * Interact with tagbar (etc)?
     * Override tabline changes?
