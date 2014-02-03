@@ -291,11 +291,6 @@ set nocompatible
         nnoremap gN :bprevious<CR>
         nnoremap gd :bdelete<CR>
         nnoremap gf <C-^>
-
-        " Extra 'clipboard' register
-        nnoremap <leader>d "_d
-        vnoremap <leader>d "_d
-        vnoremap <leader>p "_dP
     """ }}}
     """ Functions or fancy binds {{{{
         """ Toggle syntax highlighting {{{
