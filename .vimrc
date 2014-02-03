@@ -276,11 +276,6 @@ set nocompatible
         nnoremap j gj
         nnoremap k gk
 
-        " Rebind æøå (Norwegian keys)
-        noremap ø :
-        noremap å [
-        noremap æ ]
-
         " Working ci(, works for both breaklined, inline and multiple ()
         nnoremap ci( %ci(
 
