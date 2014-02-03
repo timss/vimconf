@@ -85,7 +85,7 @@ set nocompatible
     Bundle 'mhinz/vim-startify'
 
     " Awesome syntax checker.
-    " REQUIREMENTS: See :h Syntastic
+    " REQUIREMENTS: See :h syntastic-intro
     Bundle 'scrooloose/syntastic'
 
     " Functions, class data etc.
