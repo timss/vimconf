@@ -91,14 +91,6 @@ set nocompatible
     " Functions, class data etc.
     " REQUIREMENTS: (exuberant)-ctags
     Bundle 'majutsushi/tagbar'
-
-    " C/C++ autocomplete
-    " REUIREMENTS: clang compiler
-    Bundle 'Rip-Rip/clang_complete'
-
-    " Python autocomplete
-    " REQUIREMENTS: python package 'jedi', also in virtenvs
-    Bundle 'davidhalter/jedi-vim'
     """ }}}
     """ Installing plugins the first time {{{
         if has_vundle == 0
@@ -547,9 +539,6 @@ set nocompatible
         \ '   Source:      http://github.com/timss/vimconf',
         \ ''
         \ ]
-
-    " clang_complete - C++11
-    let g:clang_user_options="-std=c++0x"
 
     " CtrlP - don't recalculate files on start (slow)
     let g:ctrlp_clear_cache_on_exit = 0
