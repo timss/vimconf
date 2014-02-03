@@ -126,7 +126,8 @@ set nocompatible
         highlight LineNr ctermbg=NONE               " use terminal background
         highlight SignColumn ctermbg=NONE           " use terminal background
         highlight CursorLine ctermbg=235            " a slightly lighter line
-        au BufRead,BufNewFile *.txt set ft=sh       " opens .txt w/highlight
+        au BufNewFile,BufRead *.txt se ft=sh tw=79  " opens .txt w/highlight
+        au BufNewFile,BufRead *.tex se ft=tex tw=79 " we don't want plaintex
         """ Tab colors, overwritten by lightline(?) {{{
             "hi TabLineFill ctermfg=NONE ctermbg=233
             "hi TabLine ctermfg=241 ctermbg=233
