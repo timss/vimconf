@@ -453,7 +453,7 @@ set nocompatible
         endfunction
 
         function! MyReadonly()
-            return &ft !~? 'help' && &readonly ? '⭤' : ''
+            return &ft !~? 'help' && &readonly ? '≠' : '' " or ⭤
         endfunction
 
         function! CtrlPMark()
