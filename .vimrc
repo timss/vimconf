@@ -100,7 +100,7 @@ set nocompatible
     " REQUIREMENTS: python package 'jedi', also in virtenvs
     Bundle 'davidhalter/jedi-vim'
     """ }}}
-    """ Installing plguins the first time {{{
+    """ Installing plugins the first time {{{
         if has_vundle == 0
             echo "Installing Bundles, please ignore key map error messages"
             echo ""
