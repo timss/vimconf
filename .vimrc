@@ -121,17 +121,23 @@ set nocompatible
         set t_Co=256                                " 256-colors
         set background=dark                         " we're using a dark bg
         colors jellybeans                           " select colorscheme
-        highlight Normal ctermbg=NONE               " use terminal background
-        highlight nonText ctermbg=NONE              " use terminal background
-        highlight LineNr ctermbg=NONE               " use terminal background
-        highlight SignColumn ctermbg=NONE           " use terminal background
-        highlight CursorLine ctermbg=235            " a slightly lighter line
         au BufNewFile,BufRead *.txt se ft=sh tw=79  " opens .txt w/highlight
         au BufNewFile,BufRead *.tex se ft=tex tw=79 " we don't want plaintex
         """ Tab colors, overwritten by lightline(?) {{{
             "hi TabLineFill ctermfg=NONE ctermbg=233
             "hi TabLine ctermfg=241 ctermbg=233
             "hi TabLineSel ctermfg=250 ctermbg=233
+        """ }}}
+        """ Custom highlighting, where NONE uses terminal background {{{
+            function! CustomHighlighting()
+                highlight Normal ctermbg=NONE
+                highlight nonText ctermbg=NONE
+                highlight LineNr ctermbg=NONE
+                highlight SignColumn ctermbg=NONE
+                highlight CursorLine ctermbg=235
+            endfunction
+
+            call CustomHighlighting()
         """ }}}
     """ }}}
     """ Interface general {{{
@@ -294,8 +300,16 @@ set nocompatible
     """ }}}
     """ Functions or fancy binds {{{{
         """ Toggle syntax highlighting {{{
-            map <F4> :if exists("syntax_on")
-                \<Bar>syntax off<Bar>else<Bar>syntax enable<Bar>endif<CR>
+            function! ToggleSyntaxHighlighthing()
+                if exists("g:syntax_on")
+                    syntax off
+                else
+                    syntax on
+                    call CustomHighlighting()
+                endif
+            endfunction
+
+            nnoremap <leader>s :call ToggleSyntaxHighlighthing()<CR>
         """ }}}
         """ Highlight characters past 79, toggle with <leader>h
         """ You might want to override this function and its variables with
