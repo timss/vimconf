@@ -115,6 +115,7 @@ set nocompatible
         colors jellybeans                           " select colorscheme
         au BufNewFile,BufRead *.txt se ft=sh tw=79  " opens .txt w/highlight
         au BufNewFile,BufRead *.tex se ft=tex tw=79 " we don't want plaintex
+        au BufNewFile,BufRead *.md se ft=markdown tw=79 " markdown, not modula
         """ Tab colors, overwritten by lightline(?) {{{
             "hi TabLineFill ctermfg=NONE ctermbg=233
             "hi TabLine ctermfg=241 ctermbg=233
