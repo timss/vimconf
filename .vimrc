@@ -440,7 +440,7 @@ set nocompatible
         function! MyFugitive()
             try
                 if expand('%:t') !~? 'Tagbar' && exists('*fugitive#head')
-                    let mark = '∓ '
+                    let mark = '± '
                     let _ = fugitive#head()
                     return strlen(_) ? mark._ : ''
                 endif
