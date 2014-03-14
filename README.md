@@ -38,7 +38,7 @@ Preview
 
 ![Preview](http://i.imgur.com/jpevpU7.png "Vim screenshot")
 
-\(Also pretty outdated...\)    
+\(Pretty outdated...\)    
 [Writing a small perl-script using Vim](http://youtu.be/DrzAuLsxgwU)
 
 Suggestions and questions
