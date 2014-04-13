@@ -36,10 +36,9 @@ Some useful plugins could be:
 Preview
 -------
 
-\(Outdated, different statusline, no longer C++ autocomplete support, ...)   
-![Preview](http://i.imgur.com/L0axH7e.png "Vim screenshot, C++ autocomplete")
+![Preview](http://i.imgur.com/jpevpU7.png "Vim screenshot")
 
-\(Also pretty outdated...\)    
+\(Pretty outdated...\)    
 [Writing a small perl-script using Vim](http://youtu.be/DrzAuLsxgwU)
 
 Suggestions and questions
