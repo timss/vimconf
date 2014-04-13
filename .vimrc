@@ -384,7 +384,7 @@ set nocompatible
             \ 'active': {
             \     'left': [
             \         ['mode', 'paste'],
-            \         ['fugitive', 'readonly'],
+            \         ['readonly', 'fugitive'],
             \         ['ctrlpmark', 'bufferline']
             \     ],
             \     'right': [
