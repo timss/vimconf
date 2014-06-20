@@ -18,7 +18,7 @@ set nocompatible
     """ Automatically setting up Vundle, taken from
     """ http://www.erikzaadi.com/2012/03/19/auto-installing-vundle-from-your-vimrc/ {{{
         let has_vundle=1
-        if !filereadable($HOME."/.vim/bundle/vundle/README.md")
+        if !filereadable($HOME."/.vim/bundle/Vundle.vim/README.md")
             echo "Installing Vundle..."
             echo ""
             silent !mkdir -p $HOME/.vim/bundle
