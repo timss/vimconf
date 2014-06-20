@@ -22,7 +22,7 @@ set nocompatible
             echo "Installing Vundle..."
             echo ""
             silent !mkdir -p $HOME/.vim/bundle
-            silent !git clone https://github.com/gmarik/vundle $HOME/.vim/bundle/vundle
+            silent !git clone https://github.com/gmarik/Vundle.vim $HOME/.vim/bundle/Vundle.vim
             let has_vundle=0
         endif
     """ }}}
@@ -32,7 +32,7 @@ set nocompatible
         call vundle#begin()                         " init vundle
     """ }}}
     """ Github repos, uncomment to disable a plugin {{{
-    Plugin 'gmarik/vundle'
+    Plugin 'gmarik/Vundle.vim'
 
     """ Local plugins (and only plugins in this file!) {{{{
         if filereadable($HOME."/.vimrc.plugins")
