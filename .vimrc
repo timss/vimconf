@@ -10,7 +10,7 @@ set nocompatible
 """ Automatically make needed files and folders on first run
 """ If you don't run *nix you're on your own (as in remove this) {{{
     call system("mkdir -p $HOME/.vim/{plugin,undo}")
-    if !filereadable($HOME . "/.vimrc.bundles") | call system("touch $HOME/.vimrc.bundles") | endif
+    if !filereadable($HOME . "/.vimrc.plugins") | call system("touch $HOME/.vimrc.plugins") | endif
     if !filereadable($HOME . "/.vimrc.first") | call system("touch $HOME/.vimrc.first") | endif
     if !filereadable($HOME . "/.vimrc.last") | call system("touch $HOME/.vimrc.last") | endif
 """ }}}
@@ -28,75 +28,77 @@ set nocompatible
     """ }}}
     """ Initialize Vundle {{{
         filetype off                                " required to init
-        set rtp+=$HOME/.vim/bundle/vundle/          " include vundle
-        call vundle#rc()                            " init vundle
+        set rtp+=$HOME/.vim/bundle/Vundle.vim       " include vundle
+        call vundle#begin()                         " init vundle
     """ }}}
     """ Github repos, uncomment to disable a plugin {{{
-    " Recursive vundle, omg!
-    Bundle 'gmarik/vundle'
+    Plugin 'gmarik/vundle'
 
-    """ Local bundles (and only bundles in this file!) {{{{
-        if filereadable($HOME."/.vimrc.bundles")
-            source $HOME/.vimrc.bundles
+    """ Local plugins (and only plugins in this file!) {{{{
+        if filereadable($HOME."/.vimrc.plugins")
+            source $HOME/.vimrc.plugins
         endif
     """ }}}
 
     " Edit files using sudo/su
-    Bundle 'chrisbra/SudoEdit.vim'
+    Plugin 'chrisbra/SudoEdit.vim'
 
     " <Tab> everything!
-    Bundle 'ervandew/supertab'
+    Plugin 'ervandew/supertab'
 
     " Fuzzy finder (files, mru, etc)
-    Bundle 'kien/ctrlp.vim'
+    Plugin 'kien/ctrlp.vim'
 
     " A pretty statusline, bufferline integration
-    Bundle 'itchyny/lightline.vim'
-    Bundle 'bling/vim-bufferline'
+    Plugin 'itchyny/lightline.vim'
+    Plugin 'bling/vim-bufferline'
 
     " Easy... motions... yeah.
-    Bundle 'Lokaltog/vim-easymotion'
+    Plugin 'Lokaltog/vim-easymotion'
 
     " Glorious colorscheme
-    Bundle 'nanotech/jellybeans.vim'
+    Plugin 'nanotech/jellybeans.vim'
 
     " Super easy commenting, toggle comments etc
-    Bundle 'scrooloose/nerdcommenter'
+    Plugin 'scrooloose/nerdcommenter'
 
     " Autoclose (, " etc
-    Bundle 'Townk/vim-autoclose'
+    Plugin 'Townk/vim-autoclose'
 
     " Git wrapper inside Vim
-    Bundle 'tpope/vim-fugitive'
+    Plugin 'tpope/vim-fugitive'
 
     " Handle surround chars like ''
-    Bundle 'tpope/vim-surround'
+    Plugin 'tpope/vim-surround'
 
     " Align your = etc.
-    Bundle 'vim-scripts/Align'
+    Plugin 'vim-scripts/Align'
 
     " Snippets like textmate
-    Bundle 'MarcWeber/vim-addon-mw-utils'
-    Bundle 'tomtom/tlib_vim'
-    Bundle 'honza/vim-snippets'
-    Bundle 'garbas/vim-snipmate'
+    Plugin 'MarcWeber/vim-addon-mw-utils'
+    Plugin 'tomtom/tlib_vim'
+    Plugin 'honza/vim-snippets'
+    Plugin 'garbas/vim-snipmate'
 
     " A fancy start screen, shows MRU etc.
-    Bundle 'mhinz/vim-startify'
+    Plugin 'mhinz/vim-startify'
 
     " Awesome syntax checker.
     " REQUIREMENTS: See :h syntastic-intro
-    Bundle 'scrooloose/syntastic'
+    Plugin 'scrooloose/syntastic'
 
     " Functions, class data etc.
     " REQUIREMENTS: (exuberant)-ctags
-    Bundle 'majutsushi/tagbar'
-    """ }}}
+    Plugin 'majutsushi/tagbar'
+
+    " Finish Vundle stuff
+    call vundle#end()
+
     """ Installing plugins the first time {{{
         if has_vundle == 0
-            echo "Installing Bundles, please ignore key map error messages"
+            echo "Installing Plugins, please ignore key map error messages"
             echo ""
-            :BundleInstall
+            :PluginInstall
         endif
     """ }}}
 """ }}}
@@ -532,7 +534,7 @@ set nocompatible
     let g:ctrlp_reuse_window = 'startify' " don't split in startify
     let g:startify_bookmarks = [
         \ $HOME . "/.vimrc", $HOME . "/.vimrc.first",
-        \ $HOME . "/.vimrc.last", $HOME . "/.vimrc.bundles"
+        \ $HOME . "/.vimrc.last", $HOME . "/.vimrc.plugins"
         \ ]
     let g:startify_custom_header = [
         \ '   Author:      Tim Sæterøy',
