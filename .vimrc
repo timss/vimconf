@@ -83,6 +83,9 @@ set nocompatible
     " A fancy start screen, shows MRU etc.
     Plugin 'mhinz/vim-startify'
 
+    " Vim signs (:h signs) for modified lines based off VCS (e.g. Git)
+    Plugin 'mhinz/vim-signify'
+
     " Awesome syntax checker.
     " REQUIREMENTS: See :h syntastic-intro
     Plugin 'scrooloose/syntastic'
