@@ -18,7 +18,7 @@ Configuration
 If you choose to symlink your `~/.vimrc` you can easily maintain an updated
 version of this vim configuration by using the local additions.
 
-`~/.vimrc.plugins`  Add your personal here (previously `.vimrc.bundles`).   
+`~/.vimrc.plugins`  Add your personal plugins here (previously `.vimrc.bundles`).   
 `~/.vimrc.first`    Prerequisites only, as it will be overwritten by whatever below.   
 `~/.vimrc.last`     Overrides everything. Generally use this.   
 
