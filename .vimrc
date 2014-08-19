@@ -285,8 +285,8 @@ set nocompatible
         " Disable annoying ex mode (Q)
         map Q <nop>
 
-        " Buffers, preferred over tabs now with bufferline. Buggy?
-        nnoremap gn :bNext<CR>
+        " Buffers, preferred over tabs now with bufferline.
+        nnoremap gn :bnext<CR>
         nnoremap gN :bprevious<CR>
         nnoremap gd :bdelete<CR>
         nnoremap gf <C-^>
