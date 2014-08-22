@@ -41,10 +41,11 @@ Preview
 \(Pretty outdated...\)    
 [Writing a small perl-script using Vim](http://youtu.be/DrzAuLsxgwU)
 
-Suggestions and questions
--------------------------
+Suggestions, questions and problems
+-----------------------------------
 Feel free to give me suggestions, ask questions or point out things that needs
 to be fixed by adding an [issue](https://github.com/timss/vimconf/issues).
+Remember to include Vim version and other relevant information.
 
 Disclaimer
 ----------
