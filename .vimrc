@@ -97,10 +97,8 @@ set nocompatible
     " Finish Vundle stuff
     call vundle#end()
 
-    """ Installing plugins the first time {{{
+    """ Installing plugins the first time, quits when done {{{
         if has_vundle == 0
-            echo "Installing Plugins, please ignore key map error messages"
-            echo ""
             :silent! PluginInstall
             :qa
         endif
