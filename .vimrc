@@ -101,7 +101,8 @@ set nocompatible
         if has_vundle == 0
             echo "Installing Plugins, please ignore key map error messages"
             echo ""
-            :PluginInstall
+            :silent! PluginInstall
+            :qa
         endif
     """ }}}
 """ }}}
