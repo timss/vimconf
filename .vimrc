@@ -117,9 +117,14 @@ set nocompatible
         syntax on                                   " syntax highlighting
         set background=dark                         " we're using a dark bg
         colors jellybeans                           " select colorscheme
-        au BufNewFile,BufRead *.txt se ft=sh tw=79  " opens .txt w/highlight
-        au BufNewFile,BufRead *.tex se ft=tex tw=79 " we don't want plaintex
-        au BufNewFile,BufRead *.md se ft=markdown tw=79 " markdown, not modula
+        """ .txt w/highlight, plaintex is useless, markdown for .md {{{
+            augroup FileTypeRules
+                autocmd!
+                autocmd BufNewFile,BufRead *.txt set ft=sh tw=79
+                autocmd BufNewFile,BufRead *.tex set ft=tex tw=79
+                autocmd BufNewFile,BufRead *.md set ft=markdown tw=79
+            augroup END
+        """ }}}
         """ 256 colors for maximum jellybeans bling. See commit log for info {{{
             if (&term =~ "xterm") || (&term =~ "screen")
                 set t_Co=256
@@ -206,10 +211,12 @@ set nocompatible
         set showmatch                               " tmpjump to match-bracket
     """ }}}
     """ Return to last edit position when opening files {{{
-        autocmd BufReadPost *
-            \ if line("'\"") > 0 && line("'\"") <= line("$") |
-            \     exe "normal! g`\"" |
-            \ endif
+        augroup LastPosition
+            autocmd! BufReadPost *
+                \ if line("'\"") > 0 && line("'\"") <= line("$") |
+                \     exe "normal! g`\"" |
+                \ endif
+        augroup END
     """ }}}
 """ }}}
 """ Files {{{
@@ -242,7 +249,9 @@ set nocompatible
     set softtabstop=4                               " "tab" feels like <tab>
     set tabstop=4                                   " replace <TAB> w/4 spaces
     """ Only auto-comment newline for block comments {{{
-        au FileType c,cpp setlocal comments -=:// comments +=f://
+        augroup AutoBlockComment
+            autocmd! FileType c,cpp setlocal comments -=:// comments +=f://
+        augroup END
     """ }}}
 """ }}}
 """ Keybindings {{{
@@ -369,9 +378,12 @@ set nocompatible
                 %s/\s\+$//e
                 call cursor(l, c)
             endfunction
-
-            autocmd FileType c,cpp,conf,css,html,perl,python,sh autocmd 
-                        \BufWritePre <buffer> :call <SID>StripTrailingWhitespace()
+            augroup StripTrailingWhitespace
+                autocmd!
+                autocmd FileType c,cpp,conf,css,html,perl,python,sh 
+                            \autocmd BufWritePre <buffer> :call 
+                            \<SID>StripTrailingWhitespace()
+            augroup END
         """ }}}
     """ }}}
     """ Plugins {{{
@@ -527,14 +539,14 @@ set nocompatible
             return lightline#statusline(0)
         endfunction
 
-        augroup AutoSyntastic
-            autocmd!
-            autocmd BufWritePost *.c,*.cpp,*.perl,*py call s:syntastic()
-        augroup END
         function! s:syntastic()
             SyntasticCheck
             call lightline#update()
         endfunction
+        augroup AutoSyntastic
+            autocmd!
+            autocmd BufWritePost *.c,*.cpp,*.perl,*py call s:syntastic()
+        augroup END
     """ }}}
 
     " Startify, the fancy start page
@@ -569,8 +581,11 @@ set nocompatible
             \ ['c', 'cpp', 'perl', 'python'] }
 
     " Automatically remove preview window after autocomplete (mainly for clang_complete)
-    autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
-    autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+    augroup RemovePreview
+        autocmd!
+        autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+        autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+    augroup END
 """ }}}
 """ Local ending config, will overwrite anything above. Generally use this. {{{{
     if filereadable($HOME."/.vimrc.last")
