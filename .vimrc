@@ -598,6 +598,11 @@ set nocompatible
         \ 'active_filetypes':
             \ ['c', 'cpp', 'perl', 'python'] }
 
+    " Netrw - the bundled (network) file and directory browser
+    let g:netrw_banner = 0
+    let g:netrw_list_hide = '^\.$'
+    let g:netrw_liststyle = 3
+
     " Automatically remove preview window after autocomplete (mainly for clang_complete)
     augroup RemovePreview
         autocmd!
