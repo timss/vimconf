@@ -154,9 +154,9 @@ set nocompatible
         set showcmd                                 " show cmds being typed
         set title                                   " window title
         set vb t_vb=                                " disable beep and flashing
-        set wildignore=.bak,.pyc,.o,.ojb,.a,
-                       \.pdf,.jpg,.gif,.png,
-                       \.avi,.mkv,.so               " ignore said files
+        set wildignore=*.a,*.o,*.so,*.pyc,*.jpg,
+                    \*.jpeg,*.png,*.gif,*.pdf,*.git,
+                    \*.swp,*.swo                    " tab completion ignores
         set wildmenu                                " better auto complete
         set wildmode=longest,list                   " bash-like auto complete
         """ Encoding {{{
