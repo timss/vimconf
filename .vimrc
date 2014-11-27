@@ -9,7 +9,7 @@ set nocompatible
 
 """ Automatically make needed files and folders on first run
 """ If you don't run *nix you're on your own (as in remove this) {{{
-    call system("mkdir -p $HOME/.vim/{plugin,undo}")
+    call system("mkdir -p $HOME/.vim/{plugin,swap,undo}")
     if !filereadable($HOME . "/.vimrc.plugins") | call system("touch $HOME/.vimrc.plugins") | endif
     if !filereadable($HOME . "/.vimrc.first") | call system("touch $HOME/.vimrc.first") | endif
     if !filereadable($HOME . "/.vimrc.last") | call system("touch $HOME/.vimrc.last") | endif
@@ -224,13 +224,28 @@ set nocompatible
     set confirm                                     " confirm changed files
     set noautowrite                                 " never autowrite
     set nobackup                                    " disable backups
-    set updatecount=50                              " update swp after 50chars
     """ Persistent undo. Requires Vim 7.3 {{{
         if has('persistent_undo') && exists("&undodir")
             set undodir=$HOME/.vim/undo/            " where to store undofiles
             set undofile                            " enable undofile
             set undolevels=500                      " max undos stored
             set undoreload=10000                    " buffer stored undos
+        endif
+    """ }}}
+    """ Swap files, unless vim is invoked using sudo. Inspired by tejr's vimrc
+    """ https://github.com/tejr/dotfiles/blob/master/vim/vimrc {{{
+        if !strlen($SUDO_USER)
+            set directory^=$HOME/.vim/swap//        " default cwd, // full path
+            set swapfile                            " enable swap files
+            set updatecount=50                      " update swp after 50chars
+            """ Don't swap tmp, mount or network dirs {{{
+                augroup SwapIgnore
+                    autocmd! BufNewFile,BufReadPre /tmp/*,/mnt/*,/media/*
+                                \ setlocal noswapfile
+                augroup END
+            """ }}}
+        else
+            set noswapfile                          " dont swap sudo'ed files
         endif
     """ }}}
 """ }}}
