@@ -398,9 +398,9 @@ set nocompatible
             endfunction
             augroup StripTrailingWhitespace
                 autocmd!
-                autocmd FileType c,cpp,conf,css,html,perl,python,sh 
-                            \autocmd BufWritePre <buffer> :call 
-                            \<SID>StripTrailingWhitespace()
+                autocmd FileType c,cpp,conf,css,html,perl,python,sh
+                            \ autocmd BufWritePre <buffer> :call
+                            \ <SID>StripTrailingWhitespace()
             augroup END
         """ }}}
     """ }}}
