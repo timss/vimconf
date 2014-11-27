@@ -265,6 +265,12 @@ set nocompatible
             autocmd! FileType c,cpp setlocal comments -=:// comments +=f://
         augroup END
     """ }}}
+    """ Take comment leaders into account when joining lines, :h fo-table
+    """ http://ftp.vim.org/pub/vim/patches/7.3/7.3.541 {{{
+        if has("patch-7.3.541")
+            set formatoptions+=j
+        endif
+    """ }}}
 """ }}}
 """ Keybindings {{{
     """ General {{{
