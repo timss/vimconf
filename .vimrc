@@ -159,12 +159,10 @@ set nocompatible
                     \*.swp,*.swo                    " tab completion ignores
         set wildmenu                                " better auto complete
         set wildmode=longest,list                   " bash-like auto complete
-        """ Encoding {{{
-            " If you're having problems with some characters you can force
-            " UTF-8 if your locale is something else.
-            " WARNING: this will affect encoding used when editing files!
-            "
-            " set encoding=utf-8                    " for character glyphs
+        """ Depending on your setup you may want to enforce UTF-8.
+        """ Should generally be set in your environment LOCALE/$LANG {{{
+            " set encoding=utf-8                    " default $LANG/latin1
+            " set fileencoding=utf-8                " default none
         """ }}}
         """ Gvim {{{
             set guifont=DejaVu\ Sans\ Mono\ 9
