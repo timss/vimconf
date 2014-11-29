@@ -357,8 +357,6 @@ set nocompatible
             nnoremap <leader>h :call ToggleOverLength()<CR>
         """ }}}
         """ Toggle relativenumber using <leader>r {{{
-            nnoremap <leader>r :call NumberToggle()<CR>
-
             function! NumberToggle()
                 if(&relativenumber == 1)
                     set number
@@ -366,6 +364,8 @@ set nocompatible
                     set relativenumber
                 endif
             endfunction
+
+            nnoremap <leader>r :call NumberToggle()<CR>
         """ }}}
         """ Remove multiple empty lines {{{
             function! DeleteMultipleEmptyLines()
@@ -396,6 +396,7 @@ set nocompatible
                 %s/\s\+$//e
                 call cursor(l, c)
             endfunction
+
             augroup StripTrailingWhitespace
                 autocmd!
                 autocmd FileType c,cpp,conf,css,html,perl,python,sh
@@ -561,6 +562,7 @@ set nocompatible
             SyntasticCheck
             call lightline#update()
         endfunction
+
         augroup AutoSyntastic
             autocmd!
             autocmd BufWritePost *.c,*.cpp,*.perl,*py call s:syntastic()
