@@ -297,7 +297,7 @@ set nocompatible
         vmap <C-up> [egv
         vmap <C-down> ]egv
 
-        " Move faster
+        " Scroll up/down lines from 'scroll' option, default half a screen
         map <C-j> <C-d>
         map <C-k> <C-u>
 
