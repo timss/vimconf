@@ -284,9 +284,6 @@ set nocompatible
         " Yank(copy) to system clipboard
         noremap <leader>y "+y
 
-        " Toggle text wrapping
-        nmap <silent> <leader>w :set invwrap<CR>:set wrap?<CR>
-
         " Toggle folding
         nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
         vnoremap <Space> zf
@@ -366,6 +363,20 @@ set nocompatible
             endfunction
 
             nnoremap <leader>r :call NumberToggle()<CR>
+        """ }}}
+        """ Toggle text wrapping, wrap on whole words
+        """ For more info see: http://stackoverflow.com/a/2470885/1076493 {{{
+            function! WrapToggle()
+                if &wrap
+                    set list
+                    set nowrap
+                else
+                    set nolist
+                    set wrap
+                endif
+            endfunction
+
+            nnoremap <leader>w :call WrapToggle()<CR>
         """ }}}
         """ Remove multiple empty lines {{{
             function! DeleteMultipleEmptyLines()
