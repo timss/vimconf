@@ -181,7 +181,6 @@ set nocompatible
     set listchars=tab:>\                            " > to highlight <tab>
     set list                                        " displaying listchars
     set mouse=                                      " disable mouse
-    set nolist                                      " wraps to whole words
     set noshowmode                                  " hide mode cmd line
     set noexrc                                      " don't use other .*rc(s)
     set nostartofline                               " keep cursor column pos
