@@ -6,7 +6,7 @@ vimconf
 
 Installation
 ------------
-**Required packages:** ctags, ruby
+**Dependencies:** [Exuberant ctags](http://ctags.sourceforge.net/) (tagbar)
 
     git clone https://github.com/timss/vimconf.git
     ln -s vimconf/.vimrc ~/.vimrc
