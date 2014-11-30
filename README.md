@@ -38,8 +38,7 @@ Preview
 
 ![Preview](http://i.imgur.com/jpevpU7.png "Vim screenshot")
 
-\(Pretty outdated...\)    
-[Writing a small perl-script using Vim](http://youtu.be/DrzAuLsxgwU)
+**Video:** [Writing a small perl-script using Vim](http://youtu.be/DrzAuLsxgwU) (rather outdated)
 
 Suggestions, questions and problems
 -----------------------------------
