@@ -140,6 +140,7 @@ set nocompatible
                 highlight NonText ctermbg=NONE
                 highlight LineNr ctermbg=NONE
                 highlight SignColumn ctermbg=NONE
+                highlight SignColumn guibg=#151515
                 highlight CursorLine ctermbg=235
             endfunction
 
