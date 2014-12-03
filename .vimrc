@@ -137,7 +137,7 @@ set nocompatible
         """ Custom highlighting, where NONE uses terminal background {{{
             function! CustomHighlighting()
                 highlight Normal ctermbg=NONE
-                highlight nonText ctermbg=NONE
+                highlight NonText ctermbg=NONE
                 highlight LineNr ctermbg=NONE
                 highlight SignColumn ctermbg=NONE
                 highlight CursorLine ctermbg=235
