@@ -115,7 +115,7 @@ set nocompatible
         filetype plugin indent on                   " detect file plugin+indent
         syntax on                                   " syntax highlighting
         set background=dark                         " we're using a dark bg
-        colors jellybeans                           " select colorscheme
+        colorscheme jellybeans                      " colorscheme from plugin
         """ .txt w/highlight, plaintex is useless, markdown for .md {{{
             augroup FileTypeRules
                 autocmd!
