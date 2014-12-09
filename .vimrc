@@ -9,7 +9,7 @@ set nocompatible
 
 """ Automatically make needed files and folders on first run
 """ If you don't run *nix you're on your own (as in remove this) {{{
-    call system("mkdir -p $HOME/.vim/{plugin,swap,undo}")
+    call system("mkdir -p $HOME/.vim/{swap,undo}")
     if !filereadable($HOME . "/.vimrc.plugins") | call system("touch $HOME/.vimrc.plugins") | endif
     if !filereadable($HOME . "/.vimrc.first") | call system("touch $HOME/.vimrc.first") | endif
     if !filereadable($HOME . "/.vimrc.last") | call system("touch $HOME/.vimrc.last") | endif
