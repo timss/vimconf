@@ -410,7 +410,7 @@ set nocompatible
 
             augroup StripTrailingWhitespace
                 autocmd!
-                autocmd FileType c,cpp,conf,css,html,perl,python,sh
+                autocmd FileType c,cpp,cfg,conf,css,html,perl,python,sh,tex
                             \ autocmd BufWritePre <buffer> :call
                             \ <SID>StripTrailingWhitespace()
             augroup END
