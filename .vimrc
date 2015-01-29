@@ -116,12 +116,13 @@ set nocompatible
         syntax on                                   " syntax highlighting
         set background=dark                         " we're using a dark bg
         colorscheme jellybeans                      " colorscheme from plugin
-        """ .txt w/highlight, plaintex is useless, markdown for .md {{{
+        """ force behavior and filetypes, and by extension highlighting {{{
             augroup FileTypeRules
                 autocmd!
-                autocmd BufNewFile,BufRead *.txt set ft=sh tw=79
-                autocmd BufNewFile,BufRead *.tex set ft=tex tw=79
+                autocmd BufNewFile,BufRead *.conf set ft=cfg tw=79
                 autocmd BufNewFile,BufRead *.md set ft=markdown tw=79
+                autocmd BufNewFile,BufRead *.tex set ft=tex tw=79
+                autocmd BufNewFile,BufRead *.txt set ft=sh tw=79
             augroup END
         """ }}}
         """ 256 colors for maximum jellybeans bling. See commit log for info {{{
