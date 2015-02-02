@@ -62,3 +62,7 @@ Todo
 ----
 * Update preview (gifs)
 * Extract some language/plugin specific configuration to an example file (wiki)?
+* Swap Vundle with NeoBundle or vimplug for lazy loading of plugins, especially
+  `$HOME/.vimrc.plugins`?
+* Move functions to `$HOME/.vim/autoload`? See
+  [How can I reduce startup time for vim?](http://stackoverflow.com/a/21197543/1076493)
