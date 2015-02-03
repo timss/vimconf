@@ -130,11 +130,6 @@ set nocompatible
                 set t_Co=256
             endif
         """ }}}
-        """ Tab colors, overwritten by lightline(?) {{{
-            "hi TabLineFill ctermfg=NONE ctermbg=233
-            "hi TabLine ctermfg=241 ctermbg=233
-            "hi TabLineSel ctermfg=250 ctermbg=233
-        """ }}}
         """ Custom highlighting, where NONE uses terminal background {{{
             function! CustomHighlighting()
                 highlight Normal ctermbg=NONE
