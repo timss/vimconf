@@ -468,7 +468,7 @@ set nocompatible
     let g:syntastic_mode_map = {
         \ 'mode': 'passive',
         \ 'active_filetypes':
-            \ ['c', 'cpp', 'perl', 'python'] }
+            \ ['c', 'cpp', 'perl', 'python', 'sh'] }
 
     " Netrw - the bundled (network) file and directory browser
     let g:netrw_banner = 0
