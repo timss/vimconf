@@ -463,12 +463,13 @@ set nocompatible
 
     " Syntastic - This is largely up to your own usage, and override these
     "             changes if be needed. This is merely an exemplification.
+    "             TODO: not be filetype, but filename?
     let g:syntastic_cpp_check_header = 1
     let g:syntastic_cpp_compiler_options = ' -std=c++0x'
     let g:syntastic_mode_map = {
         \ 'mode': 'passive',
         \ 'active_filetypes':
-            \ ['c', 'cpp', 'perl', 'python', 'sh'] }
+            \ ['c', 'cpp', 'perl', 'python'] }
 
     " Netrw - the bundled (network) file and directory browser
     let g:netrw_banner = 0
