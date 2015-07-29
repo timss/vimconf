@@ -47,7 +47,7 @@ set nocompatible
     Plugin 'ervandew/supertab'
 
     " Fuzzy finder (files, mru, etc)
-    Plugin 'kien/ctrlp.vim'
+    Plugin 'ctrlpvim/ctrlp.vim'
 
     " A pretty statusline, bufferline integration
     Plugin 'itchyny/lightline.vim'
