@@ -119,7 +119,6 @@ set nocompatible
         """ force behavior and filetypes, and by extension highlighting {{{
             augroup FileTypeRules
                 autocmd!
-                autocmd BufNewFile,BufRead *.conf set ft=cfg tw=79
                 autocmd BufNewFile,BufRead *.md set ft=markdown tw=79
                 autocmd BufNewFile,BufRead *.tex set ft=tex tw=79
                 autocmd BufNewFile,BufRead *.txt set ft=sh tw=79
