@@ -1,8 +1,6 @@
-"-----------------------------------------------"
-" Author:       Tim Sæterøy                     "
-" Homepage:     http://thevoid.no               "
-" Source:       http://github.com/timss/vimconf "
-"-----------------------------------------------"
+"-----------------------------------------"
+" Source: http://github.com/timss/vimconf "
+"-----------------------------------------"
 
 " vimconf is not vi-compatible
 set nocompatible
@@ -445,9 +443,7 @@ set nocompatible
         \ $HOME . "/.vimrc.last", $HOME . "/.vimrc.plugins"
         \ ]
     let g:startify_custom_header = [
-        \ '   Author:      Tim Sæterøy',
-        \ '   Homepage:    http://thevoid.no',
-        \ '   Source:      http://github.com/timss/vimconf',
+        \ '   Source:   http://github.com/timss/vimconf',
         \ ''
         \ ]
 
