@@ -32,7 +32,7 @@ set nocompatible
     """ Github repos, uncomment to disable a plugin {{{
     Plugin 'gmarik/Vundle.vim'
 
-    """ Local plugins (and only plugins in this file!) {{{{
+    """ Local plugins (and only plugins in this file!) {{{
         if filereadable($HOME."/.vimrc.plugins")
             source $HOME/.vimrc.plugins
         endif
@@ -103,7 +103,7 @@ set nocompatible
     """ }}}
 """ }}}
 """ Local leading config, only use for prerequisites as it will be
-""" overwritten by anything below {{{{
+""" overwritten by anything below {{{
     if filereadable($HOME."/.vimrc.first")
         source $HOME/.vimrc.first
     endif
@@ -309,7 +309,7 @@ set nocompatible
         nnoremap gd :bdelete<CR>
         nnoremap gf <C-^>
     """ }}}
-    """ Functions and/or fancy keybinds {{{{
+    """ Functions and/or fancy keybinds {{{
         """ Vim motion on next found object like ci", but for ([{< etc
         """ - http://stackoverflow.com/a/14651443/1076493
         """ Based on gist by @AndrewRadev
@@ -631,7 +631,7 @@ set nocompatible
         augroup END
     """ }}}
 """ }}}
-""" Local ending config, will overwrite anything above. Generally use this. {{{{
+""" Local ending config, will overwrite anything above. Generally use this. {{{
     if filereadable($HOME."/.vimrc.last")
         source $HOME/.vimrc.last
     endif
