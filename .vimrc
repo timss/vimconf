@@ -278,6 +278,7 @@ set nocompatible
         noremap <leader>y "+y
 
         " Toggle folding
+        " http://vim.wikia.com/wiki/Folding#Mappings_to_toggle_folds
         nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
 
         " Bubbling (bracket matching)
