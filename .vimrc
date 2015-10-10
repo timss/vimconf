@@ -279,7 +279,6 @@ set nocompatible
 
         " Toggle folding
         nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
-        vnoremap <Space> zf
 
         " Bubbling (bracket matching)
         nmap <C-up> [e
