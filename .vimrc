@@ -314,7 +314,7 @@
         nnoremap gV '[V']
     """ }}}
     """ Functions and/or fancy keybinds {{{
-        """ Vim motion on next found object like ci", but for ([{< etc {{{
+        """ Vim motion on next found object like ci", but for ([< etc {{{
         """ - http://stackoverflow.com/a/14651443/1076493
         """ Based on gist by @AndrewRadev
         """ - https://gist.github.com/AndrewRadev/1171559
