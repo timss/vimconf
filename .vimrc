@@ -437,48 +437,53 @@
     """ }}}
 """ }}}
 """ Plugin settings {{{
-    " Startify, the fancy start page
-    let g:ctrlp_reuse_window = 'startify' " don't split in startify
-    let g:startify_bookmarks = [
-        \ $HOME . "/.vimrc", $HOME . "/.vimrc.first",
-        \ $HOME . "/.vimrc.last", $HOME . "/.vimrc.plugins"
-        \ ]
-    let g:startify_custom_header = [
-        \ '   Source:   http://github.com/timss/vimconf',
-        \ ''
-        \ ]
+    """ Startify, the fancy start page {{{
+        let g:startify_bookmarks = [
+            \ $HOME . "/.vimrc", $HOME . "/.vimrc.first",
+            \ $HOME . "/.vimrc.last", $HOME . "/.vimrc.plugins"
+            \ ]
+        let g:startify_custom_header = [
+            \ '   Source:   http://github.com/timss/vimconf',
+            \ ''
+            \ ]
+    """ }}}
+    """ CtrlP - don't recalculate files on start (slow) {{{
+        " Don't recalculate files on start (slow)
+        let g:ctrlp_clear_cache_on_exit = 0
+        let g:ctrlp_working_path_mode = 'ra'
 
-    " CtrlP - don't recalculate files on start (slow)
-    let g:ctrlp_clear_cache_on_exit = 0
-    let g:ctrlp_working_path_mode = 'ra'
-
-    " TagBar
-    let g:tagbar_left = 0
-    let g:tagbar_width = 30
-    set tags=tags;/
-
-    " Syntastic - This is largely up to your own usage, and override these
-    "             changes if be needed. This is merely an exemplification.
-    "             TODO: not be filetype, but filename?
-    let g:syntastic_cpp_check_header = 1
-    let g:syntastic_cpp_compiler_options = ' -std=c++0x'
-    let g:syntastic_mode_map = {
-        \ 'mode': 'passive',
-        \ 'active_filetypes':
-            \ ['c', 'cpp', 'perl', 'python'] }
-
-    " Netrw - the bundled (network) file and directory browser
-    let g:netrw_banner = 0
-    let g:netrw_list_hide = '^\.$'
-    let g:netrw_liststyle = 3
-
-    " Automatically remove preview window after autocomplete (mainly for clang_complete)
-    augroup RemovePreview
-        autocmd!
-        autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
-        autocmd InsertLeave * if pumvisible() == 0|pclose|endif
-    augroup END
-
+        " Don't split in Startify
+        let g:ctrlp_reuse_window = 'startify'
+    """ }}}
+    """ TagBar {{{
+        let g:tagbar_left = 0
+        let g:tagbar_width = 30
+        set tags=tags;/
+    """ }}}
+    """ Syntastic {{{
+    """ This is largely up to your own usage, and override these
+    """ changes if be needed. This is merely an exemplification.
+    """ TODO: not be filetype, but filename?
+        let g:syntastic_cpp_check_header = 1
+        let g:syntastic_cpp_compiler_options = ' -std=c++0x'
+        let g:syntastic_mode_map = {
+            \ 'mode': 'passive',
+            \ 'active_filetypes':
+                \ ['c', 'cpp', 'perl', 'python'] }
+    """ }}}
+    """ Netrw - the bundled (network) file and directory browser {{{
+        let g:netrw_banner = 0
+        let g:netrw_list_hide = '^\.$'
+        let g:netrw_liststyle = 3
+    """ }}}
+    """ Automatically remove preview window after autocomplete {{{
+    """ (mainly for clang_complete)
+        augroup RemovePreview
+            autocmd!
+            autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+            autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+        augroup END
+    """ }}}
     """ Lightline {{{
         let g:lightline = {
             \ 'colorscheme': 'jellybeans',
