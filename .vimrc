@@ -2,19 +2,18 @@
 " Source: http://github.com/timss/vimconf "
 "-----------------------------------------"
 
-" vimconf is not vi-compatible
-set nocompatible
-
-""" Automatically make needed files and folders on first run
-""" If you don't run *nix you're on your own (as in remove this) {{{
+""" vimconf is not vi-compatible {{{
+    set nocompatible
+""" }}}
+""" Automatically create needed files and folders on first run (*nix only) {{{
     call system("mkdir -p $HOME/.vim/{swap,undo}")
     if !filereadable($HOME . "/.vimrc.plugins") | call system("touch $HOME/.vimrc.plugins") | endif
     if !filereadable($HOME . "/.vimrc.first") | call system("touch $HOME/.vimrc.first") | endif
     if !filereadable($HOME . "/.vimrc.last") | call system("touch $HOME/.vimrc.last") | endif
 """ }}}
 """ Vundle plugin manager {{{
-    """ Automatically setting up Vundle, taken from
-    """ http://www.erikzaadi.com/2012/03/19/auto-installing-vundle-from-your-vimrc/ {{{
+    """ Automatically setting up Vundle {{{
+    """ http://www.erikzaadi.com/2012/03/19/auto-installing-vundle-from-your-vimrc/
         let has_vundle=1
         if !filereadable($HOME."/.vim/bundle/Vundle.vim/README.md")
             echo "Installing Vundle..."
@@ -30,71 +29,71 @@ set nocompatible
         call vundle#begin()                         " init vundle
     """ }}}
     """ Github repos, uncomment to disable a plugin {{{
-    Plugin 'gmarik/Vundle.vim'
+        Plugin 'gmarik/Vundle.vim'
 
-    """ Local plugins (and only plugins in this file!) {{{
-        if filereadable($HOME."/.vimrc.plugins")
-            source $HOME/.vimrc.plugins
-        endif
+        """ Local plugins (and only plugins in this file!) {{{
+            if filereadable($HOME."/.vimrc.plugins")
+                source $HOME/.vimrc.plugins
+            endif
+        """ }}}
+
+        " Edit files using sudo/su
+        Plugin 'chrisbra/SudoEdit.vim'
+
+        " <Tab> everything!
+        Plugin 'ervandew/supertab'
+
+        " Fuzzy finder (files, mru, etc)
+        Plugin 'ctrlpvim/ctrlp.vim'
+
+        " A pretty statusline, bufferline integration
+        Plugin 'itchyny/lightline.vim'
+        Plugin 'bling/vim-bufferline'
+
+        " Easy... motions... yeah.
+        Plugin 'Lokaltog/vim-easymotion'
+
+        " Glorious colorscheme
+        Plugin 'nanotech/jellybeans.vim'
+
+        " Super easy commenting, toggle comments etc
+        Plugin 'scrooloose/nerdcommenter'
+
+        " Autoclose (, " etc
+        Plugin 'Townk/vim-autoclose'
+
+        " Git wrapper inside Vim
+        Plugin 'tpope/vim-fugitive'
+
+        " Handle surround chars like ''
+        Plugin 'tpope/vim-surround'
+
+        " Align your = etc.
+        Plugin 'vim-scripts/Align'
+
+        " Snippets like textmate
+        Plugin 'MarcWeber/vim-addon-mw-utils'
+        Plugin 'tomtom/tlib_vim'
+        Plugin 'honza/vim-snippets'
+        Plugin 'garbas/vim-snipmate'
+
+        " A fancy start screen, shows MRU etc.
+        Plugin 'mhinz/vim-startify'
+
+        " Vim signs (:h signs) for modified lines based off VCS (e.g. Git)
+        Plugin 'mhinz/vim-signify'
+
+        " Awesome syntax checker.
+        " REQUIREMENTS: See :h syntastic-intro
+        Plugin 'scrooloose/syntastic'
+
+        " Functions, class data etc.
+        " REQUIREMENTS: (exuberant)-ctags
+        Plugin 'majutsushi/tagbar'
     """ }}}
-
-    " Edit files using sudo/su
-    Plugin 'chrisbra/SudoEdit.vim'
-
-    " <Tab> everything!
-    Plugin 'ervandew/supertab'
-
-    " Fuzzy finder (files, mru, etc)
-    Plugin 'ctrlpvim/ctrlp.vim'
-
-    " A pretty statusline, bufferline integration
-    Plugin 'itchyny/lightline.vim'
-    Plugin 'bling/vim-bufferline'
-
-    " Easy... motions... yeah.
-    Plugin 'Lokaltog/vim-easymotion'
-
-    " Glorious colorscheme
-    Plugin 'nanotech/jellybeans.vim'
-
-    " Super easy commenting, toggle comments etc
-    Plugin 'scrooloose/nerdcommenter'
-
-    " Autoclose (, " etc
-    Plugin 'Townk/vim-autoclose'
-
-    " Git wrapper inside Vim
-    Plugin 'tpope/vim-fugitive'
-
-    " Handle surround chars like ''
-    Plugin 'tpope/vim-surround'
-
-    " Align your = etc.
-    Plugin 'vim-scripts/Align'
-
-    " Snippets like textmate
-    Plugin 'MarcWeber/vim-addon-mw-utils'
-    Plugin 'tomtom/tlib_vim'
-    Plugin 'honza/vim-snippets'
-    Plugin 'garbas/vim-snipmate'
-
-    " A fancy start screen, shows MRU etc.
-    Plugin 'mhinz/vim-startify'
-
-    " Vim signs (:h signs) for modified lines based off VCS (e.g. Git)
-    Plugin 'mhinz/vim-signify'
-
-    " Awesome syntax checker.
-    " REQUIREMENTS: See :h syntastic-intro
-    Plugin 'scrooloose/syntastic'
-
-    " Functions, class data etc.
-    " REQUIREMENTS: (exuberant)-ctags
-    Plugin 'majutsushi/tagbar'
-
-    " Finish Vundle stuff
-    call vundle#end()
-
+    """ Finish Vundle stuff {{{
+        call vundle#end()
+    """ }}}
     """ Installing plugins the first time, quits when done {{{
         if has_vundle == 0
             :silent! PluginInstall
@@ -102,8 +101,7 @@ set nocompatible
         endif
     """ }}}
 """ }}}
-""" Local leading config, only use for prerequisites as it will be
-""" overwritten by anything below {{{
+""" Local leading config, only for prerequisites and will be overwritten {{{
     if filereadable($HOME."/.vimrc.first")
         source $HOME/.vimrc.first
     endif
@@ -114,7 +112,7 @@ set nocompatible
         syntax on                                   " syntax highlighting
         set background=dark                         " we're using a dark bg
         colorscheme jellybeans                      " colorscheme from plugin
-        """ force behavior and filetypes, and by extension highlighting {{{
+        """ Force behavior and filetypes, and by extension highlighting {{{
             augroup FileTypeRules
                 autocmd!
                 autocmd BufNewFile,BufRead *.md set ft=markdown tw=79
@@ -153,8 +151,8 @@ set nocompatible
                     \*.swp,*.swo                    " tab completion ignores
         set wildmenu                                " better auto complete
         set wildmode=longest,list                   " bash-like auto complete
-        """ Depending on your setup you may want to enforce UTF-8.
-        """ Should generally be set in your environment LOCALE/$LANG {{{
+        """ Depending on your setup you may want to enforce UTF-8. {{{
+        """ Should generally be set in your environment LOCALE/$LANG
             " set encoding=utf-8                    " default $LANG/latin1
             " set fileencoding=utf-8                " default none
         """ }}}
@@ -223,8 +221,8 @@ set nocompatible
             set undoreload=10000                    " buffer stored undos
         endif
     """ }}}
-    """ Swap files, unless vim is invoked using sudo. Inspired by tejr's vimrc
-    """ https://github.com/tejr/dotfiles/blob/master/vim/vimrc {{{
+    """ Swap files, unless vim is invoked using sudo {{{
+    """ https://github.com/tejr/dotfiles/blob/master/vim/vimrc
         if !strlen($SUDO_USER)
             set directory^=$HOME/.vim/swap//        " default cwd, // full path
             set swapfile                            " enable swap files
@@ -258,8 +256,8 @@ set nocompatible
             autocmd! FileType c,cpp setlocal comments -=:// comments +=f://
         augroup END
     """ }}}
-    """ Take comment leaders into account when joining lines, :h fo-table
-    """ http://ftp.vim.org/pub/vim/patches/7.3/7.3.541 {{{
+    """ Take comment leaders into account when joining lines, :h fo-table {{{
+    """ http://ftp.vim.org/pub/vim/patches/7.3/7.3.541
         if has("patch-7.3.541")
             set formatoptions+=j
         endif
@@ -310,12 +308,12 @@ set nocompatible
         nnoremap gf <C-^>
     """ }}}
     """ Functions and/or fancy keybinds {{{
-        """ Vim motion on next found object like ci", but for ([{< etc
+        """ Vim motion on next found object like ci", but for ([{< etc {{{
         """ - http://stackoverflow.com/a/14651443/1076493
         """ Based on gist by @AndrewRadev
         """ - https://gist.github.com/AndrewRadev/1171559
         """ For a crazier version with directions, more objects etc. see
-        """ - https://bitbucket.org/sjl/dotfiles/src/default/vim/vimrc {{{
+        """ - https://bitbucket.org/sjl/dotfiles/src/default/vim/vimrc
             function! s:NextTextObject(motion)
                 echo
                 let c = nr2char(getchar())
@@ -339,10 +337,10 @@ set nocompatible
 
             nnoremap <leader>s :call ToggleSyntaxHighlighthing()<CR>
         """ }}}
-        """ Highlight characters past 79, toggle with <leader>h
+        """ Highlight characters past 79, toggle with <leader>h {{{
         """ You might want to override this function and its variables with
         """ your own in .vimrc.last which might set for example colorcolumn or
-        """ even the textwidth. See https://github.com/timss/vimconf/pull/4 {{{
+        """ even the textwidth. See https://github.com/timss/vimconf/pull/4
             let g:overlength_enabled = 0
             highlight OverLength ctermbg=238 guibg=#444444
 
@@ -371,8 +369,8 @@ set nocompatible
 
             nnoremap <leader>r :call NumberToggle()<CR>
         """ }}}
-        """ Toggle text wrapping, wrap on whole words
-        """ For more info see: http://stackoverflow.com/a/2470885/1076493 {{{
+        """ Toggle text wrapping, wrap on whole words {{{
+        """ For more info see: http://stackoverflow.com/a/2470885/1076493
             function! WrapToggle()
                 if &wrap
                     set list
