@@ -456,9 +456,14 @@
         let g:ctrlp_reuse_window = 'startify'
     """ }}}
     """ TagBar {{{
+        set tags=tags;/
+
+        " Proportions
         let g:tagbar_left = 0
         let g:tagbar_width = 30
-        set tags=tags;/
+
+        " Used in lightline.vim
+        let g:tagbar_status_func = 'TagbarStatusFunc'
     """ }}}
     """ Syntastic {{{
     """ This is largely up to your own usage, and override these
@@ -617,8 +622,6 @@
         function! CtrlPStatusFunc_2(str)
             return lightline#statusline(0)
         endfunction
-
-        let g:tagbar_status_func = 'TagbarStatusFunc'
 
         function! TagbarStatusFunc(current, sort, fname, ...) abort
             let g:lightline.fname = a:fname
