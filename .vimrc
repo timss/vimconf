@@ -528,6 +528,7 @@
             \ }
             \ }
 
+        " Ensure that each mode indicator is the same size and casing
         let g:lightline.mode_map = {
             \ 'n'      : ' N ',
             \ 'i'      : ' I ',
