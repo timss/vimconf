@@ -306,6 +306,9 @@
         nnoremap gN :bprevious<CR>
         nnoremap gd :bdelete<CR>
         nnoremap gf <C-^>
+
+        " Highlight last inserted text
+        nnoremap gV '[V']
     """ }}}
     """ Functions and/or fancy keybinds {{{
         """ Vim motion on next found object like ci", but for ([{< etc {{{
