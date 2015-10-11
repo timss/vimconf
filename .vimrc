@@ -275,6 +275,9 @@
         " Yank(copy) to system clipboard
         noremap <leader>y "+y
 
+        " Toggle pastemode, doesn't indent
+        set pastetoggle=<F3>
+
         " Toggle folding
         " http://vim.wikia.com/wiki/Folding#Mappings_to_toggle_folds
         nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
@@ -427,9 +430,6 @@
     """ Plugins {{{
         " Toggle tagbar (definitions, functions etc.)
         map <F1> :TagbarToggle<CR>
-
-        " Toggle pastemode, doesn't indent
-        set pastetoggle=<F3>
 
         " Syntastic - toggle error list. Probably should be toggleable.
         noremap <silent><leader>lo :Errors<CR>
