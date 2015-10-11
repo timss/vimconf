@@ -564,6 +564,7 @@
             endif
         endfunction
 
+        " https://github.com/itchyny/lightline.vim/issues/36
         function! MyBufferline()
             call bufferline#refresh_status()
             let b = g:bufferline_status_info.before
