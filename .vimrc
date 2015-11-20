@@ -60,7 +60,7 @@
         Plugin 'scrooloose/nerdcommenter'
 
         " Autoclose (, " etc
-        Plugin 'Townk/vim-autoclose'
+        Plugin 'ivang/vim-autoclose'
 
         " Git wrapper inside Vim
         Plugin 'tpope/vim-fugitive'
