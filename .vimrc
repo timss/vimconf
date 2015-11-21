@@ -426,7 +426,7 @@
             \ $HOME . "/.vimrc.last", $HOME . "/.vimrc.plugins"
             \ ]
         let g:startify_custom_header = [
-            \ '   Source:   http://github.com/timss/vimconf',
+            \ '   Source: http://github.com/timss/vimconf',
             \ ''
             \ ]
     """ }}}
