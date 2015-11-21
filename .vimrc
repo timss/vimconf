@@ -314,23 +314,6 @@
         nnoremap gV '[V']
     """ }}}
     """ Functions and/or fancy keybinds {{{
-        """ Vim motion on next found object like ci", but for ([< etc {{{
-        """ - http://stackoverflow.com/a/14651443/1076493
-        """ Based on gist by @AndrewRadev
-        """ - https://gist.github.com/AndrewRadev/1171559
-        """ For a crazier version with directions, more objects etc. see
-        """ - https://bitbucket.org/sjl/dotfiles/src/default/vim/vimrc
-            function! s:NextTextObject(motion)
-                echo
-                let c = nr2char(getchar())
-                exe "normal! f".c."v".a:motion.c
-            endfunction
-
-            onoremap a :<C-u>call <SID>NextTextObject('a')<CR>
-            xnoremap a :<C-u>call <SID>NextTextObject('a')<CR>
-            onoremap i :<C-u>call <SID>NextTextObject('i')<CR>
-            xnoremap i :<C-u>call <SID>NextTextObject('i')<CR>
-        """ }}}
         """ Toggle syntax highlighting {{{
             function! ToggleSyntaxHighlighthing()
                 if exists("g:syntax_on")
