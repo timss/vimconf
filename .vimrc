@@ -230,7 +230,7 @@
             """ Don't swap tmp, mount or network dirs {{{
                 augroup SwapIgnore
                     autocmd! BufNewFile,BufReadPre /tmp/*,/mnt/*,/media/*
-                                \ setlocal noswapfile
+                        \ setlocal noswapfile
                 augroup END
             """ }}}
         else
@@ -405,8 +405,8 @@
             augroup StripTrailingWhitespace
                 autocmd!
                 autocmd FileType c,cpp,cfg,conf,css,html,perl,python,sh,tex
-                            \ autocmd BufWritePre <buffer> :call
-                            \ <SID>StripTrailingWhitespace()
+                    \ autocmd BufWritePre <buffer> :call
+                    \ <SID>StripTrailingWhitespace()
             augroup END
         """ }}}
     """ }}}
@@ -529,8 +529,8 @@
         function! MyMode()
             let fname = expand('%:t')
             return fname == '__Tagbar__' ? 'Tagbar' :
-                    \ fname == 'ControlP' ? 'CtrlP' :
-                    \ winwidth('.') > 60 ? lightline#mode() : ''
+                \ fname == 'ControlP' ? 'CtrlP' :
+                \ winwidth('.') > 60 ? lightline#mode() : ''
         endfunction
 
         function! MyFugitive()
@@ -621,8 +621,8 @@
         augroup AutoSyntastic
             autocmd!
             execute "autocmd FileType " .
-                        \join(g:syntastic_mode_map["active_filetypes"], ",") .
-                        \" autocmd BufWritePost <buffer> :call s:syntastic()"
+                \join(g:syntastic_mode_map["active_filetypes"], ",") .
+                \" autocmd BufWritePost <buffer> :call s:syntastic()"
         augroup END
     """ }}}
 """ }}}
