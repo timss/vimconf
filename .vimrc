@@ -426,9 +426,10 @@
             \ $HOME . "/.vimrc.last", $HOME . "/.vimrc.plugins"
             \ ]
         let g:startify_custom_header = [
-            \ '   Source: http://github.com/timss/vimconf',
+            \ '   http://github.com/timss/vimconf',
             \ ''
             \ ]
+        let g:startify_files_number = 5
     """ }}}
     """ CtrlP - don't recalculate files on start (slow) {{{
         " Don't recalculate files on start (slow)
