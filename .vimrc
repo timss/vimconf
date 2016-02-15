@@ -146,11 +146,6 @@
         set showcmd                                 " show cmds being typed
         set title                                   " window title
         set vb t_vb=                                " disable beep and flashing
-        set wildignore=*.a,*.o,*.so,*.pyc,*.jpg,
-                    \*.jpeg,*.png,*.gif,*.pdf,*.git,
-                    \*.swp,*.swo                    " tab completion ignores
-        set wildmenu                                " better auto complete
-        set wildmode=longest,list                   " bash-like auto complete
         """ Depending on your setup you may want to enforce UTF-8. {{{
         """ Should generally be set in your environment LOCALE/$LANG
             " set encoding=utf-8                    " default $LANG/latin1
@@ -197,6 +192,14 @@
         set matchtime=2                             " time to blink match {}
         set matchpairs+=<:>                         " for ci< or ci>
         set showmatch                               " tmpjump to match-bracket
+    """ }}}
+    """ Wildmode/wildmenu command-line completion {{{
+        set wildignore+=*.bak,*.swp,*.swo
+        set wildignore+=*.a,*.o,*.so,*.pyc,*.class
+        set wildignore+=*.jpg,*.jpeg,*.gif,*.png,*.pdf
+        set wildignore+=*/.git*,*.tar,*.zip
+        set wildmenu
+        set wildmode=longest:full,list:full
     """ }}}
     """ Return to last edit position when opening files {{{
         augroup LastPosition
