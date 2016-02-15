@@ -469,8 +469,8 @@
     """ (mainly for clang_complete)
         augroup RemovePreview
             autocmd!
-            autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
-            autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+            autocmd CursorMovedI * if pumvisible() == 0 | pclose | endif
+            autocmd InsertLeave * if pumvisible() == 0 | pclose | endif
         augroup END
     """ }}}
     """ Lightline {{{
