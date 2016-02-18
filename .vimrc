@@ -50,9 +50,6 @@
         Plugin 'itchyny/lightline.vim'
         Plugin 'bling/vim-bufferline'
 
-        " Easy... motions... yeah.
-        Plugin 'Lokaltog/vim-easymotion'
-
         " Glorious colorscheme
         Plugin 'nanotech/jellybeans.vim'
 
