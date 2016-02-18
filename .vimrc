@@ -157,6 +157,7 @@
     """ }}}
 """ }}}
 """ General settings {{{
+    set completeopt=menu,preview,longest            " insert mode completion
     set hidden                                      " buffer change, more undo
     set history=1000                                " default 20
     set iskeyword+=_,$,@,%,#                        " not word dividers
@@ -464,6 +465,14 @@
         let g:netrw_banner = 0
         let g:netrw_list_hide = '^\.$'
         let g:netrw_liststyle = 3
+    """ }}}
+    """ Supertab {{{
+        " Complete based on context (compl-omni, compl-filename, ..)
+        let g:SuperTabDefaultCompletionType = "context"
+
+        " Longest common match, e.g. 'b<tab>' => 'bar' for 'barbar', 'barfoo'
+        let g:SuperTabLongestEnhanced = 1
+        let g:SuperTabLongestHighlight = 1
     """ }}}
     """ Automatically remove preview window after autocomplete {{{
     """ (mainly for clang_complete)
