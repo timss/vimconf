@@ -417,7 +417,7 @@
 
         " Syntastic - toggle error list. Probably should be toggleable.
         noremap <silent><leader>lo :Errors<CR>
-        noremap <silent><leader>lc :lcl<CR>
+        noremap <silent><leader>lc :lclose<CR>
     """ }}}
 """ }}}
 """ Plugin settings {{{
@@ -451,15 +451,15 @@
         let g:tagbar_status_func = 'TagbarStatusFunc'
     """ }}}
     """ Syntastic {{{
-    """ This is largely up to your own usage, and override these
-    """ changes if be needed. This is merely an exemplification.
-    """ TODO: not be filetype, but filename?
-        let g:syntastic_cpp_check_header = 1
-        let g:syntastic_cpp_compiler_options = ' -std=c++0x'
+        " Automatic checking for active, only when :SyntasticCheck for passive
+        " NOTE: override these in $HOME/.vimrc.last as needed!
         let g:syntastic_mode_map = {
             \ 'mode': 'passive',
             \ 'active_filetypes':
                 \ ['c', 'cpp', 'perl', 'python'] }
+
+        " Skip check on :wq, :x, :ZZ etc
+        let g:syntastic_check_on_wq = 0
     """ }}}
     """ Netrw {{{
         let g:netrw_banner = 0
