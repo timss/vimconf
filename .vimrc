@@ -7,9 +7,9 @@
 """ }}}
 """ Automatically create needed files and folders on first run (*nix only) {{{
     call system("mkdir -p $HOME/.vim/{swap,undo}")
-    if !filereadable($HOME . "/.vimrc.plugins") | call system("touch $HOME/.vimrc.plugins") | endif
-    if !filereadable($HOME . "/.vimrc.first") | call system("touch $HOME/.vimrc.first") | endif
-    if !filereadable($HOME . "/.vimrc.last") | call system("touch $HOME/.vimrc.last") | endif
+    if !filereadable($HOME."/.vimrc.plugins") | call system("touch $HOME/.vimrc.plugins") | endif
+    if !filereadable($HOME."/.vimrc.first") | call system("touch $HOME/.vimrc.first") | endif
+    if !filereadable($HOME."/.vimrc.last") | call system("touch $HOME/.vimrc.last") | endif
 """ }}}
 """ Vundle plugin manager {{{
     """ Automatically setting up Vundle {{{
