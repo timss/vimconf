@@ -474,6 +474,21 @@
         let g:SuperTabLongestEnhanced = 1
         let g:SuperTabLongestHighlight = 1
     """ }}}
+    """ SnipMate {{{
+        " Disable '.' => 'self' Python snippet
+        " Breaks SuperTab with omnicomplete (e.g. module.<Tab>)
+        function! DisablePythonSelfSnippet()
+            let l:pysnip = $HOME."/.vim/after/snippets/python.snippets"
+            if !filereadable(l:pysnip)
+                call system("echo 'snippet!! .' > " . l:pysnip)
+            endif
+        endfunction
+
+        augroup DisablePythonSelfSnippet
+            autocmd!
+            autocmd BufNewFile,BufRead *.py :call DisablePythonSelfSnippet()
+        augroup END
+    """ }}}
     """ Automatically remove preview window after autocomplete {{{
     """ (mainly for clang_complete)
         augroup RemovePreview
