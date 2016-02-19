@@ -421,7 +421,7 @@
     """ }}}
 """ }}}
 """ Plugin settings {{{
-    """ Startify, the fancy start page {{{
+    """ Startify {{{
         let g:startify_bookmarks = [
             \ $HOME . "/.vimrc", $HOME . "/.vimrc.first",
             \ $HOME . "/.vimrc.last", $HOME . "/.vimrc.plugins"
@@ -432,7 +432,7 @@
             \ ]
         let g:startify_files_number = 5
     """ }}}
-    """ CtrlP - don't recalculate files on start (slow) {{{
+    """ CtrlP {{{
         " Don't recalculate files on start (slow)
         let g:ctrlp_clear_cache_on_exit = 0
         let g:ctrlp_working_path_mode = 'ra'
@@ -461,7 +461,7 @@
             \ 'active_filetypes':
                 \ ['c', 'cpp', 'perl', 'python'] }
     """ }}}
-    """ Netrw - the bundled (network) file and directory browser {{{
+    """ Netrw {{{
         let g:netrw_banner = 0
         let g:netrw_list_hide = '^\.$'
         let g:netrw_liststyle = 3
