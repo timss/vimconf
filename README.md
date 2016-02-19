@@ -40,12 +40,6 @@ Preview
 
 **Video:** [Writing a small perl-script using Vim](http://youtu.be/DrzAuLsxgwU) (rather outdated)
 
-Suggestions, questions and problems
------------------------------------
-Feel free to give me suggestions, ask questions or point out things that needs
-to be fixed by adding an [issue](https://github.com/timss/vimconf/issues).
-Remember to include Vim version and other relevant information.
-
 Disclaimer
 ----------
 Even if this configuration can be used out of the box or tweaked using
