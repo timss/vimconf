@@ -405,9 +405,9 @@
 
             augroup StripTrailingWhitespace
                 autocmd!
-                autocmd FileType c,cpp,cfg,conf,css,html,perl,python,sh,tex
+                autocmd FileType c,cpp,cfg,conf,css,html,perl,python,sh,tex,yaml
                     \ autocmd BufWritePre <buffer> :call
-                    \ <SID>StripTrailingWhitespace()
+                    \ StripTrailingWhitespace()
             augroup END
         """ }}}
     """ }}}
