@@ -396,7 +396,7 @@
             nnoremap <leader>le :call SplitRelSrc()<CR>
         """ }}}
         """ Strip trailing whitespace, return to cursor at save {{{
-            function! <SID>StripTrailingWhitespace()
+            function! StripTrailingWhitespace()
                 let l = line(".")
                 let c = col(".")
                 %s/\s\+$//e
