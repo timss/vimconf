@@ -302,9 +302,6 @@
         nnoremap <F1> <nop>
         vnoremap <F1> <nop>
 
-        " Disable annoying ex mode (Q)
-        map Q <nop>
-
         " Buffers, preferred over tabs now with bufferline.
         nnoremap gn :bnext<CR>
         nnoremap gN :bprevious<CR>
