@@ -160,7 +160,6 @@
     set completeopt=menu,preview,longest            " insert mode completion
     set hidden                                      " buffer change, more undo
     set history=1000                                " default 20
-    set iskeyword+=_,$,@,%,#                        " not word dividers
     set laststatus=2                                " always show statusline
     set linebreak                                   " don't cut words on wrap
     set listchars=tab:>\                            " > to highlight <tab>
