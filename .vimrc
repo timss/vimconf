@@ -37,9 +37,6 @@
             endif
         """ }}}
 
-        " Edit files using sudo/su
-        Plugin 'chrisbra/SudoEdit.vim'
-
         " <Tab> everything!
         Plugin 'ervandew/supertab'
 
@@ -58,6 +55,9 @@
 
         " Autoclose (, " etc
         Plugin 'somini/vim-autoclose'
+
+        " UNIX shell command helpers, e.g. sudo, chmod, remove etc.
+        Plugin 'tpope/vim-eunuch'
 
         " Git wrapper inside Vim
         Plugin 'tpope/vim-fugitive'
