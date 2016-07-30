@@ -47,6 +47,9 @@
         Plugin 'itchyny/lightline.vim'
         Plugin 'bling/vim-bufferline'
 
+        " Undo history visualizer
+        Plugin 'mbbill/undotree'
+
         " Glorious colorscheme
         Plugin 'nanotech/jellybeans.vim'
 
@@ -410,6 +413,9 @@
     """ Plugins {{{
         " Toggle tagbar (definitions, functions etc.)
         map <F1> :TagbarToggle<CR>
+
+        " Toggle undo history tree
+        nnoremap <F5> :UndotreeToggle<CR>
 
         " Syntastic - toggle error list. Probably should be toggleable.
         noremap <silent><leader>lo :Errors<CR>
