@@ -121,7 +121,7 @@
             augroup END
         """ }}}
         """ 256 colors for maximum jellybeans bling. See commit log for info {{{
-            if (&term =~ "xterm") || (&term =~ "screen")
+            if (&term =~ "xterm") || (&term =~ "screen") || (&term =~ "256")
                 set t_Co=256
             endif
         """ }}}
