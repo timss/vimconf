@@ -285,6 +285,9 @@
         " http://vim.wikia.com/wiki/Folding#Mappings_to_toggle_folds
         nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
 
+        " Toggle relativenumber
+        nnoremap <silent> <leader>r :set relativenumber!<CR>
+
         " Bubbling (bracket matching)
         nmap <C-up> [e
         nmap <C-down> ]e
@@ -346,17 +349,6 @@
             endfunction
 
             nnoremap <leader>h :call ToggleOverLength()<CR>
-        """ }}}
-        """ Toggle relativenumber using <leader>r {{{
-            function! NumberToggle()
-                if(&relativenumber == 1)
-                    set number
-                else
-                    set relativenumber
-                endif
-            endfunction
-
-            nnoremap <leader>r :call NumberToggle()<CR>
         """ }}}
         """ Toggle text wrapping, wrap on whole words {{{
         """ For more info see: http://stackoverflow.com/a/2470885/1076493
