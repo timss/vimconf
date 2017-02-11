@@ -466,7 +466,7 @@
 
         " Longest common match, e.g. 'b<tab>' => 'bar' for 'barbar', 'barfoo'
         let g:SuperTabLongestEnhanced = 1
-        let g:SuperTabLongestHighlight = 0
+        let g:SuperTabLongestHighlight = 1
     """ }}}
     """ SnipMate {{{
         " Disable '.' => 'self' Python snippet
