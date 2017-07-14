@@ -11,95 +11,83 @@
     if !filereadable($HOME."/.vimrc.first") | call system("touch $HOME/.vimrc.first") | endif
     if !filereadable($HOME."/.vimrc.last") | call system("touch $HOME/.vimrc.last") | endif
 """ }}}
-""" Vundle plugin manager {{{
-    """ Automatically setting up Vundle {{{
-    """ http://www.erikzaadi.com/2012/03/19/auto-installing-vundle-from-your-vimrc/
-        let has_vundle=1
-        if !filereadable($HOME."/.vim/bundle/Vundle.vim/README.md")
-            echo "Installing Vundle..."
-            echo ""
-            silent !mkdir -p $HOME/.vim/bundle
-            silent !git clone https://github.com/VundleVim/Vundle.vim $HOME/.vim/bundle/Vundle.vim
-            let has_vundle=0
-        endif
-    """ }}}
-    """ Initialize Vundle {{{
-        filetype off                                " required to init
-        set rtp+=$HOME/.vim/bundle/Vundle.vim       " include vundle
-        call vundle#begin()                         " init vundle
-    """ }}}
-    """ Github repos, uncomment to disable a plugin {{{
-        Plugin 'VundleVim/Vundle.vim'
+""" vim-plug plugin manager {{{
+    " Automatic installation
+    " https://github.com/junegunn/vim-plug/wiki/faq#automatic-installation
+    if empty(glob('~/.vim/autoload/plug.vim'))
+        silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+                    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+        autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+    endif
 
-        """ Local plugins (and only plugins in this file!) {{{
-            if filereadable($HOME."/.vimrc.plugins")
-                source $HOME/.vimrc.plugins
-            endif
-        """ }}}
+    " Default to same plugin directory as vundle etc
+    call plug#begin('~/.vim/bundle')
 
-        " <Tab> everything!
-        Plugin 'ervandew/supertab'
+    " local plugins
+    if filereadable($HOME."/.vimrc.plugins")
+        source $HOME/.vimrc.plugins
+    endif
 
-        " Fuzzy finder (files, mru, etc)
-        Plugin 'ctrlpvim/ctrlp.vim'
+    " <Tab> everything!
+    Plug 'ervandew/supertab'
 
-        " A pretty statusline, bufferline integration
-        Plugin 'itchyny/lightline.vim'
-        Plugin 'bling/vim-bufferline'
+    " Fuzzy finder (files, mru, etc)
+    Plug 'ctrlpvim/ctrlp.vim'
 
-        " Undo history visualizer
-        Plugin 'mbbill/undotree'
+    " A pretty statusline, bufferline integration
+    Plug 'itchyny/lightline.vim'
+    Plug 'bling/vim-bufferline'
 
-        " Glorious colorscheme
-        Plugin 'nanotech/jellybeans.vim'
+    " Undo history visualizer
+    Plug 'mbbill/undotree'
 
-        " Super easy commenting, toggle comments etc
-        Plugin 'scrooloose/nerdcommenter'
+    " Glorious colorscheme
+    " To avoid errors during automatic installation
+    " https://github.com/junegunn/vim-plug/issues/225
+    Plug 'nanotech/jellybeans.vim'
 
-        " Autoclose (, " etc
-        Plugin 'somini/vim-autoclose'
+    " Super easy commenting, toggle comments etc
+    Plug 'scrooloose/nerdcommenter'
 
-        " UNIX shell command helpers, e.g. sudo, chmod, remove etc.
-        Plugin 'tpope/vim-eunuch'
+    " Autoclose (, " etc
+    Plug 'somini/vim-autoclose'
 
-        " Git wrapper inside Vim
-        Plugin 'tpope/vim-fugitive'
+    " UNIX shell command helpers, e.g. sudo, chmod, remove etc.
+    Plug 'tpope/vim-eunuch'
 
-        " Handle surround chars like ''
-        Plugin 'tpope/vim-surround'
+    " Git wrapper inside Vim
+    Plug 'tpope/vim-fugitive'
 
-        " Align your = etc.
-        Plugin 'vim-scripts/Align'
+    " Handle surround chars like ''
+    Plug 'tpope/vim-surround'
 
-        " Snippets like textmate
-        Plugin 'MarcWeber/vim-addon-mw-utils'
-        Plugin 'tomtom/tlib_vim'
-        Plugin 'honza/vim-snippets'
-        Plugin 'garbas/vim-snipmate'
+    " Align your = etc.
+    Plug 'vim-scripts/Align'
 
-        " A fancy start screen, shows MRU etc.
-        Plugin 'mhinz/vim-startify'
+    " Snippets like textmate
+    Plug 'MarcWeber/vim-addon-mw-utils'
+    Plug 'tomtom/tlib_vim'
+    Plug 'honza/vim-snippets'
+    Plug 'garbas/vim-snipmate'
 
-        " Vim signs (:h signs) for modified lines based off VCS (e.g. Git)
-        Plugin 'mhinz/vim-signify'
+    " A fancy start screen, shows MRU etc.
+    Plug 'mhinz/vim-startify'
 
-        " Awesome syntax checker.
-        " REQUIREMENTS: See :h syntastic-intro
-        Plugin 'scrooloose/syntastic'
+    " Vim signs (:h signs) for modified lines based off VCS (e.g. Git)
+    Plug 'mhinz/vim-signify'
 
-        " Functions, class data etc.
-        " REQUIREMENTS: (exuberant)-ctags
-        Plugin 'majutsushi/tagbar'
-    """ }}}
-    """ Finish Vundle stuff {{{
-        call vundle#end()
-    """ }}}
-    """ Installing plugins the first time, quits when done {{{
-        if has_vundle == 0
-            :silent! PluginInstall
-            :qa
-        endif
-    """ }}}
+    " Awesome syntax checker.
+    " REQUIREMENTS: See :h syntastic-intro
+    Plug 'scrooloose/syntastic'
+
+    " Functions, class data etc.
+    " depends on either exuberant-ctags or universal-ctags
+    if executable('ctags-exuberant') || executable('ctags')
+        Plug 'majutsushi/tagbar'
+    endif
+
+    " Initalize plugin system
+    call plug#end()
 """ }}}
 """ Local leading config, only for prerequisites and will be overwritten {{{
     if filereadable($HOME."/.vimrc.first")
@@ -111,7 +99,7 @@
         filetype plugin indent on                   " detect file plugin+indent
         syntax on                                   " syntax highlighting
         set background=dark                         " we're using a dark bg
-        colorscheme jellybeans                      " colorscheme from plugin
+        silent! colorscheme jellybeans              " colorscheme from plugin
         """ Force behavior and filetypes, and by extension highlighting {{{
             augroup FileTypeRules
                 autocmd!
@@ -403,7 +391,9 @@
     """ }}}
     """ Plugins {{{
         " Toggle tagbar (definitions, functions etc.)
-        map <F1> :TagbarToggle<CR>
+        if exists('g:loaded_tagbar')
+            map <F1> :TagbarToggle<CR>
+        endif
 
         " Toggle undo history tree
         nnoremap <F5> :UndotreeToggle<CR>
