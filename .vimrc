@@ -65,10 +65,10 @@
     Plug 'vim-scripts/Align'
 
     " Snippets like textmate
-    Plug 'MarcWeber/vim-addon-mw-utils'
-    Plug 'tomtom/tlib_vim'
-    Plug 'honza/vim-snippets'
-    Plug 'garbas/vim-snipmate'
+    if has('python') || has('python3')
+        Plug 'honza/vim-snippets'
+        Plug 'sirver/ultisnips'
+    endif
 
     " A fancy start screen, shows MRU etc.
     Plug 'mhinz/vim-startify'
@@ -452,20 +452,10 @@
         let g:SuperTabLongestEnhanced = 1
         let g:SuperTabLongestHighlight = 1
     """ }}}
-    """ SnipMate {{{
-        " Disable '.' => 'self' Python snippet
-        " Breaks SuperTab with omnicomplete (e.g. module.<Tab>)
-        function! DisablePythonSelfSnippet()
-            let l:pysnip = $HOME."/.vim/after/snippets/python.snippets"
-            if !filereadable(l:pysnip)
-                call system("echo 'snippet!! .' > " . l:pysnip)
-            endif
-        endfunction
-
-        augroup DisablePythonSelfSnippet
-            autocmd!
-            autocmd BufNewFile,BufRead *.py :call DisablePythonSelfSnippet()
-        augroup END
+    """ UltiSnips {{{
+        let g:UltiSnipsExpandTrigger="<tab>"
+        let g:UltiSnipsJumpForwardTrigger="<tab>"
+        let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
     """ }}}
     """ Automatically remove preview window after autocomplete {{{
     """ (mainly for clang_complete)
