@@ -289,11 +289,6 @@
         nnoremap j gj
         nnoremap k gk
 
-        " We don't need any help!
-        inoremap <F1> <nop>
-        nnoremap <F1> <nop>
-        vnoremap <F1> <nop>
-
         " Buffers, preferred over tabs now with bufferline.
         nnoremap gn :bnext<CR>
         nnoremap gN :bprevious<CR>
@@ -392,7 +387,7 @@
     """ Plugins {{{
         " Toggle tagbar (definitions, functions etc.)
         if exists('g:loaded_tagbar')
-            map <F1> :TagbarToggle<CR>
+            map <F2> :TagbarToggle<CR>
         endif
 
         " Toggle undo history tree
