@@ -62,7 +62,7 @@
     Plug 'tpope/vim-surround'
 
     " Align your = etc.
-    Plug 'vim-scripts/Align'
+    Plug 'junegunn/vim-easy-align'
 
     " Snippets like textmate
     if has('python') || has('python3')
@@ -396,6 +396,10 @@
         " Syntastic - toggle error list. Probably should be toggleable.
         noremap <silent><leader>lo :Errors<CR>
         noremap <silent><leader>lc :lclose<CR>
+
+        " EasyAlign - interactive mode (e.g. vipga/gaip)
+        xmap ga <Plug>(EasyAlign)
+        nmap ga <Plug>(EasyAlign)
     """ }}}
 """ }}}
 """ Plugin settings {{{
