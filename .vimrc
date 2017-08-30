@@ -153,7 +153,7 @@
     set history=1000                                " default 20
     set laststatus=2                                " always show statusline
     set linebreak                                   " don't cut words on wrap
-    set listchars=tab:>\                            " > to highlight <tab>
+    set listchars=tab:>\                            " > to highlight <Tab>
     set list                                        " displaying listchars
     set mouse=                                      " disable mouse
     set noshowmode                                  " hide mode cmd line
@@ -232,15 +232,15 @@
     set autoindent                                  " preserve indentation
     set backspace=indent,eol,start                  " smart backspace
     set cinkeys-=0#                                 " don't force # indentation
-    set expandtab                                   " no real tabs
+    set expandtab                                   " indents <Tab> as spaces
     set ignorecase                                  " by default ignore case
     set nrformats+=alpha                            " incr/decr letters C-a/-x
-    set shiftround                                  " be clever with tabs
-    set shiftwidth=4                                " default 8
+    set shiftround                                  " round indent of 'sw'
+    set shiftwidth=0                                " =0 uses 'ts' value
     set smartcase                                   " sensitive with uppercase
     set smarttab                                    " tab to 0,4,8 etc.
-    set softtabstop=4                               " "tab" feels like <tab>
-    set tabstop=4                                   " replace <TAB> w/4 spaces
+    set softtabstop=-1                              " =-1 uses 'sts' value
+    set tabstop=4                                   " <Tab> as 4 spaces indent
     """ Only auto-comment newline for block comments {{{
         augroup AutoBlockComment
             autocmd! FileType c,cpp setlocal comments -=:// comments +=f://
@@ -452,14 +452,14 @@
         " Complete based on context (compl-omni, compl-filename, ..)
         let g:SuperTabDefaultCompletionType = "context"
 
-        " Longest common match, e.g. 'b<tab>' => 'bar' for 'barbar', 'barfoo'
+        " Longest common match, e.g. 'b<Tab>' => 'bar' for 'barbar', 'barfoo'
         let g:SuperTabLongestEnhanced = 1
         let g:SuperTabLongestHighlight = 1
     """ }}}
     """ UltiSnips {{{
-        let g:UltiSnipsExpandTrigger="<tab>"
-        let g:UltiSnipsJumpForwardTrigger="<tab>"
-        let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+        let g:UltiSnipsExpandTrigger="<Tab>"
+        let g:UltiSnipsJumpForwardTrigger="<Tab>"
+        let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
     """ }}}
     """ Automatically remove preview window after autocomplete {{{
     """ (mainly for clang_complete)
