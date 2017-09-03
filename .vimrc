@@ -386,7 +386,7 @@
     """ }}}
     """ Plugins {{{
         " Toggle tagbar (definitions, functions etc.)
-        if exists('g:loaded_tagbar')
+        if exists('g:plugs["tagbar"]')
             map <F2> :TagbarToggle<CR>
         endif
 
