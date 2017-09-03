@@ -38,6 +38,24 @@ Some useful plugins could be:
 * [jedi-vim](https://github.com/davidhalter/jedi-vim) - Python autocompletion using the Jedi library.
 * [YouCompleteMe](https://github.com/Valloric/YouCompleteMe) - Autocompletion for several languages (C/C++, Python, ...)
 
+### Disabling plugins
+
+If you want to disable any of the plugins included in the main configuration
+either `UnPlug` them:
+
+```viml
+UnPlug 'ervandew/supertab'
+UnPlug 'scrooloose/syntastic'
+```
+
+Or define a list of repo names to be disabled:
+
+```viml
+let g:plugs_disabled = ['supertab', 'syntastic']
+```
+
+Both should be added to `~/.vimrc.plugins`.
+
 Preview
 -------
 

@@ -20,13 +20,27 @@
         autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
     endif
 
+    """ Plugins to be disabled {{{
+    """ https://github.com/timss/vimconf/issues/13
+        " Create empty list with names of disabled plugins if not defined
+        let g:plugs_disabled = get(g:, 'plug_disabled', [])
+
+        " Trim and extract repo name
+        " Same substitute/fnamemodify args as vim-plug itself
+        " https://github.com/junegunn/vim-plug/issues/469#issuecomment-226965736
+        function! s:plugs_disable(repo)
+            let repo = substitute(a:repo, '[\/]\+$', '', '')
+            let name = fnamemodify(repo, ':t:s?\.git$??')
+            call add(g:plugs_disabled, name)
+        endfunction
+
+        " Append to list of repo names to be disabled just like they're added
+        " UnPlug 'junegunn/vim-plug'
+        command! -nargs=1 -bar UnPlug call s:plugs_disable(<args>)
+    """ }}}
+
     " Default to same plugin directory as vundle etc
     call plug#begin('~/.vim/bundle')
-
-    " local plugins
-    if filereadable($HOME."/.vimrc.plugins")
-        source $HOME/.vimrc.plugins
-    endif
 
     " <Tab> everything!
     Plug 'ervandew/supertab'
@@ -85,6 +99,15 @@
     if executable('ctags-exuberant') || executable('ctags')
         Plug 'majutsushi/tagbar'
     endif
+
+    " Local plugins
+    if filereadable($HOME."/.vimrc.plugins")
+        source $HOME/.vimrc.plugins
+    endif
+
+    " Remove disabled plugins from installation/initialization
+    " https://vi.stackexchange.com/q/13471/5070
+    call filter(g:plugs, 'index(g:plugs_disabled, v:key) == -1')
 
     " Initalize plugin system
     call plug#end()
