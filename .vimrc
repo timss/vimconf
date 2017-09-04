@@ -63,8 +63,8 @@
     " https://github.com/junegunn/vim-plug/issues/225
     Plug 'nanotech/jellybeans.vim'
 
-    " Super easy commenting, toggle comments etc
-    Plug 'scrooloose/nerdcommenter'
+    " Universal commenting with toggle, motions, embedded syntax and more
+    Plug 'tomtom/tcomment_vim'
 
     " Autoclose (, " etc
     Plug 'somini/vim-autoclose'
