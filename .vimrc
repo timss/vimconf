@@ -92,7 +92,7 @@
 
     " Awesome syntax checker.
     " REQUIREMENTS: See :h syntastic-intro
-    Plug 'scrooloose/syntastic'
+    Plug 'vim-syntastic/syntastic'
 
     " Functions, class data etc.
     " depends on either exuberant-ctags or universal-ctags

@@ -45,7 +45,7 @@ either `UnPlug` them:
 
 ```viml
 UnPlug 'ervandew/supertab'
-UnPlug 'scrooloose/syntastic'
+UnPlug 'vim-syntastic/syntastic'
 ```
 
 Or define a list of repo names to be disabled:
