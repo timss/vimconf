@@ -15,7 +15,9 @@
     " Automatic installation
     " https://github.com/junegunn/vim-plug/wiki/faq#automatic-installation
     if empty(glob('~/.vim/autoload/plug.vim'))
-        silent !git clone https://github.com/junegunn/vim-plug.git $HOME/.vim/bundle/vim-plug
+        let clone_details = "https://github.com/junegunn/vim-plug.git $HOME/.vim/bundle/vim-plug"
+        silent call system("git clone --depth 1 ". clone_details)
+        if v:shell_error | silent call system("git clone " . clone_details) | endif
         silent !ln -s $HOME/.vim/bundle/vim-plug/plug.vim $HOME/.vim/autoload/plug.vim
         autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
     endif
@@ -41,9 +43,6 @@
 
     " Default to same plugin directory as vundle etc
     call plug#begin('~/.vim/bundle')
-
-    " Maintain vim-plug as a plugin as well
-    Plug 'junegunn/vim-plug'
 
     " <Tab> everything!
     Plug 'ervandew/supertab'
