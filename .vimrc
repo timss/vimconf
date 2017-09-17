@@ -266,7 +266,7 @@
     set shiftwidth=0                                " =0 uses 'ts' value
     set smartcase                                   " sensitive with uppercase
     set smarttab                                    " tab to 0,4,8 etc.
-    set softtabstop=-1                              " =-1 uses 'sts' value
+    set softtabstop=-1                              " =-1 uses 'sw' value
     set tabstop=4                                   " <Tab> as 4 spaces indent
     """ Only auto-comment newline for block comments {{{
         augroup AutoBlockComment
