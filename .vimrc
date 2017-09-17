@@ -513,14 +513,14 @@
             \     'paste': '%{&paste?"!":""}'
             \ },
             \ 'component_function': {
-            \     'mode'         : 'MyMode',
-            \     'fugitive'     : 'MyFugitive',
-            \     'readonly'     : 'MyReadonly',
-            \     'ctrlpmark'    : 'CtrlPMark',
-            \     'bufferline'   : 'MyBufferline',
-            \     'fileformat'   : 'MyFileformat',
-            \     'fileencoding' : 'MyFileencoding',
-            \     'filetype'     : 'MyFiletype'
+            \     'mode'         : 'LightlineMode',
+            \     'fugitive'     : 'LightlineFugitive',
+            \     'readonly'     : 'LightlineReadonly',
+            \     'ctrlpmark'    : 'LightlineCtrlPMark',
+            \     'bufferline'   : 'LightlineBufferline',
+            \     'fileformat'   : 'LightlineFileformat',
+            \     'fileencoding' : 'LightlineFileencoding',
+            \     'filetype'     : 'LightlineFiletype'
             \ },
             \ 'component_expand': {
             \     'syntastic': 'SyntasticStatuslineFlag',
@@ -547,31 +547,30 @@
             \ "\<C-s>" : 'S-B',
             \ '?'      : '      ' }
 
-        function! MyMode()
+        function! LightlineMode()
             let fname = expand('%:t')
             return fname == '__Tagbar__' ? 'Tagbar' :
                 \ fname == 'ControlP' ? 'CtrlP' :
-                \ winwidth('.') > 60 ? lightline#mode() : ''
+                \ winwidth(0) > 60 ? lightline#mode() : ''
         endfunction
 
-        function! MyFugitive()
+        function! LightlineFugitive()
             try
                 if expand('%:t') !~? 'Tagbar' && exists('*fugitive#head')
-                    let mark = '± '
-                    let _ = fugitive#head()
-                    return strlen(_) ? mark._ : ''
+                    let branch = fugitive#head()
+                    return branch !=# '' ? '± '.branch : ''
                 endif
             catch
             endtry
             return ''
         endfunction
 
-        function! MyReadonly()
+        function! LightlineReadonly()
             return &ft !~? 'help' && &readonly ? '≠' : '' " or ⭤
         endfunction
 
-        function! CtrlPMark()
-            if expand('%:t') =~ 'ControlP'
+        function! LightlineCtrlPMark()
+            if expand('%:t') =~ 'ControlP' && has_key(g:lightline, 'ctrlp_item')
                 call lightline#link('iR'[g:lightline.ctrlp_regex])
                 return lightline#concatenate([g:lightline.ctrlp_prev, g:lightline.ctrlp_item
                     \ , g:lightline.ctrlp_next], 0)
@@ -581,7 +580,7 @@
         endfunction
 
         " https://github.com/itchyny/lightline.vim/issues/36
-        function! MyBufferline()
+        function! LightlineBufferline()
             call bufferline#refresh_status()
             let b = g:bufferline_status_info.before
             let c = g:bufferline_status_info.current
@@ -600,16 +599,16 @@
             endif
         endfunction
 
-        function! MyFileformat()
-            return winwidth('.') > 90 ? &fileformat : ''
+        function! LightlineFileformat()
+            return winwidth(0) > 90 ? &fileformat : ''
         endfunction
 
-        function! MyFileencoding()
-            return winwidth('.') > 80 ? (strlen(&fenc) ? &fenc : &enc) : ''
+        function! LightlineFileencoding()
+            return winwidth(0) > 80 ? (&fenc !=# '' ? &fenc : &enc) : ''
         endfunction
 
-        function! MyFiletype()
-            return winwidth('.') > 70 ? (strlen(&filetype) ? &filetype : 'no ft') : ''
+        function! LightlineFiletype()
+            return winwidth(0) > 70 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
         endfunction
 
         let g:ctrlp_status_func = {
