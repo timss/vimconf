@@ -2,9 +2,6 @@
 " Source: http://github.com/timss/vimconf "
 "-----------------------------------------"
 
-""" vimconf is not vi-compatible {{{
-    set nocompatible
-""" }}}
 """ Automatically create needed files and folders on first run (*nix only) {{{
     call system('mkdir -p $HOME/.vim/{autoload,bundle,swap,undo}')
     if !filereadable($HOME.'/.vimrc.plugins') | call system('touch $HOME/.vimrc.plugins') | endif
