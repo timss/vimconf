@@ -313,8 +313,8 @@
         map <C-k> <C-u>
 
         " Treat wrapped lines as normal lines
-        nnoremap j gj
-        nnoremap k gk
+        nnoremap <expr> k v:count == 0 ? 'gk' : 'k'
+        nnoremap <expr> j v:count == 0 ? 'gj' : 'j'
 
         " Quickly switch buffers
         nnoremap <Leader>n :bnext<CR>
