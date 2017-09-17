@@ -468,11 +468,12 @@
     """ }}}
     """ Syntastic {{{
         " Automatic checking for active, only when :SyntasticCheck for passive
-        " NOTE: override these in $HOME/.vimrc.last as needed!
-        let g:syntastic_mode_map = {
+        " NOTE: override these in $HOME/.vimrc.first as needed!
+        " https://github.com/timss/vimconf/issues/9
+        let g:syntastic_mode_map = get(g:, 'syntastic_mode_map', {
             \ 'mode': 'passive',
             \ 'active_filetypes':
-                \ ['c', 'cpp', 'perl', 'python'] }
+                \ ['c', 'cpp', 'perl', 'python'] })
 
         " Skip check on :wq, :x, :ZZ etc
         let g:syntastic_check_on_wq = 0
