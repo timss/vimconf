@@ -6,20 +6,22 @@
     set nocompatible
 """ }}}
 """ Automatically create needed files and folders on first run (*nix only) {{{
-    call system("mkdir -p $HOME/.vim/{autoload,bundle,swap,undo}")
-    if !filereadable($HOME."/.vimrc.plugins") | call system("touch $HOME/.vimrc.plugins") | endif
-    if !filereadable($HOME."/.vimrc.first") | call system("touch $HOME/.vimrc.first") | endif
-    if !filereadable($HOME."/.vimrc.last") | call system("touch $HOME/.vimrc.last") | endif
+    call system('mkdir -p $HOME/.vim/{autoload,bundle,swap,undo}')
+    if !filereadable($HOME.'/.vimrc.plugins') | call system('touch $HOME/.vimrc.plugins') | endif
+    if !filereadable($HOME.'/.vimrc.first') | call system('touch $HOME/.vimrc.first') | endif
+    if !filereadable($HOME.'/.vimrc.last') | call system('touch $HOME/.vimrc.last') | endif
 """ }}}
 """ vim-plug plugin manager {{{
     " Automatic installation
     " https://github.com/junegunn/vim-plug/wiki/faq#automatic-installation
     if empty(glob('~/.vim/autoload/plug.vim'))
-        let clone_details = "https://github.com/junegunn/vim-plug.git $HOME/.vim/bundle/vim-plug"
-        silent call system("git clone --depth 1 ". clone_details)
-        if v:shell_error | silent call system("git clone " . clone_details) | endif
+        let g:clone_details = 'https://github.com/junegunn/vim-plug.git $HOME/.vim/bundle/vim-plug'
+        silent call system('git clone --depth 1 '. g:clone_details)
+        if v:shell_error | silent call system('git clone ' . g:clone_details) | endif
         silent !ln -s $HOME/.vim/bundle/vim-plug/plug.vim $HOME/.vim/autoload/plug.vim
-        autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+        augroup FirstPlugInstall
+            autocmd! VimEnter * PlugInstall --sync | source $MYVIMRC
+        augroup END
     endif
 
     """ Plugins to be disabled {{{
@@ -31,9 +33,9 @@
         " Same substitute/fnamemodify args as vim-plug itself
         " https://github.com/junegunn/vim-plug/issues/469#issuecomment-226965736
         function! s:plugs_disable(repo)
-            let repo = substitute(a:repo, '[\/]\+$', '', '')
-            let name = fnamemodify(repo, ':t:s?\.git$??')
-            call add(g:plugs_disabled, name)
+            let l:repo = substitute(a:repo, '[\/]\+$', '', '')
+            let l:name = fnamemodify(l:repo, ':t:s?\.git$??')
+            call add(g:plugs_disabled, l:name)
         endfunction
 
         " Append to list of repo names to be disabled just like they're added
@@ -103,7 +105,7 @@
     endif
 
     " Local plugins
-    if filereadable($HOME."/.vimrc.plugins")
+    if filereadable($HOME.'/.vimrc.plugins')
         source $HOME/.vimrc.plugins
     endif
 
@@ -115,7 +117,7 @@
     call plug#end()
 """ }}}
 """ Local leading config, only for prerequisites and will be overwritten {{{
-    if filereadable($HOME."/.vimrc.first")
+    if filereadable($HOME.'/.vimrc.first')
         source $HOME/.vimrc.first
     endif
 """ }}}
@@ -134,7 +136,7 @@
             augroup END
         """ }}}
         """ 256 colors for maximum jellybeans bling. See commit log for info {{{
-            if (&term =~ "xterm") || (&term =~ "screen")
+            if (&term =~# 'xterm') || (&term =~# 'screen')
                 set t_Co=256
             endif
         """ }}}
@@ -229,7 +231,7 @@
     set noautowrite                                 " never autowrite
     set nobackup                                    " disable backups
     """ Persistent undo. Requires Vim 7.3 {{{
-        if has('persistent_undo') && exists("&undodir")
+        if has('persistent_undo') && exists('&undodir')
             set undodir=$HOME/.vim/undo/            " where to store undofiles
             set undofile                            " enable undofile
             set undolevels=500                      " max undos stored
@@ -273,7 +275,7 @@
     """ }}}
     """ Take comment leaders into account when joining lines, :h fo-table {{{
     """ http://ftp.vim.org/pub/vim/patches/7.3/7.3.541
-        if has("patch-7.3.541")
+        if has('patch-7.3.541')
             set formatoptions+=j
         endif
     """ }}}
@@ -281,7 +283,7 @@
 """ Keybindings {{{
     """ General {{{
         " Remap <Leader>
-        let mapleader=","
+        let g:mapleader=','
 
         " Quickly edit/source .vimrc
         noremap <Leader>ve :edit $HOME/.vimrc<CR>
@@ -335,7 +337,7 @@
     """ Functions and/or fancy keybinds {{{
         """ Toggle syntax highlighting {{{
             function! ToggleSyntaxHighlighthing()
-                if exists("g:syntax_on")
+                if exists('g:syntax_on')
                     syntax off
                 else
                     syntax on
@@ -389,14 +391,14 @@
         """ }}}
         """ Split to relative header/source {{{
             function! SplitRelSrc()
-                let s:fname = expand("%:t:r")
+                let l:fname = expand('%:t:r')
 
-                if expand("%:e") == "h"
+                if expand('%:e') ==? 'h'
                     set nosplitright
-                    exe "vsplit" fnameescape(s:fname . ".cpp")
+                    exe 'vsplit' fnameescape(l:fname . '.cpp')
                     set splitright
-                elseif expand("%:e") == "cpp"
-                    exe "vsplit" fnameescape(s:fname . ".h")
+                elseif expand('%:e') ==? 'cpp'
+                    exe 'vsplit' fnameescape(l:fname . '.h')
                 endif
             endfunction
 
@@ -404,10 +406,9 @@
         """ }}}
         """ Strip trailing whitespace, return to cursor at save {{{
             function! StripTrailingWhitespace()
-                let l = line(".")
-                let c = col(".")
+                let l:save = winsaveview()
                 %s/\s\+$//e
-                call cursor(l, c)
+                call winrestview(l:save)
             endfunction
 
             augroup StripTrailingWhitespace
@@ -439,8 +440,8 @@
 """ Plugin settings {{{
     """ Startify {{{
         let g:startify_bookmarks = [
-            \ $HOME . "/.vimrc", $HOME . "/.vimrc.first",
-            \ $HOME . "/.vimrc.last", $HOME . "/.vimrc.plugins"
+            \ $HOME . '/.vimrc', $HOME . '/.vimrc.first',
+            \ $HOME . '/.vimrc.last', $HOME . '/.vimrc.plugins'
             \ ]
         let g:startify_custom_header = [
             \ '   http://github.com/timss/vimconf',
@@ -485,16 +486,16 @@
     """ }}}
     """ Supertab {{{
         " Complete based on context (compl-omni, compl-filename, ..)
-        let g:SuperTabDefaultCompletionType = "context"
+        let g:SuperTabDefaultCompletionType = 'context'
 
         " Longest common match, e.g. 'b<Tab>' => 'bar' for 'barbar', 'barfoo'
         let g:SuperTabLongestEnhanced = 1
         let g:SuperTabLongestHighlight = 1
     """ }}}
     """ UltiSnips {{{
-        let g:UltiSnipsExpandTrigger="<Tab>"
-        let g:UltiSnipsJumpForwardTrigger="<Tab>"
-        let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
+        let g:UltiSnipsExpandTrigger='<Tab>'
+        let g:UltiSnipsJumpForwardTrigger='<Tab>'
+        let g:UltiSnipsJumpBackwardTrigger='<S-Tab>'
     """ }}}
     """ Automatically remove preview window after autocomplete {{{
     """ (mainly for clang_complete)
@@ -558,17 +559,17 @@
             \ '?'      : '      ' }
 
         function! LightlineMode()
-            let fname = expand('%:t')
-            return fname == '__Tagbar__' ? 'Tagbar' :
-                \ fname == 'ControlP' ? 'CtrlP' :
+            let l:fname = expand('%:t')
+            return l:fname ==# '__Tagbar__' ? 'Tagbar' :
+                \ l:fname ==# 'ControlP' ? 'CtrlP' :
                 \ winwidth(0) > 60 ? lightline#mode() : ''
         endfunction
 
         function! LightlineFugitive()
             try
                 if expand('%:t') !~? 'Tagbar' && exists('*fugitive#head')
-                    let branch = fugitive#head()
-                    return branch !=# '' ? '± '.branch : ''
+                    let l:branch = fugitive#head()
+                    return l:branch !=# '' ? '± '.l:branch : ''
                 endif
             catch
             endtry
@@ -576,11 +577,11 @@
         endfunction
 
         function! LightlineReadonly()
-            return &ft !~? 'help' && &readonly ? '≠' : '' " or ⭤
+            return &filetype !~? 'help' && &readonly ? '≠' : '' " or ⭤
         endfunction
 
         function! LightlineCtrlPMark()
-            if expand('%:t') =~ 'ControlP' && has_key(g:lightline, 'ctrlp_item')
+            if expand('%:t') =~# 'ControlP' && has_key(g:lightline, 'ctrlp_item')
                 call lightline#link('iR'[g:lightline.ctrlp_regex])
                 return lightline#concatenate([g:lightline.ctrlp_prev, g:lightline.ctrlp_item
                     \ , g:lightline.ctrlp_next], 0)
@@ -614,7 +615,7 @@
         endfunction
 
         function! LightlineFileencoding()
-            return winwidth(0) > 80 ? (&fenc !=# '' ? &fenc : &enc) : ''
+            return winwidth(0) > 80 ? (&fileencoding !=# '' ? &fileencoding : &encoding) : ''
         endfunction
 
         function! LightlineFiletype()
@@ -650,14 +651,14 @@
 
         augroup AutoSyntastic
             autocmd!
-            execute "autocmd FileType " .
-                \join(g:syntastic_mode_map["active_filetypes"], ",") .
-                \" autocmd BufWritePost <buffer> :call s:syntastic()"
+            execute 'autocmd FileType ' .
+                \join(g:syntastic_mode_map['active_filetypes'], ',') .
+                \' autocmd BufWritePost <buffer> :call s:syntastic()'
         augroup END
     """ }}}
 """ }}}
 """ Local ending config, will overwrite anything above. Generally use this. {{{
-    if filereadable($HOME."/.vimrc.last")
+    if filereadable($HOME.'/.vimrc.last')
         source $HOME/.vimrc.last
     endif
 """ }}}
