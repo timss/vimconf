@@ -280,15 +280,15 @@
 """ }}}
 """ Keybindings {{{
     """ General {{{
-        " Remap <leader>
+        " Remap <Leader>
         let mapleader=","
 
         " Quickly edit/source .vimrc
-        noremap <leader>ve :edit $HOME/.vimrc<CR>
-        noremap <leader>vs :source $HOME/.vimrc<CR>
+        noremap <Leader>ve :edit $HOME/.vimrc<CR>
+        noremap <Leader>vs :source $HOME/.vimrc<CR>
 
         " Yank(copy) to system clipboard
-        noremap <leader>y "+y
+        noremap <Leader>y "+y
 
         " Toggle pastemode, doesn't indent
         set pastetoggle=<F3>
@@ -298,7 +298,7 @@
         nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
 
         " Toggle relativenumber
-        nnoremap <silent> <leader>r :set relativenumber!<CR>
+        nnoremap <silent> <Leader>r :set relativenumber!<CR>
 
         " Bubbling (bracket matching)
         nmap <C-up> [e
@@ -334,9 +334,9 @@
                 endif
             endfunction
 
-            nnoremap <leader>s :call ToggleSyntaxHighlighthing()<CR>
+            nnoremap <Leader>s :call ToggleSyntaxHighlighthing()<CR>
         """ }}}
-        """ Highlight characters past 79, toggle with <leader>h {{{
+        """ Highlight characters past 79, toggle with <Leader>h {{{
         """ You might want to override this function and its variables with
         """ your own in .vimrc.last which might set for example colorcolumn or
         """ even the textwidth. See https://github.com/timss/vimconf/pull/4
@@ -355,7 +355,7 @@
                 endif
             endfunction
 
-            nnoremap <leader>h :call ToggleOverLength()<CR>
+            nnoremap <Leader>h :call ToggleOverLength()<CR>
         """ }}}
         """ Toggle text wrapping, wrap on whole words {{{
         """ For more info see: http://stackoverflow.com/a/2470885/1076493
@@ -369,14 +369,14 @@
                 endif
             endfunction
 
-            nnoremap <leader>w :call WrapToggle()<CR>
+            nnoremap <Leader>w :call WrapToggle()<CR>
         """ }}}
         """ Remove multiple empty lines {{{
             function! DeleteMultipleEmptyLines()
                 g/^\_$\n\_^$/d
             endfunction
 
-            nnoremap <leader>ld :call DeleteMultipleEmptyLines()<CR>
+            nnoremap <Leader>ld :call DeleteMultipleEmptyLines()<CR>
         """ }}}
         """ Split to relative header/source {{{
             function! SplitRelSrc()
@@ -391,7 +391,7 @@
                 endif
             endfunction
 
-            nnoremap <leader>le :call SplitRelSrc()<CR>
+            nnoremap <Leader>le :call SplitRelSrc()<CR>
         """ }}}
         """ Strip trailing whitespace, return to cursor at save {{{
             function! StripTrailingWhitespace()
@@ -419,8 +419,8 @@
         nnoremap <F5> :UndotreeToggle<CR>
 
         " Syntastic - toggle error list. Probably should be toggleable.
-        noremap <silent><leader>lo :Errors<CR>
-        noremap <silent><leader>lc :lclose<CR>
+        noremap <silent><Leader>lo :Errors<CR>
+        noremap <silent><Leader>lc :lclose<CR>
 
         " EasyAlign - interactive mode (e.g. vipga/gaip)
         xmap ga <Plug>(EasyAlign)
