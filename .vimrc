@@ -120,8 +120,11 @@
 """ }}}
 """ User interface {{{
     """ Syntax highlighting {{{
+        " https://stackoverflow.com/a/33380495/1076493
+        if !exists('g:syntax_on')
+            syntax enable
+        endif
         filetype plugin indent on                   " detect file plugin+indent
-        syntax on                                   " syntax highlighting
         set background=dark                         " we're using a dark bg
         silent! colorscheme jellybeans              " colorscheme from plugin
         """ Force behavior and filetypes, and by extension highlighting {{{
@@ -337,7 +340,7 @@
                 if exists('g:syntax_on')
                     syntax off
                 else
-                    syntax on
+                    syntax enable
                     call CustomHighlighting()
                 endif
             endfunction
