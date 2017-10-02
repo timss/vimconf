@@ -295,10 +295,6 @@
         " Toggle relativenumber
         nnoremap <silent> <Leader>r :set relativenumber!<CR>
 
-        " Scroll up/down lines from 'scroll' option, default half a screen
-        map <C-j> <C-d>
-        map <C-k> <C-u>
-
         " Treat wrapped lines as normal lines
         nnoremap <expr> k v:count == 0 ? 'gk' : 'k'
         nnoremap <expr> j v:count == 0 ? 'gj' : 'j'
