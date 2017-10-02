@@ -125,7 +125,6 @@
             syntax enable
         endif
 
-        filetype plugin indent on
         let g:jellybeans_overrides = {
         \    'background': { 'ctermbg': 'none', '256ctermbg': 'none' },
         \    'SignColumn': { 'ctermbg': 'none', '256ctermbg': 'none', 'guibg': 'none' },
