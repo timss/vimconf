@@ -295,12 +295,6 @@
         " Toggle relativenumber
         nnoremap <silent> <Leader>r :set relativenumber!<CR>
 
-        " Bubbling (bracket matching)
-        nmap <C-up> [e
-        nmap <C-down> ]e
-        vmap <C-up> [egv
-        vmap <C-down> ]egv
-
         " Scroll up/down lines from 'scroll' option, default half a screen
         map <C-j> <C-d>
         map <C-k> <C-u>
