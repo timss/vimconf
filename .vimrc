@@ -124,9 +124,14 @@
         if !exists('g:syntax_on')
             syntax enable
         endif
-        filetype plugin indent on                   " detect file plugin+indent
-        set background=dark                         " we're using a dark bg
-        silent! colorscheme jellybeans              " colorscheme from plugin
+
+        filetype plugin indent on
+        let g:jellybeans_overrides = {
+        \    'background': { 'ctermbg': 'none', '256ctermbg': 'none' },
+        \    'SignColumn': { 'ctermbg': 'none', '256ctermbg': 'none', 'guibg': 'none' },
+        \    'CursorLine': { 'ctermbg': '235'},
+        \}
+        silent! colorscheme jellybeans
         """ Force behavior and filetypes, and by extension highlighting {{{
             augroup FileTypeRules
                 autocmd!
@@ -139,18 +144,6 @@
             if (&term =~# 'xterm') || (&term =~# 'screen')
                 set t_Co=256
             endif
-        """ }}}
-        """ Custom highlighting, where NONE uses terminal background {{{
-            function! CustomHighlighting()
-                highlight Normal ctermbg=NONE
-                highlight NonText ctermbg=NONE
-                highlight LineNr ctermbg=NONE
-                highlight SignColumn ctermbg=NONE
-                highlight SignColumn guibg=#151515
-                highlight CursorLine ctermbg=235
-            endfunction
-
-            call CustomHighlighting()
         """ }}}
     """ }}}
     """ Interface general {{{
@@ -341,7 +334,6 @@
                     syntax off
                 else
                     syntax enable
-                    call CustomHighlighting()
                 endif
             endfunction
 
