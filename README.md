@@ -23,20 +23,22 @@ Configuration
 If you choose to symlink your `~/.vimrc` you can easily maintain an updated
 version of this vim configuration by using the local additions.
 
-`~/.vimrc.plugins`  Add your personal plugins here (previously `.vimrc.bundles`).   
-`~/.vimrc.first`    Prerequisites only, as it will be overwritten by whatever below.   
-`~/.vimrc.last`     Overrides everything. Generally use this.   
+* `~/.vimrc.plugins` - Add your personal plugins here
+* `~/.vimrc.first` - Prerequisites only, as it will be overwritten by whatever below
+* `~/.vimrc.last` - Overrides everything, generally use this
 
 I've chosen to include mostly universal plugins and configuration, meaning that
-not a lot is language specific and should be fitting for most use cases. If you
-want additional plugins for autocomplete and more you can do so easily using
-your local files mentioned above.
+not a lot is language specific and should be suitable for most use cases. If
+you want additional plugins for autocomplete and more you can do so easily
+using your local files mentioned above.
 
 Some useful plugins could be:
 
-* [clang\_complete](https://github.com/Rip-Rip/clang_complete) - C/C++ autocompletion using Clang
-* [jedi-vim](https://github.com/davidhalter/jedi-vim) - Python autocompletion using the Jedi library.
-* [YouCompleteMe](https://github.com/Valloric/YouCompleteMe) - Autocompletion for several languages (C/C++, Python, ...)
+* [clang\_complete](https://github.com/xavierd/clang_complete) - C/C++ autocompletion using Clang
+* [jedi-vim](https://github.com/davidhalter/jedi-vim) - Python autocompletion using the Jedi library
+* [YouCompleteMe](https://github.com/ycm-core/YouCompleteMe) - Autocompletion for several languages (C/C++, Python, ..)
+
+My personal configuration can be found in [timss/dotfiles](https://github.com/timss/dotfiles).
 
 ### Disabling plugins
 
@@ -66,10 +68,10 @@ Preview
 Disclaimer
 ----------
 
-Even if this configuration can be used out of the box or tweaked using
-the local files, I urge you to build your own if you have the time and
-energy to do so. Only then will you be able to properly understand the
-reasoning behind each setting and tailor it to your personal workflow.
+Even if this configuration can be used out of the box or tweaked using the
+local files, I urge you to build your own if you have the time and energy to do
+so. Only then will you be able to properly understand the reasoning behind each
+setting and tailor it to your personal workflow.
 
 However I still believe my Vim setup will help you get a basis configuration
 for your own, introducing core ideas such as a plugin manager and
