@@ -398,6 +398,26 @@
                     \ StripTrailingWhitespace()
             augroup END
         """ }}}
+        """ Toggle dictionary completion {{{
+        """ Expects something like wamerican/wbritish (Debian) or words (EL)
+            function! ToggleDictionary()
+                if !filereadable("/usr/share/dict/words")
+                    echo "/usr/share/dict/words not found!"
+                else
+                    if &dictionary == ""
+                        set dictionary+=/usr/share/dict/words
+                        set complete+=k
+                        echo "Dictionary enabled"
+                    else
+                        set dictionary-=/usr/share/dict/words
+                        set complete-=k
+                        echo "Dictionary disabled"
+                    endif
+                endif
+            endfunction
+
+            nnoremap <Leader>d :call ToggleDictionary()<CR>
+        """ }}}
     """ }}}
     """ Plugins {{{
         " Toggle tagbar (definitions, functions etc.)
