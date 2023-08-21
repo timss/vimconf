@@ -567,8 +567,8 @@
 
         function! LightlineFugitive()
             try
-                if expand('%:t') !~? 'Tagbar' && exists('*fugitive#head')
-                    let l:branch = fugitive#head()
+                if expand('%:t') !~? 'Tagbar' && exists('*FugitiveHead')
+                    let l:branch = FugitiveHead()
                     return l:branch !=# '' ? '± '.l:branch : ''
                 endif
             catch
