@@ -240,7 +240,7 @@
                     autocmd! BufNewFile,BufReadPre /tmp/*,/mnt/*,/media/*
                         \ setlocal noswapfile
                 augroup END
-            """ }}}
+            """ }}}
         else
             set noswapfile                          " dont swap sudo'ed files
         endif
